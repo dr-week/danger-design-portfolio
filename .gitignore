@@ -3,4 +3,10 @@ node_modules/
 *.tsbuildinfo
 next-env.d.ts
 .refact/
+*.pdf
+*.avi
+*.mkv
+*.mp4
+*.heic
+.blackbox/
 
