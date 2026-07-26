@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ────────── Design Tokens ────────── */
+@theme {
+  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: #1f1f1f;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #6c5ce7;
+  --color-accent-muted: rgba(108, 92, 231, 0.15);
+
+  --grid-columns: 12;
+  --grid-gap: 1rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}
+
+/* ────────── Base Styles ────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ────────── Handwritten Marginalia ────────── */
+.hand {
+  font-family: var(--font-hand);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ────────── Grid System ────────── */
+.grid-system {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+}
+
+/* ────────── Card Tilt (Framer Motion fallback) ────────── */
+.card-tilt {
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-tilt:hover {
+  --tilt: 0deg;
+}
+
+/* ────────── SVG Underline Animation ────────── */
+.svg-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.svg-underline svg {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 0.35em;
+  overflow: visible;
+}
+
+.svg-underline path {
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.svg-underline:hover path {
+  stroke-dashoffset: 0;
+}
+
+/* ────────── Animations ────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ────────── Selection ────────── */
+::selection {
+  background: var(--color-accent-muted);
+  color: var(--color-text-primary);
+}
+
