@@ -1,14 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function ProjectCard({
   title,
   client,
   category,
+  image,
 }: {
   title: string;
   client: string;
   category: string;
+  image?: string;
 }) {
   return (
     <motion.div
@@ -17,8 +20,22 @@ export default function ProjectCard({
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="relative p-6 border-2 border-zinc-800 bg-zinc-950 cursor-pointer"
     >
-      <div className="h-48 w-full bg-zinc-900 mb-4" />{" "}
-      {/* Thumbnail Placeholder */}
+      {/* Thumbnail */}
+      <div className="h-48 w-full bg-zinc-900 mb-4 overflow-hidden relative">
+        {image ? (
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-zinc-600 text-sm">
+            No Preview
+          </div>
+        )}
+      </div>
       <div className="flex justify-between items-end">
         <div>
           <p className="text-xs text-zinc-500 mb-1">{category}</p>

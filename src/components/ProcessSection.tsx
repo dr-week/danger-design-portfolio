@@ -3,10 +3,22 @@
 import { motion } from "framer-motion";
 import ProcessSideBySide from "./ProcessComparison";
 
-const notes = [
-  "Took 47 iterations to get here",
-  "Client chose V2, but V1 was better",
-  "Rendered this overnight",
+const comparisons = [
+  {
+    note: "Took 47 iterations to get here",
+    raw: "/projects/BRAND IDENTITY DESIGN/dd (1).jpeg",
+    polished: "/projects/BRAND IDENTITY DESIGN/dd (8).jpeg",
+  },
+  {
+    note: "Client chose V2, but V1 was better",
+    raw: "/projects/GRAPHICS DESIGNS/BAOWITCH.jpg",
+    polished: "/projects/GRAPHICS DESIGNS/BAOWITCH(1).jpg",
+  },
+  {
+    note: "Rendered this overnight",
+    raw: "/projects/GRAPHICS DESIGNS/HONDA.jpg",
+    polished: "/projects/GRAPHICS DESIGNS/HONDA STREET.jpg",
+  },
 ];
 
 export default function ProcessSection() {
@@ -29,10 +41,15 @@ export default function ProcessSection() {
           </p>
         </motion.div>
 
-{/* Comparisons */}
+        {/* Comparisons */}
         <div className="space-y-20">
-          {notes.map((note, idx) => (
-            <ProcessSideBySide key={idx} note={note} />
+          {comparisons.map((item, idx) => (
+            <ProcessSideBySide
+              key={idx}
+              note={item.note}
+              raw={item.raw}
+              polished={item.polished}
+            />
           ))}
         </div>
       </div>

@@ -1,11 +1,31 @@
 "use client";
 
-export default function ProcessSideBySide({ note }: { note: string }) {
+import Image from "next/image";
+
+export default function ProcessSideBySide({
+  note,
+  raw,
+  polished,
+}: {
+  note: string;
+  raw?: string;
+  polished?: string;
+}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 relative">
       <div className="border border-zinc-800 p-2">
-        <div className="h-64 bg-zinc-900 w-full flex items-center justify-center text-zinc-600">
-          Raw Sketch
+        <div className="h-64 w-full flex items-center justify-center text-zinc-600 relative overflow-hidden bg-zinc-900">
+          {raw ? (
+            <Image
+              src={raw}
+              alt="Raw Sketch"
+              fill
+              className="object-cover"
+              sizes="50vw"
+            />
+          ) : (
+            <span>Raw Sketch</span>
+          )}
         </div>
       </div>
 
@@ -30,8 +50,18 @@ export default function ProcessSideBySide({ note }: { note: string }) {
       </div>
 
       <div className="border border-zinc-800 p-2">
-        <div className="h-64 bg-zinc-800 w-full flex items-center justify-center text-zinc-400">
-          Final Polish
+        <div className="h-64 w-full flex items-center justify-center text-zinc-400 relative overflow-hidden bg-zinc-800">
+          {polished ? (
+            <Image
+              src={polished}
+              alt="Final Polish"
+              fill
+              className="object-cover"
+              sizes="50vw"
+            />
+          ) : (
+            <span>Final Polish</span>
+          )}
         </div>
       </div>
     </div>

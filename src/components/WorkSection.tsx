@@ -1,14 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 
 const projectItems = [
-  { title: "The Feni Project", client: "Feni House", category: "Motion & CGI" },
-  { title: "Growth Gravy — CGI Spot", client: "Growth Gravy", category: "Motion & CGI" },
-  { title: "SaaS Dashboard Redesign", client: "TechFlow", category: "UI/UX" },
-  { title: "Crypto Wallet Interface", client: "DeFi Labs", category: "UI/UX" },
-  { title: "Brand Identity System", client: "StartupX", category: "Brand" },
+  {
+    title: "The Feni Project",
+    client: "Feni House",
+    category: "Motion & CGI",
+    image: "/projects/GRAPHICS DESIGNS/nvtsmall_1751609106_3669084490535756964_5799768191.mp4",
+    slug: "the-feni-project",
+  },
+  {
+    title: "Growth Gravy — CGI Spot",
+    client: "Growth Gravy",
+    category: "Motion & CGI",
+    image: "/projects/GRAPHICS DESIGNS/cpplusworld_1751197990_3665636666347649951_2253388577.mp4",
+    slug: "growth-gravy-cgi-spot",
+  },
+  {
+    title: "SaaS Dashboard Redesign",
+    client: "TechFlow",
+    category: "UI/UX",
+    image: "/projects/UI UX/poss0001-0250.avi",
+    slug: "saas-dashboard-redesign",
+  },
+  {
+    title: "Crypto Wallet Interface",
+    client: "DeFi Labs",
+    category: "UI/UX",
+    image: "/projects/UI UX/app demo design animation.avi",
+    slug: "crypto-wallet-interface",
+  },
+  {
+    title: "Brand Identity System",
+    client: "StartupX",
+    category: "Brand",
+    image: "/projects/BRAND IDENTITY DESIGN/dd (1).jpeg",
+    slug: "brand-identity-system",
+  },
 ];
 
 export default function WorkSection() {
@@ -34,12 +65,17 @@ export default function WorkSection() {
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projectItems.map((project) => (
-            <ProjectCard
+            <Link
               key={project.title}
-              title={project.title}
-              client={project.client}
-              category={project.category}
-            />
+              href={`/work/${project.slug}`}
+            >
+              <ProjectCard
+                title={project.title}
+                client={project.client}
+                category={project.category}
+                image={project.image}
+              />
+            </Link>
           ))}
         </div>
       </div>
