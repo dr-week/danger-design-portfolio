@@ -84,11 +84,17 @@ function WebGLVideoPhone({ reelIndex = 0 }: { reelIndex?: number }) {
   );
 }
 
-// Room 1: Retro CRT Nostalgia Bay (Z = 0)
+import BrushTextureRevealPlane from "@/components/ui/BrushTextureRevealPlane";
+
+// Room 1: Retro CRT Nostalgia Bay & GLSL Brush Reveal Plane (Z = 0)
 function Room1Retro() {
   return (
     <group position={[0, 0, 0]}>
       <spotLight position={[3, 5, 5]} angle={0.5} penumbra={1} intensity={12} color="#fbbf24" />
+      
+      {/* Option 1: Monogrid GLSL Brush Texture Reveal Shader Plane */}
+      <BrushTextureRevealPlane />
+
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[3.0, 4.8, 1.6]} />
@@ -100,8 +106,8 @@ function Room1Retro() {
 
       <Html position={[-2.6, 1.8, 0]} transform distanceFactor={6}>
         <div className="bg-black/90 border border-amber-500/50 p-3 font-mono text-xs text-amber-400 max-w-xs shadow-2xl backdrop-blur-md select-none">
-          <p className="font-caveat text-xl text-zinc-200">// ROOM_01: CRT_NOSTALGIA_BAY</p>
-          <p className="text-[10px] text-zinc-400 mt-1">Zero CORS WebGL VideoTexture streaming directly from /public/videos/reel_0.mp4</p>
+          <p className="font-caveat text-xl text-zinc-200">// ROOM_01: GLSL_BRUSH_REVEAL_BAY</p>
+          <p className="text-[10px] text-zinc-400 mt-1">Scratch-away GLSL fragment shader mask reacting to mouse proximity & scroll velocity.</p>
         </div>
       </Html>
     </group>

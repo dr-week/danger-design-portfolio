@@ -1,9 +1,10 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS (OPTIMIZED SPRINT SCHEDULE)
-*Zero active bugs or pending tasks. All master award techniques and code enhancements fully executed.*
+*Zero active bugs or pending tasks. Option 1 GLSL Brush Texture Reveal Shader fully implemented and verified.*
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **OPTION 1: MONOGRID GLSL BRUSH TEXTURE REVEAL SHADER:** Created `src/components/ui/BrushTextureRevealPlane.tsx` with custom GLSL vertex and fragment shaders (`snoise` simplex noise, `uScrollVelocity`, `uMouse` proximity brush strength). Mounted into Room 01 of WebGL spatial void in `/lab`.
 - [x] **SPATIAL AUDIO FILTER FREQUENCY SCRUBBING (`src/utils/audio.ts`):** Built Web Audio API low-pass filter cutoff scrubbing helper scaling dynamically from 300Hz to 2400Hz based on scroll velocity.
 - [x] **VELOCITY KINETIC SKEW PAGE WRAPPER (`KineticSkewWrapper.tsx`):** Wrapped main scroll environments in `src/app/page.tsx` with Framer Motion velocity skew transforms.
 - [x] **LUCIDE-REACT ICON INTEGRATION:** Replaced raw text indicators in `Navbar.tsx` (`[ SFX: ON/OFF ]`) and `Hero3D.tsx` with crisp brutalist `lucide-react` icons (`Volume2`, `VolumeX`, `Terminal`, `Menu`, `X`).
