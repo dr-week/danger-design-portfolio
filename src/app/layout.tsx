@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "I design interfaces, direct motion, and write the code to make them work.",
 };
 
+import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${caveat.variable} font-sans bg-black text-white antialiased`}
       >
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );

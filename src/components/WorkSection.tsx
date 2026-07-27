@@ -3,49 +3,54 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
+import WeatherCanvas from "@/components/ui/WeatherCanvas";
 
-const projectItems = [
+interface ProjectItem {
+  title: string;
+  client: string;
+  category: string;
+  slug: string;
+  image?: string;
+}
+
+const projectItems: ProjectItem[] = [
   {
-    title: "The Feni Project",
-    client: "Feni House",
-    category: "Motion & CGI",
-    image: "/projects/GRAPHICS DESIGNS/nvtsmall_1751609106_3669084490535756964_5799768191.mp4",
+    title: "The Feni Project & Sobit Sui",
+    client: "XOXO Social",
+    category: "CGI & Motion Direction",
     slug: "the-feni-project",
   },
   {
-    title: "Growth Gravy — CGI Spot",
-    client: "Growth Gravy",
-    category: "Motion & CGI",
-    image: "/projects/GRAPHICS DESIGNS/cpplusworld_1751197990_3665636666347649951_2253388577.mp4",
-    slug: "growth-gravy-cgi-spot",
+    title: "Sunburn & IFFI CGI Campaigns",
+    client: "Growth Gravy × Taj × JW Marriott",
+    category: "Festival & Hospitality CGI",
+    slug: "sunburn-iffi-cgi",
   },
   {
-    title: "SaaS Dashboard Redesign",
-    client: "TechFlow",
-    category: "UI/UX",
-    image: "/projects/UI UX/poss0001-0250.avi",
-    slug: "saas-dashboard-redesign",
+    title: "International SaaS & Web3 Platforms",
+    client: "Spark Plus Technologies (UK)",
+    category: "Full-Stack UI/UX Engineering",
+    slug: "saas-web3-platforms",
   },
   {
-    title: "Crypto Wallet Interface",
-    client: "DeFi Labs",
-    category: "UI/UX",
-    image: "/projects/UI UX/app demo design animation.avi",
-    slug: "crypto-wallet-interface",
+    title: "Dolphin Heights & South Goa Villa",
+    client: "Real Estate & Architecture",
+    category: "Spatial & Architectural CGI",
+    slug: "dolphin-heights-south-goa",
   },
   {
-    title: "Brand Identity System",
-    client: "StartupX",
-    category: "Brand",
-    image: "/projects/BRAND IDENTITY DESIGN/dd (1).jpeg",
-    slug: "brand-identity-system",
+    title: "TukTuk Craft & Fashion Boutique",
+    client: "TukTuk Fashion",
+    category: "Brand Identity & E-Commerce",
+    slug: "tuktuk-boutique",
   },
 ];
 
 export default function WorkSection() {
   return (
-    <section id="work" className="px-6 md:px-12 lg:px-24 py-24 md:py-32">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" className="relative px-6 md:px-12 lg:px-24 py-24 md:py-32 overflow-hidden">
+      <WeatherCanvas mode="sunbeam" />
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,11 +59,14 @@ export default function WorkSection() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Work
+          <div className="inline-block border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400 mb-3">
+            // COMMERCIAL_ARCHIVE
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+            Commercial Work
           </h2>
-          <p className="hand mt-2 text-lg text-[var(--color-accent)]">
-            * Selected projects across disciplines
+          <p className="font-caveat text-xl text-zinc-400 mt-2">
+            * Selected agency projects across Motion, CGI & Engineering
           </p>
         </motion.div>
 
@@ -82,4 +90,3 @@ export default function WorkSection() {
     </section>
   );
 }
-
