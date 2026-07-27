@@ -2,11 +2,13 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-// YouTube Shorts / Video IDs from Dishant Naik
+// Real YouTube Shorts IDs extracted from channel https://www.youtube.com/@DishantNaik
 const SHORTS = [
-  "3JZ_D3ELwOQ", // Showcase Reel 1
-  "L_LUpnjgPso", // Showcase Reel 2
-  "dQw4w9WgXcQ", // Showcase Reel 3
+  "_s1bc8fhghA",
+  "V1e7uWxzUMY",
+  "_8J7ttjTKQk",
+  "-wKJcZ20z1M",
+  "i3zSLeaK3tE",
 ];
 
 const outputDir = path.join(__dirname, "../public/videos");
@@ -16,14 +18,14 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-console.log("🚀 Starting WebGL Video Sync & Compression Pipeline...\n");
+console.log("🚀 Starting WebGL Video Sync & Compression Pipeline for @DishantNaik channel...\n");
 
 SHORTS.forEach((id, index) => {
   const tempPath = path.join(outputDir, `temp_${index}.mp4`);
   const finalPath = path.join(outputDir, `reel_${index}.mp4`);
 
   try {
-    console.log(`[${index + 1}/${SHORTS.length}] Downloading YouTube Short: ${id}...`);
+    console.log(`[${index + 1}/${SHORTS.length}] Downloading YouTube Short (${id}) from @DishantNaik...`);
     // Download raw stream via yt-dlp if available
     execSync(
       `yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" https://www.youtube.com/shorts/${id} -o "${tempPath}"`,

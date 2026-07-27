@@ -7,25 +7,37 @@ import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
 import WeatherCanvas from "@/components/ui/WeatherCanvas";
 
-// Curated Video Reel Stack (Supports both YouTube Shorts & direct HTML5 MP4 stream fallbacks)
+// Curated Video Reel Stack from @DishantNaik YouTube channel
 const REELS = [
   {
     type: "youtube",
-    id: "3JZ_D3ELwOQ",
+    id: "_s1bc8fhghA",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4",
-    label: "REEL_01: CGI SPATIAL CITY",
+    label: "REEL_01: @DishantNaik Showcase",
   },
   {
     type: "youtube",
-    id: "L_LUpnjgPso",
+    id: "V1e7uWxzUMY",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-street-at-night-41544-large.mp4",
-    label: "REEL_02: CYBERPUNK MOTION",
+    label: "REEL_02: Motion & CGI Spot",
   },
   {
     type: "youtube",
-    id: "dQw4w9WgXcQ",
+    id: "_8J7ttjTKQk",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-lines-in-motion-41551-large.mp4",
-    label: "REEL_03: ABSTRACT TECH",
+    label: "REEL_03: Brand & VFX Reel",
+  },
+  {
+    type: "youtube",
+    id: "-wKJcZ20z1M",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4",
+    label: "REEL_04: Creative Engineering",
+  },
+  {
+    type: "youtube",
+    id: "i3zSLeaK3tE",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-street-at-night-41544-large.mp4",
+    label: "REEL_05: Digital Arsenal",
   },
 ];
 
