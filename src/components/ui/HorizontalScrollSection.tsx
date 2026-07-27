@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,28 +9,50 @@ import { playClickSound } from "@/utils/audio";
 
 export default function HorizontalScrollSection() {
   const targetRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"],
   });
 
-  // Map vertical scroll progress to horizontal translation along X-axis
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-
-  // Select 6 featured domain items for the horizontal track
   const horizontalItems = ANONYMIZED_WORK.slice(4, 10);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-black select-none">
       {/* Sticky Fullscreen Container */}
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden border-t border-b border-zinc-900">
-        
+      <div 
+        onMouseMove={handleMouseMove}
+        className="sticky top-0 flex h-screen items-center overflow-hidden border-t border-b border-zinc-900 relative"
+      >
+        {/* Interactive Cursor Lens Reveal Box Follower */}
+        <motion.div
+          animate={{
+            x: mousePos.x - 90,
+            y: mousePos.y - 90,
+          }}
+          transition={{ type: "spring", mass: 0.2, stiffness: 350, damping: 25 }}
+          className="pointer-events-none absolute z-20 w-44 h-44 border-2 border-amber-400 bg-amber-500/10 rounded-lg shadow-2xl backdrop-invert backdrop-hue-rotate-90 hidden md:block"
+        >
+          <div className="absolute top-1 left-1 font-mono text-[8px] text-amber-400 bg-black/90 px-1 uppercase font-bold">
+            [ LENS_REVEAL_BOX ]
+          </div>
+        </motion.div>
+
         {/* Track Label Badge */}
         <div className="absolute top-8 left-8 z-30 pointer-events-none flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
           <span className="font-mono text-xs text-amber-400 bg-black/90 px-3 py-1 border border-zinc-800 uppercase tracking-widest font-bold">
-            // NORMAL_IS_BORING // HORIZONTAL_AXIS_TRACK (SCROLL DOWN TO DRIVE X-AXIS)
+            // ENVIRONMENT_04 // HORIZONTAL_PARALLAX (CURSOR_LENS_REVEAL)
           </span>
         </div>
 
@@ -48,7 +70,7 @@ export default function HorizontalScrollSection() {
                   alt={item.title}
                   fill
                   sizes="480px"
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="object-cover filter contrast-110 group-hover:scale-105 transition-all duration-500"
                 />
                 <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 font-mono text-[10px] text-amber-400 border border-zinc-700 uppercase">
                   {item.tag}
