@@ -10,7 +10,7 @@ const comparisons = [
     polished: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
   },
   {
-    note: "* Client chose V2, but V1 was bolder",
+    note: "* Iteration V2 refined for spatial performance, V1 retained as raw benchmark",
     raw: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
     polished: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
   },
