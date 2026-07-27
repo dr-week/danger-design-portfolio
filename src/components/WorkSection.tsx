@@ -10,7 +10,7 @@ interface ProjectItem {
   client: string;
   category: string;
   slug: string;
-  image?: string;
+  image: string;
 }
 
 const projectItems: ProjectItem[] = [
@@ -19,30 +19,35 @@ const projectItems: ProjectItem[] = [
     client: "XOXO Social",
     category: "CGI & Motion Direction",
     slug: "the-feni-project",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Sunburn & IFFI CGI Campaigns",
     client: "Growth Gravy × Taj × JW Marriott",
     category: "Festival & Hospitality CGI",
     slug: "sunburn-iffi-cgi",
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "International SaaS & Web3 Platforms",
     client: "Spark Plus Technologies (UK)",
     category: "Full-Stack UI/UX Engineering",
     slug: "saas-web3-platforms",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Dolphin Heights & South Goa Villa",
     client: "Real Estate & Architecture",
     category: "Spatial & Architectural CGI",
     slug: "dolphin-heights-south-goa",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "TukTuk Craft & Fashion Boutique",
     client: "TukTuk Fashion",
     category: "Brand Identity & E-Commerce",
     slug: "tuktuk-boutique",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 

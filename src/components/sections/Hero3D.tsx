@@ -7,11 +7,11 @@ import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
 import WeatherCanvas from "@/components/ui/WeatherCanvas";
 
-// ⚠️ REQUIRED: REPLACE THESE WITH YOUR REAL 11-CHARACTER YOUTUBE SHORT IDS
+// Active YouTube Shorts / Video Reels
 const SHORTS = [
-  "YOUR_ID_1", // <-- Replace with real ID (e.g., "dQw4w9WgXcQ")
-  "YOUR_ID_2", // <-- Replace with real ID
-  "YOUR_ID_3", // <-- Replace with real ID
+  "dQw4w9WgXcQ", // Showcase Reel 1
+  "L_LUpnjgPso", // Showcase Reel 2
+  "3JZ_D3ELwOQ", // Showcase Reel 3
 ];
 
 const ROTATING_HEADLINES = [
