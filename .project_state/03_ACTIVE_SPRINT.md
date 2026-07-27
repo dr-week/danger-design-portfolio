@@ -1,11 +1,13 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
-- [ ] **AWARD-WINNING CREATIVE TECHNIQUE 1: VELOCITY-BASED KINETIC SKEW:**
-  - Build `src/components/ui/KineticSkewWrapper.tsx` applying dynamic `skewY` transformations proportional to scroll velocity.
-  - Wrap home section containers in `KineticSkewWrapper`.
-- [ ] **AWARD-WINNING CREATIVE TECHNIQUE 2: MAGNETIC ATTRACTION CURSOR:**
-  - Upgrade `CursorFollower.tsx` with magnetic snapping coordinates to nearby interactive buttons within 60px radius.
+- [ ] **10 MASTER AWARD-WINNING CREATIVE TECHNIQUES:**
+  - **Technique 1: Velocity Kinetic Skew (`KineticSkewWrapper.tsx`):** Dynamic `skewY` transformations proportional to scroll velocity.
+  - **Technique 2: Magnetic Attraction Cursor (`CursorFollower.tsx`):** Magnetic snapping coordinates to nearby interactive buttons within 60px radius.
+  - **Technique 7: Stochastic Chromatic Aberration (`/lab` R3F):** RGB channel splitting on velocity spikes.
+  - **Technique 8: Kinetic Typography Weight Morphing:** Dynamic `font-weight: 300 -> 900` morphing based on cursor distance.
+  - **Technique 9: Volumetric Spotlight Tracking (`/lab` R3F):** 3D spotlights focusing on cursor coordinates.
+  - **Technique 10: Spatial Audio Frequency Scrubbing (`audio.ts`):** Web Audio filter cutoff scrubbed by scroll position.
 - [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
   - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
   - Tie Z-axis position of foreground elements directly to scroll velocity.

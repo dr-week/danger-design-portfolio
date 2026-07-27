@@ -1,10 +1,10 @@
-# 01_ARCHITECTURE // DOMAIN TAXONOMY & AWARD-WINNING CREATIVE TECHNIQUES
+# 01_ARCHITECTURE // DOMAIN TAXONOMY & 10 MASTER AWARD-WINNING CREATIVE TECHNIQUES
 
-Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, reference inspiration architecture, and award-winning creative techniques.
+Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, reference inspiration architecture, and 10 award-winning creative techniques.
 
 ---
 
-## 🏆 AWARD-WINNING CREATIVE TECHNIQUES MATRIX (AWWWARDS / FWA STANDARDS)
+## 🏆 10 MASTER AWARD-WINNING CREATIVE TECHNIQUES MATRIX (AWWWARDS / FWA STANDARDS)
 
 ### 1. Velocity-Based Kinetic Skew & Inertia
 * **Mechanic:** Scroll velocity $v = \frac{\Delta y}{\Delta t}$ drives dynamic element skewing (`skewY: velocity * 0.15deg`) and inertia drag.
@@ -24,6 +24,18 @@ Master reference guide for WebGL camera angles, lighting models, Framer Motion k
 
 ### 6. Diagonal Blueprint / Render Wipe Lens
 * **Mechanic:** Real-time diagonal scanline slider revealing raw wireframe blueprint beneath photorealistic 3D renders.
+
+### 7. Stochastic Chromatic Aberration & Lens Glitch
+* **Mechanic:** RGB channel splitting (`Vector2(r, g)`) expands dynamically on scroll velocity spikes, returning to crisp alignment when idle.
+
+### 8. Variable Kinetic Typography Weight Morphing
+* **Mechanic:** Typographic headlines (`Space Grotesk`) morph font-weight from `300 (Light)` to `900 (Black)` based on cursor proximity.
+
+### 9. Volumetric God Ray Spotlight Tracking
+* **Mechanic:** 3D directional spotlights in WebGL scenes (`@react-three/drei`) continuously focus and track cursor coordinates in 3D world space.
+
+### 10. Zero-Latency Audio Synthesizer Frequency Scrubbing
+* **Mechanic:** Web Audio API oscillator pitch and filter cutoff increase dynamically as the user scrolls through distinct environment sections.
 
 ---
 
