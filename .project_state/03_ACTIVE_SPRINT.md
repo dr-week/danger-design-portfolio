@@ -1,12 +1,12 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
-- [ ] **WebGL Kinematics Mapping:** Map Three.js lighting and camera FOV specs to `/lab` 3D rooms as defined in `01_ARCHITECTURE.md`.
-- [ ] **WebGL Shader Studio Preset Switcher:** Add interactive preset dropdown (`BRUTALIST THUNDERSTORM`, `CYBERPUNK NEON MATRIX`, `MONOCHROME GRAIN`) in `/lab`.
 - [ ] **Production Resend API Integration:** Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
 - [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **WebGL Kinematics Mapping:** Mapped Three.js lighting, camera FOVs, and multi-tint spotlights to `/lab` 3D rooms as defined in `01_ARCHITECTURE.md`.
+- [x] **WebGL Shader Studio Preset Switcher:** Added interactive preset dropdown (`[ THUNDERSTORM ]`, `[ CYBERPUNK ]`, `[ MONOCHROME ]`) in `/lab` with sub-bass audio hum triggers.
 - [x] **Viewport Sizing Audit:** Applied `100svh`, `overflow-x-hidden`, and `w-full` across `layout.tsx`, `Hero3D.tsx`, `WorkSection.tsx`, `DevRange.tsx`, and `/lab`.
 - [x] **14-Domain Taxonomy Integration:** Expanded `src/config/portfolio.ts` with all 14 anonymous sectors (`SYSTEM_01` to `SYSTEM_14`) with technical specifications.
 - [x] **Tactile Custom Cursor Tracker:** Built `src/components/ui/CursorFollower.tsx` with spring-tracking dual-ring follower expanding on `data-cursor-hover` targets.

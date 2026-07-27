@@ -6,6 +6,9 @@ import { ScrollControls, useScroll, Html, Text, Float, Cloud, Clouds } from "@re
 import { EffectComposer, ChromaticAberration, Noise, Vignette } from "@react-three/postprocessing";
 import * as THREE from "three";
 import Link from "next/link";
+import { playClickSound, playSwipeHum } from "@/utils/audio";
+
+type ShaderPreset = "thunderstorm" | "cyberpunk" | "monochrome";
 
 // 1. Camera Rig driving Z-axis travel from Z = 5 down to Z = -85 across 5 spatial rooms
 function CameraRig() {
@@ -106,7 +109,7 @@ function Room1Retro() {
 }
 
 // Room 2: Brutalist Thunderstorm & Cloud Particles (Z = -20)
-function Room2Thunderstorm() {
+function Room2Thunderstorm({ preset }: { preset: ShaderPreset }) {
   const pointsRef = useRef<THREE.Points>(null);
   const lightningRef = useRef<THREE.PointLight>(null);
 
@@ -132,28 +135,31 @@ function Room2Thunderstorm() {
 
     if (lightningRef.current) {
       if (Math.random() > 0.98) {
-        lightningRef.current.intensity = 70;
+        lightningRef.current.intensity = preset === "monochrome" ? 90 : 70;
       } else {
         lightningRef.current.intensity = THREE.MathUtils.lerp(lightningRef.current.intensity, 0, 0.1);
       }
     }
   });
 
+  const lightningColor = preset === "cyberpunk" ? "#ec4899" : preset === "monochrome" ? "#ffffff" : "#60a5fa";
+  const sculptureColor = preset === "cyberpunk" ? "#a855f7" : preset === "monochrome" ? "#ffffff" : "#f59e0b";
+
   return (
     <group position={[0, 0, -20]}>
-      <pointLight ref={lightningRef} position={[0, 8, -20]} color="#60a5fa" distance={35} decay={2} />
+      <pointLight ref={lightningRef} position={[0, 8, -20]} color={lightningColor} distance={35} decay={2} />
 
       <Clouds material={THREE.MeshBasicMaterial}>
-        <Cloud seed={1} bounds={[10, 5, 10]} volume={6} color="#27272a" position={[0, 4, -20]} />
+        <Cloud seed={1} bounds={[10, 5, 10]} volume={6} color={preset === "monochrome" ? "#000000" : "#27272a"} position={[0, 4, -20]} />
         <Cloud seed={2} bounds={[12, 6, 12]} volume={8} color="#18181b" position={[0, -4, -20]} />
       </Clouds>
 
-      <spotLight position={[5, 10, -15]} angle={0.4} penumbra={1} intensity={25} color="#fbbf24" castShadow />
+      <spotLight position={[5, 10, -15]} angle={0.4} penumbra={1} intensity={25} color={sculptureColor} castShadow />
 
       <Float speed={1.5} rotationIntensity={1} floatIntensity={0.5}>
         <mesh position={[0, 0, 0]}>
           <torusKnotGeometry args={[1.5, 0.4, 128, 32]} />
-          <meshStandardMaterial color="#f59e0b" wireframe roughness={0.1} metalness={0.9} />
+          <meshStandardMaterial color={sculptureColor} wireframe roughness={0.1} metalness={0.9} />
         </mesh>
       </Float>
 
@@ -161,7 +167,7 @@ function Room2Thunderstorm() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={0.08} color="#93c5fd" transparent opacity={0.5} sizeAttenuation />
+        <pointsMaterial size={0.08} color={sculptureColor} transparent opacity={0.5} sizeAttenuation />
       </points>
 
       <Html position={[2.8, 1.2, 0]} transform distanceFactor={6}>
@@ -175,7 +181,7 @@ function Room2Thunderstorm() {
 }
 
 // Room 3: Spatial Architecture & Villa Drone Gallery (Z = -40)
-function Room3Architecture() {
+function Room3Architecture({ preset }: { preset: ShaderPreset }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -184,9 +190,11 @@ function Room3Architecture() {
     }
   });
 
+  const spotlightColor = preset === "cyberpunk" ? "#ec4899" : preset === "monochrome" ? "#ffffff" : "#38bdf8";
+
   return (
     <group position={[0, 0, -40]}>
-      <spotLight position={[-6, 8, -35]} angle={0.5} penumbra={0.8} intensity={30} color="#38bdf8" />
+      <spotLight position={[-6, 8, -35]} angle={0.5} penumbra={0.8} intensity={30} color={spotlightColor} />
       <spotLight position={[6, -6, -35]} angle={0.5} penumbra={0.8} intensity={20} color="#f59e0b" />
 
       <Float speed={2} rotationIntensity={0.6}>
@@ -207,7 +215,7 @@ function Room3Architecture() {
 }
 
 // Room 4: Cyberpunk Neon Grid (Z = -60)
-function Room4CyberpunkGrid() {
+function Room4CyberpunkGrid({ preset }: { preset: ShaderPreset }) {
   const gridRef = useRef<THREE.GridHelper>(null);
 
   useFrame((state) => {
@@ -216,17 +224,20 @@ function Room4CyberpunkGrid() {
     }
   });
 
+  const color1 = preset === "monochrome" ? "#ffffff" : "#a855f7";
+  const color2 = preset === "monochrome" ? "#52525b" : "#ec4899";
+
   return (
     <group position={[0, 0, -60]}>
-      <pointLight position={[0, 5, -60]} color="#a855f7" intensity={25} distance={30} />
-      <pointLight position={[0, -5, -60]} color="#ec4899" intensity={20} distance={30} />
+      <pointLight position={[0, 5, -60]} color={color1} intensity={25} distance={30} />
+      <pointLight position={[0, -5, -60]} color={color2} intensity={20} distance={30} />
 
-      <gridHelper ref={gridRef} args={[40, 40, "#a855f7", "#ec4899"]} position={[0, -3, 0]} rotation={[Math.PI / 6, 0, 0]} />
+      <gridHelper ref={gridRef} args={[40, 40, color1, color2]} position={[0, -3, 0]} rotation={[Math.PI / 6, 0, 0]} />
 
       <Float speed={2.5} rotationIntensity={1}>
         <mesh position={[0, 1, 0]}>
           <icosahedronGeometry args={[2.0, 1]} />
-          <meshStandardMaterial color="#a855f7" wireframe roughness={0.1} metalness={1.0} />
+          <meshStandardMaterial color={color1} wireframe roughness={0.1} metalness={1.0} />
         </mesh>
       </Float>
 
@@ -282,6 +293,7 @@ function Room5DataVoid() {
           </p>
           <Link
             href="/"
+            onClick={playClickSound}
             className="inline-block mt-4 px-4 py-2 bg-sky-400 text-black font-mono text-xs uppercase font-bold tracking-widest hover:bg-white transition-colors"
           >
             ← Return to Core Site
@@ -293,18 +305,56 @@ function Room5DataVoid() {
 }
 
 export default function LabPage() {
+  const [preset, setPreset] = useState<ShaderPreset>("thunderstorm");
+
+  const handleSelectPreset = (newPreset: ShaderPreset) => {
+    playSwipeHum();
+    setPreset(newPreset);
+  };
+
   return (
     <main className="relative w-full h-[100svh] bg-black overflow-hidden select-none">
       {/* Top Overlay Bar */}
-      <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-30 pointer-events-auto">
+      <div className="absolute top-6 left-6 right-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 z-30 pointer-events-auto">
         <div className="flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
           <span className="font-mono text-xs text-white uppercase tracking-widest font-bold">
             DANGER_LAB // WEBGL_EXPERIMENTAL_ZONE (5 SPATIAL ROOMS)
           </span>
         </div>
+
+        {/* Shader Studio Preset Switcher */}
+        <div className="flex items-center gap-2 bg-zinc-950/90 border border-zinc-800 px-3 py-1.5 backdrop-blur-md">
+          <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mr-1">// SHADER_PRESET:</span>
+          <button
+            onClick={() => handleSelectPreset("thunderstorm")}
+            className={`font-mono text-[10px] px-2 py-0.5 uppercase tracking-wider transition-colors ${
+              preset === "thunderstorm" ? "bg-amber-400 text-black font-bold" : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            [ THUNDERSTORM ]
+          </button>
+          <button
+            onClick={() => handleSelectPreset("cyberpunk")}
+            className={`font-mono text-[10px] px-2 py-0.5 uppercase tracking-wider transition-colors ${
+              preset === "cyberpunk" ? "bg-purple-500 text-white font-bold" : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            [ CYBERPUNK ]
+          </button>
+          <button
+            onClick={() => handleSelectPreset("monochrome")}
+            className={`font-mono text-[10px] px-2 py-0.5 uppercase tracking-wider transition-colors ${
+              preset === "monochrome" ? "bg-white text-black font-bold" : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            [ MONOCHROME ]
+          </button>
+        </div>
+
         <Link
           href="/"
+          onClick={playClickSound}
           className="font-mono text-xs text-zinc-400 hover:text-white border border-zinc-800 bg-black/80 px-3 py-1.5 uppercase tracking-widest transition-colors"
         >
           [ EXIT LAB ]
@@ -322,22 +372,22 @@ export default function LabPage() {
         className="w-full h-full"
         gl={{ antialias: true }}
       >
-        <ambientLight intensity={0.4} />
+        <ambientLight intensity={preset === "monochrome" ? 0.2 : 0.4} />
         <directionalLight position={[10, 10, 10]} intensity={1} />
 
         <ScrollControls pages={5} damping={0.2}>
           <CameraRig />
           <Room1Retro />
-          <Room2Thunderstorm />
-          <Room3Architecture />
-          <Room4CyberpunkGrid />
+          <Room2Thunderstorm preset={preset} />
+          <Room3Architecture preset={preset} />
+          <Room4CyberpunkGrid preset={preset} />
           <Room5DataVoid />
         </ScrollControls>
 
         {/* Shaders & Postprocessing Stack */}
         <EffectComposer>
-          <ChromaticAberration offset={new THREE.Vector2(0.002, 0.002)} />
-          <Noise opacity={0.08} />
+          <ChromaticAberration offset={new THREE.Vector2(preset === "cyberpunk" ? 0.004 : 0.002, 0.002)} />
+          <Noise opacity={preset === "monochrome" ? 0.15 : 0.08} />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
       </Canvas>
