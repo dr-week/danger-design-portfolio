@@ -37,7 +37,7 @@ function CameraRig() {
 }
 
 // WebGL 3D Video Texture Component
-export function WebGLVideoPhone({ reelIndex = 0 }: { reelIndex?: number }) {
+function WebGLVideoPhone({ reelIndex = 0 }: { reelIndex?: number }) {
   const [videoTexture, setVideoTexture] = useState<THREE.VideoTexture | null>(null);
 
   useEffect(() => {

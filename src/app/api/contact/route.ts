@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const targetEmail = process.env.CONTACT_EMAIL || "hello@dishantnaik.com";
+    const targetEmail = process.env.CONTACT_EMAIL || "dishant.inbox@gmail.com";
 
     // 2. Development Mode Fallback (if RESEND_API_KEY is not configured yet)
     if (!apiKey) {

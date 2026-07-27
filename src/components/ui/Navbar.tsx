@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { Volume2, VolumeX, Menu, X, Terminal } from "lucide-react";
 import { toggleSFX, isSFXEnabled, playClickSound } from "@/utils/audio";
 
 export default function Navbar() {
@@ -28,9 +29,10 @@ export default function Navbar() {
           href="/" 
           onClick={playClickSound}
           data-cursor-hover
-          className="font-black text-lg tracking-tighter text-white hover:text-amber-400 transition-colors uppercase"
+          className="font-black text-lg tracking-tighter text-white hover:text-amber-400 transition-colors uppercase flex items-center gap-2"
         >
-          DANGER<span className="text-zinc-500">.DESIGN</span>
+          <Terminal className="w-5 h-5 text-amber-400" />
+          <span>DANGER<span className="text-zinc-500">.DESIGN</span></span>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -53,10 +55,11 @@ export default function Navbar() {
           {/* SFX Audio Engine HUD Toggle */}
           <button
             onClick={handleToggleSFX}
-            className="font-mono text-[10px] text-amber-400 border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 uppercase tracking-wider hover:bg-amber-400 hover:text-black transition-colors"
+            className="font-mono text-[10px] text-amber-400 border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 uppercase tracking-wider hover:bg-amber-400 hover:text-black transition-colors flex items-center gap-1.5"
             title="Toggle Web Audio SFX"
           >
-            [ SFX: {sfxOn ? "ON" : "OFF"} ]
+            {sfxOn ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
+            <span>[ SFX: {sfxOn ? "ON" : "OFF"} ]</span>
           </button>
 
           {/* Live Availability Status Indicator */}
@@ -76,10 +79,10 @@ export default function Navbar() {
               playClickSound();
               setMobileMenuOpen(!mobileMenuOpen);
             }}
-            className="md:hidden font-mono text-xs text-amber-400 border border-zinc-800 bg-zinc-900 px-3 py-1 rounded"
+            className="md:hidden font-mono text-xs text-amber-400 border border-zinc-800 bg-zinc-900 px-2.5 py-1 rounded flex items-center gap-1"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? "[ CLOSE ]" : "[ MENU ]"}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
