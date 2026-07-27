@@ -1,3 +1,4 @@
+
 node_modules/
 .next/
 *.tsbuildinfo
@@ -47,3 +48,9 @@ next-env.d.ts
 public/projects/**/raw/
 public/projects/**/source/
 public/assets/videos/
+
+# 6. Environment & generated files
+.env
+.env.local
+.env*.local
+debug-log.txt

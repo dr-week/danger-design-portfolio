@@ -1,40 +1,27 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-export async function GET() {
-  return NextResponse.json({ status: "ok", message: "Contact API is ready" });
-}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message } = await request.json();
 
-    // Validation
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    // Here you would integrate with Resend, SendGrid, etc.
-    // Example with Resend:
-    // await resend.emails.send({
-    //   from: 'portfolio@dishantnaik.com',
-    //   to: 'hello@dishantnaik.com',
-    //   subject: `New inquiry from ${name}`,
-    //   replyTo: email,
-    //   text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-    // });
+    await resend.emails.send({
+      from: "Danger Design <onboarding@resend.dev>",
+      to: "your-real-email@example.com", // <-- Replace with your inbox email address
+      subject: `New inquiry from ${name}`,
+      replyTo: email,
+      text: `From: ${name} (${email})\n\n${message}`,
+    });
 
-    console.log("Contact form submission:", { name, email, message });
-
-    return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Sent" }, { status: 200 });
+  } catch (error) {
+    console.error("Contact form error:", error);
+    return NextResponse.json({ error: "Failed to send" }, { status: 500 });
   }
 }
-

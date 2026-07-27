@@ -3,7 +3,7 @@ import WorkSection from "@/components/WorkSection";
 import DevRange from "@/components/sections/DevRange";
 import ProcessSection from "@/components/ProcessSection";
 import RangeSection from "@/components/RangeSection";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
