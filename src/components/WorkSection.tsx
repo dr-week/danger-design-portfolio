@@ -16,7 +16,7 @@ interface ProjectItem {
 const projectItems: ProjectItem[] = [
   {
     title: "The Feni Project & Sobit Sui",
-    client: "XOXO Social",
+    client: "XOXO Social (Agency Team)",
     category: "CGI & Motion Direction",
     slug: "the-feni-project",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
@@ -36,10 +36,10 @@ const projectItems: ProjectItem[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Dolphin Heights & South Goa Villa",
-    client: "Real Estate & Architecture",
+    title: "Boutique Coastal & Spatial Visualization",
+    client: "Architectural & Real Estate CGI",
     category: "Spatial & Architectural CGI",
-    slug: "dolphin-heights-south-goa",
+    slug: "boutique-coastal-spatial-cgi",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
   },
   {
