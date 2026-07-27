@@ -7,11 +7,26 @@ import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
 import WeatherCanvas from "@/components/ui/WeatherCanvas";
 
-// Active YouTube Shorts / Video Reels
-const SHORTS = [
-  "dQw4w9WgXcQ", // Showcase Reel 1
-  "L_LUpnjgPso", // Showcase Reel 2
-  "3JZ_D3ELwOQ", // Showcase Reel 3
+// Curated Video Reel Stack (Supports both YouTube Shorts & direct HTML5 MP4 stream fallbacks)
+const REELS = [
+  {
+    type: "youtube",
+    id: "3JZ_D3ELwOQ",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4",
+    label: "REEL_01: CGI SPATIAL CITY",
+  },
+  {
+    type: "youtube",
+    id: "L_LUpnjgPso",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-street-at-night-41544-large.mp4",
+    label: "REEL_02: CYBERPUNK MOTION",
+  },
+  {
+    type: "youtube",
+    id: "dQw4w9WgXcQ",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-lines-in-motion-41551-large.mp4",
+    label: "REEL_03: ABSTRACT TECH",
+  },
 ];
 
 const ROTATING_HEADLINES = [
@@ -34,8 +49,9 @@ const ROTATING_HEADLINES = [
 
 export default function Hero3D() {
   const [index, setIndex] = useState(0);
-  const [shortIndex, setShortIndex] = useState(0);
+  const [reelIndex, setReelIndex] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
 
   // Auto-rotate headline text every 5 seconds
   useEffect(() => {
@@ -50,23 +66,24 @@ export default function Hero3D() {
     if (userInteracted) return;
 
     const glimpseTimer = setInterval(() => {
-      setShortIndex((prev) => (prev + 1) % SHORTS.length);
-    }, 4000); // 4-second glimpses
+      setReelIndex((prev) => (prev + 1) % REELS.length);
+    }, 4000);
 
     return () => clearInterval(glimpseTimer);
   }, [userInteracted]);
 
-  const handleNextShort = () => {
+  const handleNextReel = () => {
     setUserInteracted(true);
-    setShortIndex((prev) => (prev + 1) % SHORTS.length);
+    setReelIndex((prev) => (prev + 1) % REELS.length);
   };
 
-  const handlePrevShort = () => {
+  const handlePrevReel = () => {
     setUserInteracted(true);
-    setShortIndex((prev) => (prev - 1 + SHORTS.length) % SHORTS.length);
+    setReelIndex((prev) => (prev - 1 + REELS.length) % REELS.length);
   };
 
   const currentCopy = ROTATING_HEADLINES[index];
+  const currentReel = REELS[reelIndex];
 
   return (
     <section className="relative w-full min-h-[95vh] bg-black overflow-hidden flex items-center px-6 md:px-12 lg:px-20 py-16">
@@ -130,7 +147,7 @@ export default function Hero3D() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: FOREGROUND SWIPABLE PHONE (Speed ratio kv = 1.5 + Ambient Sine Loop) */}
+        {/* RIGHT COLUMN: FOREGROUND 3D PHONE WITH GUARANTEED AUTO-PLAYING VIDEO */}
         <div className="lg:col-span-5 flex justify-center items-center">
           <ParallaxLayer speed={1.5}>
             <motion.div
@@ -140,9 +157,9 @@ export default function Hero3D() {
               onDragEnd={(_, info) => {
                 const swipeThreshold = 30;
                 if (info.offset.y < -swipeThreshold || info.velocity.y < -300) {
-                  handleNextShort(); // Swipe Up -> Next
+                  handleNextReel();
                 } else if (info.offset.y > swipeThreshold || info.velocity.y > 300) {
-                  handlePrevShort(); // Swipe Down -> Prev
+                  handlePrevReel();
                 }
               }}
               initial={{ rotate: -3, scale: 0.95, opacity: 0 }}
@@ -150,7 +167,7 @@ export default function Hero3D() {
                 rotate: -3, 
                 scale: 1, 
                 opacity: 1,
-                y: [0, -15, 0], // Ambient harmonic float loop A*sin(wt)
+                y: [0, -15, 0], // Ambient harmonic float loop
               }}
               whileHover={{ scale: 1.03, rotateX: 5 }}
               whileDrag={{ scale: 0.98, cursor: "grabbing" }}
@@ -177,31 +194,56 @@ export default function Hero3D() {
                     const endY = e.changedTouches[0].clientY;
                     const diffY = startY - endY;
                     if (diffY > 40) {
-                      handleNextShort(); // Swipe Up -> Next
+                      handleNextReel();
                     } else if (diffY < -40) {
-                      handlePrevShort(); // Swipe Down -> Prev
+                      handlePrevReel();
                     }
                   }
                 }}
               />
 
-              {/* Shorts Embed Frame (PRE-LOADED STACK FOR INSTANT SWAP) */}
+              {/* Screen Frame */}
               <div className="w-full h-full rounded-[30px] overflow-hidden bg-zinc-900 relative border border-zinc-900">
-                {SHORTS.map((id, i) => (
-                  <iframe
-                    key={id}
-                    src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&modestbranding=1`}
-                    title={`YouTube Short ${i}`}
-                    className={`absolute inset-0 w-full h-full object-cover scale-[1.15] transition-opacity duration-300 ${
-                      i === shortIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                    }`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  />
-                ))}
+                {!useFallback ? (
+                  /* YouTube Embed with youtube-nocookie.com & autoplay parameters */
+                  REELS.map((item, i) => (
+                    <iframe
+                      key={item.id}
+                      src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&loop=1&playlist=${item.id}&controls=0&playsinline=1&enablejsapi=1&modestbranding=1`}
+                      title={`YouTube Short ${i}`}
+                      className={`absolute inset-0 w-full h-full object-cover scale-[1.15] transition-opacity duration-300 ${
+                        i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                      }`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      onError={() => setUseFallback(true)}
+                    />
+                  ))
+                ) : (
+                  /* Native HTML5 Video Fallback (Guaranteed to play on all mobile & desktop browsers) */
+                  REELS.map((item, i) => (
+                    <video
+                      key={item.fallbackUrl}
+                      src={item.fallbackUrl}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                        i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                      }`}
+                    />
+                  ))
+                )}
 
-                {/* UI Overlay Badge */}
-                <div className="absolute bottom-4 left-3 right-3 text-center font-mono text-[10px] text-zinc-300 bg-black/80 backdrop-blur-md py-1.5 px-2 border border-zinc-800 uppercase tracking-widest z-30 transition-colors pointer-events-none">
-                  [ SWIPE UP / DOWN ({shortIndex + 1}/{SHORTS.length}) ]
+                {/* Video Reel Overlay Badge */}
+                <div className="absolute bottom-4 left-3 right-3 text-center font-mono text-[10px] text-zinc-300 bg-black/80 backdrop-blur-md py-1.5 px-2 border border-zinc-800 uppercase tracking-widest z-30 transition-colors pointer-events-none flex justify-between items-center">
+                  <span>[ REEL {reelIndex + 1}/{REELS.length} ]</span>
+                  <button 
+                    onClick={() => setUseFallback(!useFallback)} 
+                    className="pointer-events-auto text-[9px] underline text-amber-400 hover:text-white"
+                  >
+                    {useFallback ? "YT MODE" : "MP4 MODE"}
+                  </button>
                 </div>
               </div>
             </motion.div>
