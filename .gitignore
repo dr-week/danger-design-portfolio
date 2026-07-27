@@ -3,10 +3,47 @@ node_modules/
 *.tsbuildinfo
 next-env.d.ts
 .refact/
-*.pdf
-*.avi
-*.mkv
-*.mp4
-*.heic
 .blackbox/
 
+# ==========================================
+# DANGER DESIGN - HEAVY ASSETS & MEDIA FILTERS
+# ==========================================
+
+# 1. Video & Audio Files (Use YouTube/Vimeo embeds instead)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mp3
+*.wav
+
+# 2. Heavy Image Formats & Camera Raws
+*.heic
+*.heif
+*.raw
+*.cr2
+*.nef
+*.tiff
+*.bmp
+
+# 3. High-Res Design Source Files & PDFs
+*.pdf
+*.psd
+*.ai
+*.fig
+*.eps
+*.sketch
+
+# 4. Archives & Compressed Bundles
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# 5. Selective Public Directory Exclusions
+# Ignore raw asset uploads while allowing small web-optimized assets
+public/projects/**/raw/
+public/projects/**/source/
+public/assets/videos/

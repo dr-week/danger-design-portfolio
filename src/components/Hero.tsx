@@ -33,10 +33,15 @@ export default function Hero() {
                   roughness={0.1}
                   metalness={0.8}
                 />
-                <Html transform position={[0, 0, 0.11]}>
-                  {/* Video Texture Placeholder */}
-                  <div className="w-[140px] h-[280px] bg-zinc-800 flex items-center justify-center text-xs text-zinc-500 border border-zinc-700">
-                    YouTube Reel Loop
+                <Html transform position={[0, 0, 0.11]} className="pointer-events-auto">
+                  {/* YouTube Shorts Embed — Google servers handle streaming */}
+                  <div className="w-[140px] h-[280px] bg-black rounded-lg overflow-hidden border border-zinc-800 shadow-2xl">
+                    <iframe
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&controls=0&playlist=dQw4w9WgXcQ"
+                      title="Dishant Naik YouTube Short"
+                      className="w-full h-full object-cover pointer-events-none"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
                   </div>
                 </Html>
               </mesh>
