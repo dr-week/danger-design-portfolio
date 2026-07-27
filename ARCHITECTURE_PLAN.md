@@ -1,6 +1,23 @@
-# DANGER DESIGN - DOMAIN TAXONOMY, REFERENCE ARCHITECTURE & AWARD TECHNIQUES
+# DANGER DESIGN - DOMAIN TAXONOMY, ANTIGRAVITY PROTOCOL & AWARD TECHNIQUES
 
-Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, reference inspiration architecture, and 10 award-winning creative techniques.
+Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, reference inspiration architecture, 10 award-winning creative techniques, and the Antigravity Advanced Engineering Protocol.
+
+---
+
+## ⚡ THE ANTIGRAVITY ADVANCED ENGINEERING PROTOCOL
+
+### 1. Advanced WebGL & GPU Pipeline Tricks
+* **CPU-to-GPU Offloading (Uniforms):** Never calculate heavy math or object positions inside JavaScript `useFrame` loops. Instead, pass time and scroll progress into **Custom GLSL Vertex Shaders** via uniforms (`u_time`, `u_scroll`) and let the GPU handle vertex displacement natively at 120fps.
+* **Frustum Culling & Disposal:** Dynamically unmount and dispose of Three.js geometry, textures, and material buffers when a user scrolls out of a spatial room. This eliminates memory leaks in heavy WebGL canvas states.
+* **Dynamic LOD (Level of Detail):** Automatically reduce particle counts (rain, dust, stars) and disable post-processing passes (DoF, Chromatic Aberration) if the client hardware reports low frame rates or a mobile viewport.
+
+### 2. High-Performance DOM & Bento Architecture
+* **CSS Grid Structural Containment:** Use `contain: layout style paint;` on complex Bento grid boxes to isolate DOM reflows and prevent layout shifts when hover animations trigger.
+* **Hardware-Accelerated Transforms:** Restrict all Framer Motion and layout animations strictly to `transform` (`translate3d`, `scale3d`) and `opacity`. Never animate layout-triggering properties like `width`, `height`, or `top`.
+* **In-Memory State Sync:** Keep all active UI toggles, modal states, and portfolio filters synced directly to URL hash parameters or sessionStorage so page reloads don't wipe user context.
+
+### 3. State & Memory Persistence (The Local Core)
+* Synchronize every variable, component spec, and kinematic rule in `.project_state/` before writing code to prevent context drift.
 
 ---
 
@@ -8,19 +25,18 @@ Master reference guide for WebGL camera angles, lighting models, Framer Motion k
 
 ### 1. Velocity-Based Kinetic Skew & Inertia
 * **Mechanic:** Scroll velocity $v = \frac{\Delta y}{\Delta t}$ drives dynamic element skewing (`skewY: velocity * 0.15deg`) and inertia drag.
-* **Implementation:** Framer Motion `useScroll` velocity transform mapped to image containers and typography blocks.
 
 ### 2. Magnetic Attraction & Inversion Lens Cursor
 * **Mechanic:** Custom dual-ring cursor magnetically snaps to nearby interactive nodes within a 60px radius. Over images, the lens flips color values via `backdrop-filter: invert(100%)`.
 
-### 3. GLSL Liquid Displacement Hover Shader
+### 3. GLSL Liquid Displacement Hover Shader (Monogrid Pattern)
 * **Mechanic:** Mouse hover triggers a GLSL fragment shader ripple displacement pass on canvas texture planes.
 
 ### 4. Dual-Axis Split Timeline (Opposing Column Pin)
 * **Mechanic:** Viewport pins while left and right columns move in opposing Y-axis directions or transition into horizontal parallax tracks.
 
 ### 5. Adaptive Spatial Audio Engine
-* **Mechanic:** Synthesized Web Audio API soundscape with dynamic low-pass filter cutoff ($\text{frequency} = 200\text{Hz} \to 2000\text{Hz}$) opening with scroll velocity.
+* **Mechanic:** Synthesized Web Audio API soundscape with dynamic low-pass filter cutoff ($\text{frequency} = 300\text{Hz} \to 2400\text{Hz}$) opening with scroll velocity.
 
 ### 6. Diagonal Blueprint / Render Wipe Lens
 * **Mechanic:** Real-time diagonal scanline slider revealing raw wireframe blueprint beneath photorealistic 3D renders.
@@ -29,7 +45,7 @@ Master reference guide for WebGL camera angles, lighting models, Framer Motion k
 * **Mechanic:** RGB channel splitting (`Vector2(r, g)`) expands dynamically on scroll velocity spikes, returning to crisp alignment when idle.
 
 ### 8. Variable Kinetic Typography Weight Morphing
-* **Mechanic:** Typographic headlines morph font-weight from `300 (Light)` to `900 (Black)` based on cursor proximity.
+* **Mechanic:** Typographic headlines (`Space Grotesk`) morph font-weight from `300 (Light)` to `900 (Black)` based on cursor proximity.
 
 ### 9. Volumetric God Ray Spotlight Tracking
 * **Mechanic:** 3D directional spotlights in WebGL scenes (`@react-three/drei`) continuously focus and track cursor coordinates in 3D world space.

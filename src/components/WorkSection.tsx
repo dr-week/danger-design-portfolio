@@ -48,7 +48,7 @@ export default function WorkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative border border-zinc-800 bg-zinc-950 p-3 flex flex-col justify-between hover:border-amber-500/60 transition-all duration-300 cursor-pointer select-none"
+              className="group relative border border-zinc-800 bg-zinc-950 p-3 flex flex-col justify-between hover:border-amber-500/60 transition-all duration-300 cursor-pointer select-none [contain:layout_style_paint]"
               data-cursor-hover
             >
               {/* Sticker Tag */}
