@@ -1,53 +1,243 @@
 export interface PortfolioItem {
   id: string;
+  slug: string;
   category: string;
   tag: string;
   title: string;
   description: string;
-  image: string; // Resolves directly from /public
+  image: string; // Resolves directly from /public or fallback Unsplash
   aspectRatio: "aspect-square" | "aspect-[16/9]" | "aspect-[9/16]";
   techStack: string[];
+  specs?: {
+    camera: string;
+    lighting: string;
+    kinematics: string;
+  };
 }
 
 export const ANONYMIZED_WORK: PortfolioItem[] = [
   {
     id: "cgi-motion-01",
+    slug: "cgi-motion-01",
     category: "SYSTEM_01 // MOTION & CGI",
     tag: "3D_DYNAMIC_RENDER",
     title: "Spatial Motion & Visual Direction",
     description: "High-frequency CGI promotional assets and volumetric motion choreography.",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
     aspectRatio: "aspect-[16/9]",
-    techStack: ["Blender", "After Effects", "Unreal Engine"]
+    techStack: ["Blender", "After Effects", "Unreal Engine"],
+    specs: {
+      camera: "Low-angle tracking shot",
+      lighting: "Directional specular highlights",
+      kinematics: "Exponential ease-out",
+    },
   },
   {
     id: "spatial-arch-02",
+    slug: "spatial-arch-02",
     category: "SYSTEM_02 // SPATIAL CGI",
     tag: "ARCHITECTURAL_VISUALIZATION",
     title: "Coastal Spatial Architecture",
     description: "Photorealistic lighting simulations, drone integration, and 3D architectural renders.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     aspectRatio: "aspect-[9/16]",
-    techStack: ["3DS Max", "DaVinci Resolve", "CGI Pipeline"]
+    techStack: ["3DS Max", "DaVinci Resolve", "CGI Pipeline"],
+    specs: {
+      camera: "Wide-angle bottom-up",
+      lighting: "Volumetric god rays",
+      kinematics: "Linear Z-axis push",
+    },
   },
   {
     id: "brand-identity-03",
+    slug: "brand-identity-03",
     category: "SYSTEM_03 // BRAND SYSTEMS",
     tag: "VECTOR_GRAPHICS_IDENTITY",
     title: "E-Commerce & Craft Brand Systems",
     description: "Modular visual identity grids, packaging design, and digital storefront systems.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
     aspectRatio: "aspect-square",
-    techStack: ["Illustrator", "Figma", "Next.js"]
+    techStack: ["Illustrator", "Figma", "Next.js"],
+    specs: {
+      camera: "Flat orthographic grid",
+      lighting: "Studio softbox ambient",
+      kinematics: "Staggered grid snap",
+    },
   },
   {
     id: "saas-uiux-04",
+    slug: "saas-uiux-04",
     category: "SYSTEM_04 // UI/UX ENGINEERING",
     tag: "WEB3_SAAS_INTERFACE",
     title: "Fintech & SaaS Application Suites",
     description: "Zero-weight brutalist dashboard UI, component libraries, and spatial interactions.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     aspectRatio: "aspect-[16/9]",
-    techStack: ["React", "TypeScript", "Tailwind CSS"]
-  }
+    techStack: ["React", "TypeScript", "Tailwind CSS"],
+    specs: {
+      camera: "Orthographic 2D plane",
+      lighting: "Cool rim lighting (#4fc3f7)",
+      kinematics: "Critically damped spring",
+    },
+  },
+  {
+    id: "automotive-05",
+    slug: "automotive-05",
+    category: "SYSTEM_05 // AUTOMOTIVE KINEMATICS",
+    tag: "HIGH_VELOCITY_RENDER",
+    title: "Automotive Motion Dynamics",
+    description: "High-speed vehicular aerodynamics, metallic clear-coat reflections, and chassis tracking.",
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[16/9]",
+    techStack: ["Unreal Engine 5", "Octane", "Nuke"],
+    specs: {
+      camera: "Low-angle high-FOV tracking",
+      lighting: "Directional specular highlights",
+      kinematics: "Exponential ease-out",
+    },
+  },
+  {
+    id: "gastronomy-06",
+    slug: "gastronomy-06",
+    category: "SYSTEM_06 // GASTRONOMY & HOSPITALITY",
+    tag: "ORGANIC_MACRO_Persp",
+    title: "Artisanal Gastronomy & Resort CGI",
+    description: "Macro perspective footage, liquid dynamics, and warm ambient hospitality renders.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-square",
+    techStack: ["Houdini", "Redshift", "Photoshop"],
+    specs: {
+      camera: "Macro perspective extreme DoF",
+      lighting: "Warm ambient point lights (#ffb74d)",
+      kinematics: "Slow sine-wave drift",
+    },
+  },
+  {
+    id: "interface-dynamics-07",
+    slug: "interface-dynamics-07",
+    category: "SYSTEM_07 // INTERFACE DYNAMICS",
+    tag: "RIGID_SNAP_COMPONENTS",
+    title: "Interface Physics & Design Systems",
+    description: "High-stiffness spring mechanics, zero-latency micro-interactions, and component architecture.",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[16/9]",
+    techStack: ["TypeScript", "Framer Motion", "Tailwind"],
+    specs: {
+      camera: "Orthographic 2D plane",
+      lighting: "Cool rim lighting (#4fc3f7)",
+      kinematics: "Damped spring (stiffness: 400)",
+    },
+  },
+  {
+    id: "volumetric-arch-08",
+    slug: "volumetric-arch-08",
+    category: "SYSTEM_08 // VOLUMETRIC ARCHITECTURE",
+    tag: "SCALE_GEOMETRY_RENDER",
+    title: "Monolithic Spatial Structures",
+    description: "Volumetric light ray simulation, concrete texture mapping, and structural scale geometry.",
+    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[9/16]",
+    techStack: ["V-Ray", "Rhino 3D", "After Effects"],
+    specs: {
+      camera: "Wide-angle bottom-up scale",
+      lighting: "Volumetric god rays",
+      kinematics: "Continuous linear tracking",
+    },
+  },
+  {
+    id: "global-topography-09",
+    slug: "global-topography-09",
+    category: "SYSTEM_09 // GLOBAL TOPOGRAPHY",
+    tag: "DRONE_AERIAL_MAPPING",
+    title: "Aerial Topography & Terrain Engines",
+    description: "Top-down aerial drone mapping, photogrammetry elevation matrices, and daylight cycles.",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[16/9]",
+    techStack: ["CesiumJS", "WebGL", "Python GIS"],
+    specs: {
+      camera: "Aerial top-down drone node",
+      lighting: "Shifting daylight hemisphere",
+      kinematics: "Scroll velocity mapped scrub",
+    },
+  },
+  {
+    id: "theatrical-animatronics-10",
+    slug: "theatrical-animatronics-10",
+    category: "SYSTEM_10 // THEATRICAL ANIMATRONICS",
+    tag: "VOID_PUPPETRY_PHYSICS",
+    title: "Interactive Animatronic Mechanics",
+    description: "Pendulum string physics, intersecting void spotlights, and stage animatronic motion.",
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-square",
+    techStack: ["Three.js", "Cannon.js", "C++"],
+    specs: {
+      camera: "Static dead-center stage node",
+      lighting: "Intersecting volumetric spotlights",
+      kinematics: "Pendulum string physics",
+    },
+  },
+  {
+    id: "editorial-apparel-11",
+    slug: "editorial-apparel-11",
+    category: "SYSTEM_11 // EDITORIAL APPAREL",
+    tag: "STUDIO_STROBE_GRID",
+    title: "Editorial Apparel & Fashion Visuals",
+    description: "High-contrast strobe illumination, 85mm lens portraits, and fabric texture simulations.",
+    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[9/16]",
+    techStack: ["Capture One", "Blender Cloth", "Figma"],
+    specs: {
+      camera: "Studio portrait 85mm lens",
+      lighting: "High-contrast strobe intervals",
+      kinematics: "Staggered reveal snaps",
+    },
+  },
+  {
+    id: "episodic-cinematography-12",
+    slug: "episodic-cinematography-12",
+    category: "SYSTEM_12 // EPISODIC CINEMATOGRAPHY",
+    tag: "ANAMORPHIC_DOLLY_ZOOM",
+    title: "Cinematic Motion & Episodic Framing",
+    description: "Anamorphic lens distortion (2.35:1), vertigo dolly zooms, and split-complementary color grades.",
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[16/9]",
+    techStack: ["DaVinci Resolve Studio", "RED RAW", "AE"],
+    specs: {
+      camera: "Anamorphic 2.35:1 dolly zoom",
+      lighting: "Low-key teal/orange split",
+      kinematics: "Cubic-bezier(0.65, 0, 0.35, 1)",
+    },
+  },
+  {
+    id: "additive-manufacturing-13",
+    slug: "additive-manufacturing-13",
+    category: "SYSTEM_13 // ADDITIVE MANUFACTURING",
+    tag: "ISOMETRIC_UV_PRINT",
+    title: "3D Additive Print & Prototyping Systems",
+    description: "Layer-by-layer stepped reveals, isometric 45° perspectives, and UV grid emission lighting.",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-square",
+    techStack: ["Fusion 360", "Three.js", "Cura"],
+    specs: {
+      camera: "Isometric 45° angle",
+      lighting: "UV grid emission light",
+      kinematics: "Layer staircase stepped reveal",
+    },
+  },
+  {
+    id: "interactive-engine-14",
+    slug: "interactive-engine-14",
+    category: "SYSTEM_14 // INTERACTIVE ENGINE",
+    tag: "UNBOUND_RGB_COLLISION",
+    title: "Unbound Interactive Physics Engine",
+    description: "Real-time mass collision dynamics, chaotic RGB point lighting, and first-person camera nodes.",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    aspectRatio: "aspect-[16/9]",
+    techStack: ["WebGL 2.0", "Rapier Physics", "Rust"],
+    specs: {
+      camera: "First-person free-look node",
+      lighting: "Chaotic RGB collision light",
+      kinematics: "Unbound mass & gravity calculations",
+    },
+  },
 ];
