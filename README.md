@@ -2,6 +2,8 @@
 
 > High-frequency CGI visual direction, brutalist spatial architecture, and zero-latency WebGL interfaces. Built for high-tier clients and award-winning showcase performance.
 
+🌐 **LIVE SHOWCASE:** [https://dr-week.github.io/danger-design-portfolio/](https://dr-week.github.io/danger-design-portfolio/)
+
 ---
 
 ## ⚡ TECH STACK & FRAMEWORK ARCHITECTURE
