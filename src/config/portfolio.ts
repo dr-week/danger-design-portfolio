@@ -6,7 +6,7 @@ export interface PortfolioItem {
   title: string;
   description: string;
   image: string; // Resolves directly from /public or fallback Unsplash
-  aspectRatio: "aspect-square" | "aspect-[16/9]" | "aspect-[9/16]";
+  aspectRatio: "aspect-square"; // Enforce uniform brutalist 1:1 square ratio
   techStack: string[];
   gridSpan?: string; // CSS Grid Bento Box Spans
   specs?: {
@@ -25,7 +25,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Spatial Motion & Visual Direction",
     description: "High-frequency CGI promotional assets and volumetric motion choreography.",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-4",
     techStack: ["Blender", "After Effects", "Unreal Engine"],
     specs: {
@@ -42,7 +42,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Coastal Spatial Architecture",
     description: "Photorealistic lighting simulations, drone integration, and 3D architectural renders.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[9/16]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2 row-span-2",
     techStack: ["3DS Max", "DaVinci Resolve", "CGI Pipeline"],
     specs: {
@@ -76,7 +76,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Fintech & SaaS Application Suites",
     description: "Zero-weight brutalist dashboard UI, component libraries, and spatial interactions.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["React", "TypeScript", "Tailwind CSS"],
     specs: {
@@ -93,7 +93,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Automotive Motion Dynamics",
     description: "High-speed vehicular aerodynamics, metallic clear-coat reflections, and chassis tracking.",
     image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["Unreal Engine 5", "Octane", "Nuke"],
     specs: {
@@ -127,7 +127,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Interface Physics & Design Systems",
     description: "High-stiffness spring mechanics, zero-latency micro-interactions, and component architecture.",
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["TypeScript", "Framer Motion", "Tailwind"],
     specs: {
@@ -144,7 +144,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Monolithic Spatial Structures",
     description: "Volumetric light ray simulation, concrete texture mapping, and structural scale geometry.",
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[9/16]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-4",
     techStack: ["V-Ray", "Rhino 3D", "After Effects"],
     specs: {
@@ -161,7 +161,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Aerial Topography & Terrain Engines",
     description: "Top-down aerial drone mapping, photogrammetry elevation matrices, and daylight cycles.",
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["CesiumJS", "WebGL", "Python GIS"],
     specs: {
@@ -195,7 +195,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Editorial Apparel & Fashion Visuals",
     description: "High-contrast strobe illumination, 85mm lens portraits, and fabric texture simulations.",
     image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[9/16]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["Capture One", "Blender Cloth", "Figma"],
     specs: {
@@ -212,7 +212,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Cinematic Motion & Episodic Framing",
     description: "Anamorphic lens distortion (2.35:1), vertigo dolly zooms, and split-complementary color grades.",
     image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-4",
     techStack: ["DaVinci Resolve Studio", "RED RAW", "AE"],
     specs: {
@@ -246,7 +246,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     title: "Unbound Interactive Physics Engine",
     description: "Real-time mass collision dynamics, chaotic RGB point lighting, and first-person camera nodes.",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-    aspectRatio: "aspect-[16/9]",
+    aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["WebGL 2.0", "Rapier Physics", "Rust"],
     specs: {

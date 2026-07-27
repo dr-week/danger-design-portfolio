@@ -1,18 +1,22 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS (OPTIMIZED SPRINT SCHEDULE)
-- [ ] **MILESTONE 1: PACKAGE SUITE & KINETIC SKEW WING (IMMEDIATE):**
+- [ ] **UNIFORM SQUARE MEDIA & ENVIRONMENTAL FILTERING:**
+  - Enforce `aspect-square` across all Bento cards in `WorkSection.tsx` and `HorizontalScrollSection.tsx`.
+  - Apply section-specific CSS filter presets (`sepia(30%)`, `contrast(130%)`, `hue-rotate(180deg)`).
+- [ ] **MILESTONE 1: PACKAGE SUITE & KINETIC SKEW WING:**
   - Install `lucide-react`, `clsx`, `tailwind-merge`, `canvas-confetti`, `@types/canvas-confetti`, `three-stdlib`.
   - Create `src/utils/cn.ts` class merge helper.
   - Build `KineticSkewWrapper.tsx` for velocity-based `skewY` inertia transforms.
   - Upgrade `CursorFollower.tsx` with 60px magnetic attraction snapping.
   - Wire `canvas-confetti` trigger to `ContactForm.tsx`.
-- [ ] **MILESTONE 2: PRODUCTION SERVERLESS DISPATCH & FORM INTEGRATION:**
+- [ ] **MILESTONE 2: PRODUCTION SERVERLESS DISPATCH:**
   - Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
-- [ ] **MILESTONE 3: PRODUCTION BUILD & OPTIMIZATION AUDIT:**
+- [ ] **MILESTONE 3: PRODUCTION BUILD AUDIT:**
   - Run `npx tsc --noEmit` and `npm run build` Turbopack audit.
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **UNIFORM 1:1 SQUARE ASPECT RATIO:** Set `aspectRatio: "aspect-square"` across all 14 domain sectors in `src/config/portfolio.ts`.
 - [x] **5-ACT CINEMATIC NARRATIVE STORY ARC:** Reframed entire portfolio text content into a 5-Act Narrative Arc ("The Director's Journey") across Hero, Bento Grid, Automotive, Architecture, Rain Code, and Lens Reveal sections.
 - [x] **DYNAMIC ASCII ART & VIDEO MATRIX BACKGROUND ENGINE (Dragonfly.xyz Pattern):** Built `src/components/ui/AsciiMatrixBackground.tsx` rendering dynamic HTML5 Canvas ASCII text streams (`. : * = + # @`). Mapped character density and wave distortion to mouse coordinates and scroll velocity. Mounted into `Hero3D.tsx` with `[ ASCII: ON/OFF ]` HUD toggle.
 - [x] **FREE ASSET & ANIMATION SYNC PIPELINE (`scripts/sync-assets.js`):** Built automated asset sync pipeline verifying `public/animations/` and `public/textures/`. Added `"sync-assets": "node scripts/sync-assets.js"` to `package.json`.
