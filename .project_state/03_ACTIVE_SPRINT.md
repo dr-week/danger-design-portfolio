@@ -1,6 +1,17 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
+- [ ] **PHASE 1: THE BENTO BOX DOM ARCHITECTURE (`WorkSection.tsx`):**
+  - Refactor uniform grid into dense 6-column Bento Box grid (`grid-cols-1 md:grid-cols-4 lg:grid-cols-6`).
+  - Assign dynamic variable spans (`col-span-2`, `col-span-4`, `row-span-2`).
+  - Pack graphics tightly with floating CDN tech badges (`Simple Icons`) and absolute brutalist UI stickers.
+- [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
+  - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
+  - Tie Z-axis position of foreground elements directly to scroll velocity.
+  - Inject deep cosmic point-cloud starfield background at Z = -100.
+- [ ] **PHASE 3: WEATHER ENGINE (Thunderstorm & Rain):**
+  - Optimize GPU particle rain system.
+  - Custom stochastic `<pointLight>` lightning flashes with momentary harsh shadow casting.
 - [ ] **Production Resend API Integration:** Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
 - [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
 
