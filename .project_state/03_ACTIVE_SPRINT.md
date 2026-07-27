@@ -1,6 +1,11 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
+- [ ] **RECOMMENDED NPM PACKAGES & EXTENSIONS INSTALLATION:**
+  - Install `lucide-react`, `clsx`, `tailwind-merge`, `canvas-confetti`, `@types/canvas-confetti`, `three-stdlib`.
+  - Create `src/utils/cn.ts` class merge helper.
+  - Wire `canvas-confetti` trigger into `ContactForm.tsx`.
+  - Replace raw text icons with `lucide-react` brutalist icons across `Navbar.tsx` and `Hero3D.tsx`.
 - [ ] **10 MASTER AWARD-WINNING CREATIVE TECHNIQUES:**
   - **Technique 1: Velocity Kinetic Skew (`KineticSkewWrapper.tsx`):** Dynamic `skewY` transformations proportional to scroll velocity.
   - **Technique 2: Magnetic Attraction Cursor (`CursorFollower.tsx`):** Magnetic snapping coordinates to nearby interactive buttons within 60px radius.
