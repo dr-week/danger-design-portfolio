@@ -1,8 +1,30 @@
-# 01_ARCHITECTURE // DOMAIN TAXONOMY & KINEMATIC SPECIFICATIONS
+# 01_ARCHITECTURE // DOMAIN TAXONOMY & REFERENCE INSPIRATION ARCHITECTURE
 
-Master reference guide for WebGL camera angles, lighting models, and Framer Motion kinematics across all 14 domain sectors.
+Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, and reference inspiration architecture.
 
 ---
+
+## 🎨 SIGNATURE REFERENCE INSPIRATION ARCHITECTURE
+
+### 1. The Brush / Texture Reveal (Inspired by Monogrid)
+* **Effect:** Organic brush stroke / ink-bleed texture masks and reveals underlying graphics on scroll.
+* **Engineering:** WebGL custom fragment shader or HTML5 canvas alpha mask (`globalCompositeOperation`). Scroll velocity drives expansion radius of brush coordinates to erode dark overlay color.
+
+### 2. Frame Scaling on Scroll (Inspired by Artem Artem)
+* **Effect:** Media frame starts nested/compact (`scale: 0.75, borderRadius: 24px`) and physically expands to full-bleed (`scale: 1.0, borderRadius: 0px`) on scroll.
+* **Engineering:** Powered by Framer Motion `useScroll` and `useTransform` (`scrollYProgress` mapped from `[0, 0.5]` to `scale: [0.75, 1]`).
+
+### 3. Vertical-to-Horizontal Scroll Shift (Inspired by Normal is Boring)
+* **Effect:** Vertical scrolling transitions into a pinned horizontal carousel before resuming vertical flow.
+* **Engineering:** Locked `h-[300vh]` parent container with sticky `h-screen overflow-hidden` child. Inner track translates along X-axis (`x: [0, -2000]`) mapped to vertical `scrollYProgress`.
+
+### 4. Dynamic Interactive Backgrounds (Inspired by Dragonfly)
+* **Effect:** Fluid, responsive background field or ASCII dot-matrix reacting in real time to mouse coordinates and scroll velocity.
+* **Engineering:** Full-screen R3F background plane running GLSL simplex noise shader (`u_time, u_mouse, u_scrollVelocity`). High scroll velocity spikes distortion frequency; idle state settles into organic waves.
+
+---
+
+## 📐 14-DOMAIN TAXONOMY & KINEMATIC SPECIFICATIONS
 
 ### SYSTEM_01 // MOTION & CGI
 * **Camera:** Low-angle tracking shot.

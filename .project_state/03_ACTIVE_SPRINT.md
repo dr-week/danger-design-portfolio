@@ -5,9 +5,14 @@
   - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
   - Tie Z-axis position of foreground elements directly to scroll velocity.
   - Inject deep cosmic point-cloud starfield background at Z = -100.
-- [ ] **PHASE 3: WEATHER ENGINE (Thunderstorm & Rain):**
+  - Prototype **GLSL Simplex Noise Background Shader (Dragonfly Pattern)**.
+- [ ] **PHASE 3: WEATHER ENGINE & REVEAL SHADERS:**
   - Optimize GPU particle rain system.
   - Custom stochastic `<pointLight>` lightning flashes with momentary harsh shadow casting.
+  - Prototype **Brush / Texture Scroll Reveal Mask Shader (Monogrid Pattern)**.
+- [ ] **SIGNATURE DOM MOTION PATTERNS:**
+  - Build **Scroll Frame Scaling Component (Artem Artem Pattern)** with `useScroll` `scale: [0.75, 1.0]`.
+  - Build **Vertical-to-Horizontal Scroll Pinned Carousel (Normal is Boring Pattern)** with `h-[300vh]` parent container.
 - [ ] **Production Resend API Integration:** Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
 - [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
 
