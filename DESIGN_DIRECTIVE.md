@@ -10,6 +10,8 @@
 * **Physics Over Time:** Abandon standard `ease-in-out` transitions. All motion must be calculated by mass, tension, and friction.
 * **The Standard Spring:** Snappy, tactile, critically damped. Fast start, heavy deceleration, zero bouncy overshoot.
     * `type: "spring", mass: 1.2, stiffness: 350, damping: 40`
+* **Tactile Cursor Kinematics (`CursorFollower.tsx`):** Dual-ring spring follower tracking mouse coordinates (`stiffness: 450, damping: 28, mass: 0.5`) expanding over `data-cursor-hover` targets into warning amber (`#F59E0B`).
+* **Web Audio SFX Feedback (`src/utils/audio.ts`):** Synthesized 1200Hz high-frequency tactile clicks on button hovers/clicks and 120Hz sub-bass hums on reel/room switches with `[ SFX: ON / OFF ]` HUD toggle.
 * **Spatial Depth (Z-Axis):** Scrolling is not moving down a page; it is moving a camera through a 3D environment. Foreground objects move faster and skew based on scroll velocity. Backgrounds drag heavily behind.
 
 ## 3. THE DIRECTOR'S LENS (NARRATIVE THINKING)
