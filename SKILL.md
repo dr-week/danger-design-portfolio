@@ -8,6 +8,13 @@ description: Guidelines and component pattern standards for building high-impact
 ## Overview
 This skill provides workflow patterns, architectural guidelines, aesthetic rules, and process management instructions for building modern, high-impact brutalist web applications and portfolios.
 
+## Required Software & CLI Dependencies
+- **Node.js (v18.0+)**: JavaScript/TypeScript runtime for Next.js 15 & Turbopack.
+- **`yt-dlp`**: Download video streams directly via CLI (`winget install yt-dlp` or `pip install yt-dlp`).
+- **`ffmpeg`**: Transcode WebGL video textures with `-movflags +faststart` for zero-CORS Three.js streaming (`winget install ffmpeg`).
+- **`git`**: Version control for syncing `.project_state/` memory core to GitHub.
+- **NPM Package Suite**: `lucide-react`, `clsx`, `tailwind-merge`, `canvas-confetti`, `three-stdlib`.
+
 ## Dev Server & Process Management
 - **DO NOT** run `npm run dev` or `next dev` automatically during task execution.
 - A single dev server runs persistently in the user's background terminal.
@@ -25,14 +32,17 @@ This skill provides workflow patterns, architectural guidelines, aesthetic rules
    - **Adaptive 1920x1080 Phone Frame** (`Hero3D.tsx`): Scaled interactive phone canvas with physical scroll/swipe buttons (`▲ / ▼`) and script HUD overlay text.
    - **Tactile Custom Cursor Tracker** (`CursorFollower.tsx`): Spring-tracking dual-ring follower expanding on `data-cursor-hover` targets (`stiffness: 450, damping: 28`).
    - **Synthesized Web Audio SFX Engine** (`src/utils/audio.ts`): Synthesized 1200Hz clicks & 120Hz sub-bass hums with `[ SFX: ON/OFF ]` HUD toggle in `Navbar.tsx`.
-4. **Domain-First Portfolio Taxonomy** (`src/config/portfolio.ts`):
-   - All brand/client names are stripped for pure technical discipline focus across 14 complete domain systems (`SYSTEM_01` through `SYSTEM_14`).
-5. **Dynamic Case Study Routes** (`src/app/work/[slug]/page.tsx`):
-   - Deep-dive case studies rendering camera, lighting, and kinematic specs alongside interactive blueprint vs render sliders.
-6. **Zero-CORS WebGL Video Pipeline** (`scripts/sync-videos.js`):
-   - Downloads YouTube Shorts via `yt-dlp` and compresses via `ffmpeg` with `-movflags +faststart` to `public/videos/reel_X.mp4` for instant WebGL `THREE.VideoTexture` streaming.
+   - **Dynamic ASCII Art & Video Matrix Background Engine** (`AsciiMatrixBackground.tsx`): HTML5 Canvas ASCII text streams (`. : * = + # @`) reacting to mouse ripples and scroll velocity.
+4. **Uniform 1:1 Square Aspect Ratio & Section Filter Presets**:
+   - All portfolio media cards enforce a clean 1:1 brutalist square ratio (`aspect-square`).
+   - Environmental filter presets applied per section (`grayscale`, `sepia`, `hue-rotate`, `invert`).
+5. **5-Act Cinematic Narrative Story Arc**:
+   - Portfolio structured as a 5-act narrative story arc (Transmission $\to$ Archive Matrix $\to$ Kinetic Crucible $\to$ Dev Engine Room $\to$ Spatial Lens).
+6. **Zero-CORS WebGL Video & Asset Pipeline** (`scripts/sync-videos.js` & `scripts/sync-assets.js`):
+   - Downloads YouTube Shorts via `yt-dlp` and compresses via `ffmpeg` into `public/videos/reel_X.mp4`.
+   - Verifies free animations and textures in `public/animations/` and `public/textures/`.
 7. **5-Room WebGL Spatial Void** (`/lab`):
-   - Spatial R3F timeline using `@react-three/drei` `<ScrollControls pages={5}>` driving camera from $Z = 5$ to $Z = -85$ across 5 separated rooms.
+   - Spatial R3F timeline using `@react-three/drei` `<ScrollControls pages={5}>` driving camera from $Z = 5$ to $Z = -85$ across 5 separated rooms with Shader Studio Preset Switcher (`[ THUNDERSTORM ]`, `[ CYBERPUNK ]`, `[ MONOCHROME ]`).
 
 ## CSS Viewport Architecture Standards
 - **Global Bounds** (`src/app/layout.tsx`): `<body>` must have `w-full overflow-x-hidden min-h-screen bg-black text-white antialiased`.
@@ -51,17 +61,19 @@ src/
 │   ├── page.tsx            # Main portfolio layout assembly
 │   └── work/[slug]/        # Dynamic case study detail pages
 ├── config/
-│   └── portfolio.ts        # 14-Domain anonymized portfolio data taxonomy
+│   └── portfolio.ts        # 14-Domain anonymized portfolio data taxonomy (1:1 square ratio)
 ├── utils/
-│   └── audio.ts            # Zero-dependency Web Audio API SFX engine
+│   ├── audio.ts            # Zero-dependency Web Audio API SFX engine
+│   └── cn.ts               # Tailwind class merge utility
 ├── components/
 │   ├── ContactForm.tsx     # 4-state budget selector contact form
 │   ├── ProcessSection.tsx  # Raw blueprint vs final 3D polish comparison
-│   ├── WorkSection.tsx     # High-density brutalist graphic grid with system breakdown modal
-│   ├── sections/           # Large page sections (Hero3D, DevRange, ContactSection)
-│   └── ui/                 # Reusable micro-components (Navbar, CursorFollower, BrandLogos, WeatherCanvas)
+│   ├── WorkSection.tsx     # Compact 4-column Bento grid with system breakdown modal
+│   ├── sections/           # Large page sections (Hero3D, AutomotiveSection, ArchitectureSection, DevRange, ContactSection)
+│   └── ui/                 # Reusable micro-components (Navbar, CursorFollower, AsciiMatrixBackground, FrameScaleScroll, HorizontalScrollSection)
 └── scripts/
-    └── sync-videos.js      # yt-dlp + ffmpeg raw stream download & WebGL faststart compression
+    ├── sync-videos.js      # yt-dlp + ffmpeg raw stream download & WebGL faststart compression
+    └── sync-assets.js      # Free animations & asset directory verification
 ```
 
 ## Quality Control Checklist
