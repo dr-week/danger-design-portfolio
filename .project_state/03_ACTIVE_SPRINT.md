@@ -1,6 +1,9 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
+- [ ] **FREE ASSET & ANIMATION SYNC PIPELINE (`scripts/sync-assets.js`):**
+  - Build automated asset fetcher downloading free Lottie JSON animations, royalty-free HD video loops (Mixkit/Pexels), and 3D textures into `public/animations/` and `public/textures/`.
+  - Wire free Lottie animations into `WorkSection.tsx` modal and `Hero3D.tsx` phone HUD overlay.
 - [ ] **DYNAMIC ASCII ART & VIDEO MATRIX BACKGROUND ENGINE (Dragonfly.xyz Pattern):**
   - Build `src/components/ui/AsciiMatrixBackground.tsx` rendering dynamic ASCII video text streams (`. : * = + # @`).
   - Map character density, wave distortion frequency, and brightness thresholds to mouse coordinates and scroll velocity.
