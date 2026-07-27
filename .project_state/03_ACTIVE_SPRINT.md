@@ -10,13 +10,14 @@
   - Optimize GPU particle rain system.
   - Custom stochastic `<pointLight>` lightning flashes with momentary harsh shadow casting.
   - Prototype **Brush / Texture Scroll Reveal Mask Shader (Monogrid Pattern)**.
-- [ ] **SIGNATURE DOM MOTION PATTERNS:**
-  - Build **Scroll Frame Scaling Component (Artem Artem Pattern)** with `useScroll` `scale: [0.75, 1.0]`.
-  - Build **Vertical-to-Horizontal Scroll Pinned Carousel (Normal is Boring Pattern)** with `h-[300vh]` parent container.
 - [ ] **Production Resend API Integration:** Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
 - [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **PHASE 1.5: SIGNATURE DOM SCROLL KINEMATICS:**
+  - Built **Scroll Frame Scaling Component (`FrameScaleScroll.tsx`)** (Artem Artem Pattern) with `scale: [0.78, 1.0]` and `borderRadius: ["36px", "0px"]`.
+  - Built **Pinned Vertical-to-Horizontal Scroll Carousel (`HorizontalScrollSection.tsx`)** (Normal is Boring Pattern) translating domain systems along X-axis (`x: ["0%", "-75%"]`) mapped to vertical scroll progress.
+  - Mounted both signature components into `src/app/page.tsx`.
 - [x] **PHASE 1: THE BENTO BOX DOM ARCHITECTURE (`WorkSection.tsx`):** Refactored uniform layout into a dense 6-column Bento Box grid (`grid-cols-1 md:grid-cols-4 lg:grid-cols-6`) with variable column/row spans, Simple Icons tech badges, absolute brutalist UI stickers, and interactive modal breakdown drawers.
 - [x] **WebGL Kinematics Mapping:** Mapped Three.js lighting, camera FOVs, and multi-tint spotlights to `/lab` 3D rooms as defined in `01_ARCHITECTURE.md`.
 - [x] **WebGL Shader Studio Preset Switcher:** Added interactive preset dropdown (`[ THUNDERSTORM ]`, `[ CYBERPUNK ]`, `[ MONOCHROME ]`) in `/lab` with sub-bass audio hum triggers.

@@ -6,6 +6,8 @@ import Hero3D from "@/components/sections/Hero3D";
 import TornDivider from "@/components/ui/TornDivider";
 import MarkerHighlight from "@/components/ui/MarkerHighlight";
 import BrandLogos from "@/components/ui/BrandLogos";
+import FrameScaleScroll from "@/components/ui/FrameScaleScroll";
+import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
 
 export default function Home() {
   return (
@@ -24,6 +26,12 @@ export default function Home() {
       </section>
 
       <WorkSection />
+      
+      {/* Signature Kinematic Interactions (Phase 1.5) */}
+      <TornDivider />
+      <FrameScaleScroll />
+      <HorizontalScrollSection />
+
       <TornDivider />
       <DevRange />
       <TornDivider />
@@ -31,4 +39,3 @@ export default function Home() {
     </main>
   );
 }
-
