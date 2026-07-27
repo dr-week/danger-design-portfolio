@@ -1,6 +1,10 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
+- [ ] **DYNAMIC ASCII ART & VIDEO MATRIX BACKGROUND ENGINE (Dragonfly.xyz Pattern):**
+  - Build `src/components/ui/AsciiMatrixBackground.tsx` rendering dynamic ASCII video text streams (`. : * = + # @`).
+  - Map character density, wave distortion frequency, and brightness thresholds to mouse coordinates and scroll velocity.
+  - Mount ASCII Matrix Background as ambient layer in `/lab` and background of Hero/Bento sections.
 - [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
   - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
   - Tie Z-axis position of foreground elements directly to scroll velocity.
