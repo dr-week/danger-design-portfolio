@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sync-videos": "node scripts/sync-videos.js"
+    "sync-videos": "node scripts/sync-videos.js",
+    "sync-assets": "node scripts/sync-assets.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

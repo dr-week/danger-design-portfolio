@@ -6,6 +6,7 @@ import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
 import WeatherCanvas from "@/components/ui/WeatherCanvas";
+import AsciiMatrixBackground from "@/components/ui/AsciiMatrixBackground";
 
 // Extended Video Reel Stack from @DishantNaik YouTube Channel
 const REELS = [
@@ -83,6 +84,7 @@ export default function Hero3D() {
   const [reelIndex, setReelIndex] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
+  const [showAscii, setShowAscii] = useState(true);
 
   // Auto-rotate headline text every 5 seconds
   useEffect(() => {
@@ -119,6 +121,7 @@ export default function Hero3D() {
   return (
     <section className="relative w-full min-h-[100svh] bg-black overflow-hidden flex items-center px-6 md:px-12 lg:px-20 py-16">
       <WeatherCanvas mode="night" />
+      {showAscii && <AsciiMatrixBackground color="#f59e0b" opacity={0.2} />}
       
       {/* LAYER 1: Deep Background Texture (Speed ratio kv = 0.1) */}
       <ParallaxLayer speed={0.1} className="absolute inset-0 z-0 opacity-15 pointer-events-none">
@@ -150,8 +153,14 @@ export default function Hero3D() {
               className="space-y-4"
             >
               <OrbitalBadge>
-                <div className="inline-block border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400">
-                  {currentCopy.tag}
+                <div className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400">
+                  <span>{currentCopy.tag}</span>
+                  <button 
+                    onClick={() => setShowAscii(!showAscii)}
+                    className="text-[9px] underline text-zinc-400 hover:text-amber-400 ml-2"
+                  >
+                    [ ASCII: {showAscii ? "ON" : "OFF"} ]
+                  </button>
                 </div>
               </OrbitalBadge>
 
@@ -212,7 +221,7 @@ export default function Hero3D() {
               {/* Phone Speaker Notch */}
               <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-4 bg-zinc-900 rounded-full z-30 border border-zinc-800 pointer-events-none" />
 
-              {/* TACTILE PHYSICAL SCROLL / SWIPE BUTTONS (HUMAN INSTINCT CONTROLS) */}
+              {/* TACTILE PHYSICAL SCROLL / SWIPE BUTTONS */}
               <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
                 <button
                   onClick={handlePrevReel}
@@ -230,7 +239,7 @@ export default function Hero3D() {
                 </button>
               </div>
 
-              {/* CRITICAL FIX: Touch & Drag Overlay */}
+              {/* Touch & Drag Overlay */}
               <div 
                 className="absolute inset-0 z-20 rounded-[44px] touch-none"
                 onTouchStart={(e) => {
@@ -261,7 +270,7 @@ export default function Hero3D() {
                 </div>
 
                 {!useFallback ? (
-                  /* YouTube Embed with youtube-nocookie.com & autoplay parameters */
+                  /* YouTube Embed */
                   REELS.map((item, i) => (
                     <iframe
                       key={item.id}

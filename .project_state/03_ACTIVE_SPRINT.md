@@ -1,13 +1,6 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
-- [ ] **FREE ASSET & ANIMATION SYNC PIPELINE (`scripts/sync-assets.js`):**
-  - Build automated asset fetcher downloading free Lottie JSON animations, royalty-free HD video loops (Mixkit/Pexels), and 3D textures into `public/animations/` and `public/textures/`.
-  - Wire free Lottie animations into `WorkSection.tsx` modal and `Hero3D.tsx` phone HUD overlay.
-- [ ] **DYNAMIC ASCII ART & VIDEO MATRIX BACKGROUND ENGINE (Dragonfly.xyz Pattern):**
-  - Build `src/components/ui/AsciiMatrixBackground.tsx` rendering dynamic ASCII video text streams (`. : * = + # @`).
-  - Map character density, wave distortion frequency, and brightness thresholds to mouse coordinates and scroll velocity.
-  - Mount ASCII Matrix Background as ambient layer in `/lab` and background of Hero/Bento sections.
 - [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
   - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
   - Tie Z-axis position of foreground elements directly to scroll velocity.
@@ -17,6 +10,8 @@
 - [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **DYNAMIC ASCII ART & VIDEO MATRIX BACKGROUND ENGINE (Dragonfly.xyz Pattern):** Built `src/components/ui/AsciiMatrixBackground.tsx` rendering dynamic HTML5 Canvas ASCII text streams (`. : * = + # @`). Mapped character density and wave distortion to mouse coordinates and scroll velocity. Mounted into `Hero3D.tsx` with `[ ASCII: ON/OFF ]` HUD toggle.
+- [x] **FREE ASSET & ANIMATION SYNC PIPELINE (`scripts/sync-assets.js`):** Built automated asset sync pipeline verifying `public/animations/` and `public/textures/`. Added `"sync-assets": "node scripts/sync-assets.js"` to `package.json`.
 - [x] **MULTI-ENVIRONMENT DISCOVERY SCROLL SEQUENCE:**
   - **Compact Bento Grid (`WorkSection.tsx`):** Slimmed down header padding (`py-10`) and cards into a compact 4-column Bento grid.
   - **Environment 01: Automotive Kinematics (`AutomotiveSection.tsx`):** Built metallic dark track atmosphere with low-angle specular spotlights, motion trail overlay animations, and frame scaling.
