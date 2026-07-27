@@ -294,7 +294,7 @@ function Room5DataVoid() {
 
 export default function LabPage() {
   return (
-    <main className="relative w-screen h-screen bg-black overflow-hidden select-none">
+    <main className="relative w-full h-[100svh] bg-black overflow-hidden select-none">
       {/* Top Overlay Bar */}
       <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-30 pointer-events-auto">
         <div className="flex items-center gap-3">

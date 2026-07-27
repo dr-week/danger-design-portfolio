@@ -117,7 +117,7 @@ export default function Hero3D() {
   const currentReel = REELS[reelIndex];
 
   return (
-    <section className="relative w-full min-h-[95vh] bg-black overflow-hidden flex items-center px-6 md:px-12 lg:px-20 py-16">
+    <section className="relative w-full min-h-[100svh] bg-black overflow-hidden flex items-center px-6 md:px-12 lg:px-20 py-16">
       <WeatherCanvas mode="night" />
       
       {/* LAYER 1: Deep Background Texture (Speed ratio kv = 0.1) */}

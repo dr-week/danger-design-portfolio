@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${caveat.variable} font-sans bg-black text-white antialiased`}
+        className={`${spaceGrotesk.variable} ${caveat.variable} font-sans bg-black text-white antialiased w-full overflow-x-hidden min-h-screen`}
         suppressHydrationWarning
       >
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
