@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ScrollControls, useScroll, Html, Text, Float, Cloud, Clouds } from "@react-three/drei";
 import { EffectComposer, ChromaticAberration, Noise, Vignette } from "@react-three/postprocessing";
@@ -33,36 +33,81 @@ function CameraRig() {
   return null;
 }
 
-// 2. Room 1: Retro CRT Nostalgia Bay (Z = 0)
+// 2. WebGL 3D Video Texture Phone Component
+export function WebGLVideoPhone({ reelIndex = 0 }: { reelIndex?: number }) {
+  const [videoTexture, setVideoTexture] = useState<THREE.VideoTexture | null>(null);
+
+  useEffect(() => {
+    const video = document.createElement("video");
+    const localSrc = `/videos/reel_${reelIndex}.mp4`;
+    const fallbackSrc = "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4";
+
+    video.src = localSrc;
+    video.playsInline = true;
+    video.muted = true;
+    video.loop = true;
+    video.crossOrigin = "anonymous";
+
+    video.onerror = () => {
+      if (video.src !== fallbackSrc) {
+        video.src = fallbackSrc;
+        video.play().catch(() => {});
+      }
+    };
+
+    video.play().catch((err) => console.log("Video autoplay status:", err));
+
+    const texture = new THREE.VideoTexture(video);
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.format = THREE.RGBAFormat;
+
+    setVideoTexture(texture);
+
+    return () => {
+      video.pause();
+      video.remove();
+      texture.dispose();
+    };
+  }, [reelIndex]);
+
+  if (!videoTexture) return null;
+
+  return (
+    <mesh position={[0, 0, 0.82]}>
+      <planeGeometry args={[2.6, 4.4]} />
+      <meshBasicMaterial map={videoTexture} />
+    </mesh>
+  );
+}
+
+// 3. Room 1: Retro CRT Nostalgia Bay & WebGL Video Phone (Z = 0)
 function Room1Retro() {
   return (
     <group position={[0, 0, 0]}>
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
-        {/* CRT TV Body */}
+        {/* Phone / CRT Screen Chassis */}
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[3.4, 2.6, 1.6]} />
+          <boxGeometry args={[3.0, 4.8, 1.6]} />
           <meshStandardMaterial color="#18181b" roughness={0.3} metalness={0.8} />
         </mesh>
 
-        {/* Screen Display */}
-        <mesh position={[0, 0, 0.81]}>
-          <planeGeometry args={[3.0, 2.2]} />
-          <meshBasicMaterial color="#020617" />
-        </mesh>
+        {/* Dynamic WebGL Video Texture Screen */}
+        <WebGLVideoPhone reelIndex={0} />
       </Float>
 
       {/* 3D Floating Annotation */}
-      <Html position={[-2.4, 1.6, 0]} transform distanceFactor={6}>
+      <Html position={[-2.4, 1.8, 0]} transform distanceFactor={6}>
         <div className="bg-black/90 border border-amber-500/50 p-3 font-mono text-xs text-amber-400 max-w-xs shadow-2xl backdrop-blur-md select-none">
           <p className="font-caveat text-xl text-zinc-200">// ROOM_01: CRT_NOSTALGIA_BAY</p>
-          <p className="text-[10px] text-zinc-400 mt-1">Strict Z-depth separation at Z = 0. Raw footage stream bay.</p>
+          <p className="text-[10px] text-zinc-400 mt-1">Zero CORS WebGL VideoTexture streaming directly from /public/videos/reel_0.mp4</p>
         </div>
       </Html>
     </group>
   );
 }
 
-// 3. Room 2: Brutalist Thunderstorm & Cloud Particles (Z = -20)
+// 4. Room 2: Brutalist Thunderstorm & Cloud Particles (Z = -20)
 function Room2Thunderstorm() {
   const pointsRef = useRef<THREE.Points>(null);
   const lightningRef = useRef<THREE.PointLight>(null);
@@ -139,7 +184,7 @@ function Room2Thunderstorm() {
   );
 }
 
-// 4. Room 3: Data Void & Fragmented Code Wireframe (Z = -40)
+// 5. Room 3: Data Void & Fragmented Code Wireframe (Z = -40)
 function Room3DataVoid() {
   const wireRef = useRef<THREE.Mesh>(null);
 
