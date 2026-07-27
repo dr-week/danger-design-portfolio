@@ -43,13 +43,13 @@ export default function AutomotiveSection() {
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 bg-black/90 backdrop-blur-md px-3 py-1 border border-amber-500/40 font-mono text-xs text-amber-400 uppercase tracking-widest">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-              // ENVIRONMENT_01 // AUTOMOTIVE_KINEMATICS
+              ACT_III // STAGE_A // AUTOMOTIVE_KINEMATICS
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight">
-              High-Velocity Motion & Specular Highlights
+              High-Velocity Motion & Specular Drag
             </h2>
             <p className="font-mono text-xs md:text-sm text-zinc-300 max-w-2xl leading-relaxed">
-              Low-angle tracking shot, high FOV camera nodes, and metallic clear-coat reflections engineered for vehicle launches.
+              Low-angle tracking cameras, exponential ease-out entries, and metallic specular highlights engineered for high-speed reveals.
             </p>
           </div>
 

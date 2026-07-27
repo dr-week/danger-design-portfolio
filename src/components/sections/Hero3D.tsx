@@ -63,19 +63,19 @@ const REELS = [
 
 const ROTATING_HEADLINES = [
   {
-    tag: "// UI_UX_&_MOTION",
-    title: "I design interfaces and direct spatial motion.",
-    sub: "Blending high-end CGI visuals with production React & Next.js code."
+    tag: "ACT_I // THE TRANSMISSION",
+    title: "I direct spatial motion and design zero-latency interfaces.",
+    sub: "Blending high-frequency CGI visual direction with production WebGL & React code."
   },
   {
-    tag: "// CREATIVE_ENGINEERING",
-    title: "I write the code to make complex ideas work.",
-    sub: "From zero-weight architecture to serverless API routes."
+    tag: "ACT_I // CREATIVE KINEMATICS",
+    title: "Every pixel is driven by mass, tension, and friction.",
+    sub: "From critically-damped spring physics to real-time GLSL shader passes."
   },
   {
-    tag: "// DIGITAL_ARSENAL",
-    title: "Craft over fluff. Process over template.",
-    sub: "Human imperfections layered over a rigid brutalist grid."
+    tag: "ACT_I // THE BRUTALIST GRID",
+    title: "Craft over fluff. Structural discipline over templates.",
+    sub: "Human imperfections mapped to a rigid digital engineering matrix."
   }
 ];
 

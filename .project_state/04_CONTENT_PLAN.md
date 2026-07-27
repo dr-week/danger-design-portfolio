@@ -1,71 +1,59 @@
-# 04_CONTENT_PLAN // NARRATIVE ARCHITECTURE & DOMAIN TAXONOMY
+# 04_CONTENT_PLAN // THE DIRECTOR'S JOURNEY: NARRATIVE STORY ARC
 
-Master content architecture plan for all portfolio copy, section headlines, domain sector descriptions, and case study breakdowns.
-
----
-
-## 1. BRAND & IDENTITY POSITIONING
-
-* **Tagline:** `DANGER DESIGN // CREATIVE ENGINEERING & SPATIAL DIRECTORY`
-* **Core Value Prop:** "High-impact visual direction, 3D CGI choreography, and production Next.js / WebGL engineering."
-* **Voice & Tone:** Clinical, engineering-focused, brutalist, zero agency fluff, domain-first.
+Master content architecture plan framing the portfolio as a **5-Act Cinematic Narrative Story Arc** where each scroll section pushes the user deeper into the creative engineering continuum.
 
 ---
 
-## 2. SECTION CONTENT SPECIFICATIONS
+## 🎬 THE 5-ACT NARRATIVE STORY ARC
 
-### Hero 3D Section (`Hero3D.tsx`)
-* **Rotating Headlines:**
-  1. `// UI_UX_&_MOTION`: "I design interfaces and direct spatial motion. Blending high-end CGI visuals with production React & Next.js code."
-  2. `// CREATIVE_ENGINEERING`: "I write the code to make complex ideas work. From zero-weight architecture to serverless API routes."
-  3. `// DIGITAL_ARSENAL`: "Craft over fluff. Process over template. Human imperfections layered over a rigid brutalist grid."
-
-### Compact Archive Matrix (`WorkSection.tsx`)
-* **Headline:** `SELECTED_WORKS`
-* **Sub-Badge:** `// ARCHIVAL_OUTPUT // COMPACT_MATRIX`
-* **Description:** "[ DOMAIN DISCIPLINE ARCHIVE. CLICK CARDS FOR SPECIFICATIONS. ]"
-
-### Environment 01: Automotive Kinematics (`AutomotiveSection.tsx`)
-* **Headline:** `High-Velocity Motion & Specular Highlights`
-* **Sub-Badge:** `// ENVIRONMENT_01 // AUTOMOTIVE_KINEMATICS`
-* **Description:** "Low-angle tracking shot, high FOV camera nodes, and metallic clear-coat reflections engineered for vehicle launches."
-
-### Environment 02: Spatial Architecture (`ArchitectureSection.tsx`)
-* **Headline:** `Monolithic Structures & Volumetric Sun Ray Simulation`
-* **Sub-Badge:** `// ENVIRONMENT_02 // SPATIAL_ARCHITECTURE & BLUEPRINTS`
-* **Description:** "Wide-angle bottom-up perspective, drone photogrammetry, and spatial lighting matrices."
-
-### Environment 03: Gloomy Dev Engine Room (`DevRange.tsx`)
-* **Headline:** `Dev Range & Systems Code`
-* **Sub-Badge:** `// ENVIRONMENT_03 // GLOOMY_ENGINE_ROOM & RAIN`
-* **Description:** "Stormy rain atmosphere, stochastic lightning flashes, and open-source GitHub repositories."
-
-### Environment 04: Pinned Horizontal Parallax (`HorizontalScrollSection.tsx`)
-* **Headline:** `Horizontal Axis Track & Reveal Lens`
-* **Sub-Badge:** `// ENVIRONMENT_04 // HORIZONTAL_PARALLAX (CURSOR_LENS_REVEAL)`
-
-### Contact Section (`ContactSection.tsx`)
-* **Headline:** `INITIATE_PROJECT_COMMUNICATION`
-* **Sub-Badge:** `// DIRECT_COMMUNICATION // SERVERLESS_RESEND_API`
-* **Description:** "Select budget tier and dispatch project brief directly to dishant.inbox@gmail.com."
+```
+[ ACT I: THE TRANSMISSION ]   --> Signal broadcast, initial vision & creative orientation.
+[ ACT II: THE ARCHIVE MATRIX ] --> Unlocking anonymized records across 14 technical domains.
+[ ACT III: THE KINETIC CRUCIBLE] --> High-velocity automotive motion & monolithic spatial sunbeams.
+[ ACT IV: THE ENGINE ROOM ]    --> Pitch-black rain storm, stochastic lightning & raw Rust/Systems code.
+[ ACT V: THE SPATIAL LENS ]    --> Interactive horizontal parallax lens discovery & direct communication.
+```
 
 ---
 
-## 3. DOMAIN TAXONOMY CODES (`SYSTEM_01` to `SYSTEM_14`)
+## 📖 ACT-BY-ACT NARRATIVE COPY SPECIFICATIONS
 
-| Domain Code | Title | Category |
-| :--- | :--- | :--- |
-| `SYSTEM_01` | Spatial Motion & Visual Direction | Motion & CGI |
-| `SYSTEM_02` | Coastal Spatial Architecture | Spatial CGI |
-| `SYSTEM_03` | E-Commerce & Craft Brand Systems | Brand Systems |
-| `SYSTEM_04` | Fintech & SaaS Application Suites | UI/UX Engineering |
-| `SYSTEM_05` | Automotive Motion Dynamics | Automotive Kinematics |
-| `SYSTEM_06` | Artisanal Gastronomy & Resort CGI | Gastronomy & Hospitality |
-| `SYSTEM_07` | Interface Physics & Design Systems | Interface Dynamics |
-| `SYSTEM_08` | Monolithic Spatial Structures | Volumetric Architecture |
-| `SYSTEM_09` | Aerial Topography & Terrain Engines | Global Topography |
-| `SYSTEM_10` | Interactive Animatronic Mechanics | Theatrical Animatronics |
-| `SYSTEM_11` | Editorial Apparel & Fashion Visuals | Editorial Apparel |
-| `SYSTEM_12` | Cinematic Motion & Episodic Framing | Episodic Cinematography |
-| `SYSTEM_13` | 3D Additive Print & Prototyping Systems | Additive Manufacturing |
-| `SYSTEM_14` | Unbound Interactive Physics Engine | Interactive Engine |
+### ACT I: THE TRANSMISSION (`Hero3D.tsx`)
+* **Theme:** The Initial Signal Broadcast.
+* **Tagline:** `DANGER DESIGN // NARRATIVE ARCHITECTURE & KINETIC ENGINE`
+* **Headline Story Arc:**
+  1. `ACT_I // THE TRANSMISSION`: "I direct spatial motion and design zero-latency interfaces. Blending high-frequency CGI visuals with production WebGL code."
+  2. `ACT_I // CREATIVE KINEMATICS`: "Every pixel is driven by physics. From mass-spring friction to real-time GLSL shader passes."
+  3. `ACT_I // THE BRUTALIST GRID`: "Craft over fluff. Structural discipline over templates. Human imperfections mapped to a rigid digital matrix."
+
+### ACT II: THE ARCHIVE MATRIX (`WorkSection.tsx`)
+* **Theme:** Unlocking Anonymized Master Files.
+* **Headline:** `THE_ARCHIVE_MATRIX`
+* **Sub-Badge:** `ACT_II // DOMAIN_DISCIPLINE_RECORDS`
+* **Narrative Intro:** "Enter the vault. Client brand identities are stripped to isolate raw craft, camera kinematics, and structural engineering across 14 anonymized domain sectors."
+
+### ACT III: THE KINETIC CRUCIBLE (`AutomotiveSection.tsx` & `ArchitectureSection.tsx`)
+* **Theme:** Pushing Physical Boundaries.
+* **Stage A (Automotive Kinematics):**
+  - **Headline:** `High-Velocity Motion & Specular Drag`
+  - **Sub-Badge:** `ACT_III // STAGE_A // AUTOMOTIVE_KINEMATICS`
+  - **Narrative Copy:** "Low-angle tracking cameras, exponential ease-out entries, and metallic specular highlights engineered for high-velocity reveals."
+* **Stage B (Spatial Architecture & Blueprints):**
+  - **Headline:** `Monolithic Volumes & Volumetric Sunbeams`
+  - **Sub-Badge:** `ACT_III // STAGE_B // SPATIAL_ARCHITECTURE`
+  - **Narrative Copy:** "Drone photogrammetry, wireframe blueprint overlays, and intersecting volumetric God Rays illuminating coastal monoliths."
+
+### ACT IV: THE ENGINE ROOM (`DevRange.tsx`)
+* **Theme:** Raw Code Under Stormy Conditions.
+* **Headline:** `The Dev Engine Room & Systems Code`
+* **Sub-Badge:** `ACT_IV // GLOOMY_ENGINE_ROOM // STOCHASTIC_RAIN`
+* **Narrative Copy:** "The sky turns dark. Heavy rain falls over raw terminal outputs. Under stochastic lightning flashes, high-performance Rust orchestrators, computer vision tools, and complex state machines are forged."
+
+### ACT V: THE SPATIAL LENS (`HorizontalScrollSection.tsx` & `ContactSection.tsx`)
+* **Theme:** Interactive Lens Discovery & Communication.
+* **Stage A (Horizontal Reveal Track):**
+  - **Headline:** `Horizontal Parallax & Reveal Lens`
+  - **Sub-Badge:** `ACT_V // STAGE_A // REVEAL_LENS_TRACK`
+* **Stage B (Direct Project Dispatch):**
+  - **Headline:** `INITIATE_PROJECT_COMMUNICATION`
+  - **Sub-Badge:** `ACT_V // STAGE_B // SERVERLESS_DISPATCH`

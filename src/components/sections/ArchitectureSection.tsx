@@ -42,7 +42,7 @@ export default function ArchitectureSection() {
         <div className="relative z-20 flex justify-between items-center">
           <div className="inline-flex items-center gap-2 bg-black/90 px-3 py-1 border border-sky-500/50 font-mono text-xs text-sky-400 uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-            // ENVIRONMENT_02 // SPATIAL_ARCHITECTURE & BLUEPRINTS
+            ACT_III // STAGE_B // SPATIAL_ARCHITECTURE
           </div>
           <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest border border-zinc-800 px-3 py-1">
             [ GOD_RAYS: ACTIVE ]

@@ -52,7 +52,7 @@ export default function HorizontalScrollSection() {
         <div className="absolute top-8 left-8 z-30 pointer-events-none flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
           <span className="font-mono text-xs text-amber-400 bg-black/90 px-3 py-1 border border-zinc-800 uppercase tracking-widest font-bold">
-            // ENVIRONMENT_04 // HORIZONTAL_PARALLAX (CURSOR_LENS_REVEAL)
+            ACT_V // STAGE_A // HORIZONTAL_PARALLAX_REVEAL_LENS
           </span>
         </div>
 

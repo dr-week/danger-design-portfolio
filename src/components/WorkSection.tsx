@@ -27,14 +27,14 @@ export default function WorkSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
           <div>
             <span className="font-mono text-[10px] text-amber-400 tracking-widest uppercase">
-              // ARCHIVAL_OUTPUT // COMPACT_MATRIX
+              ACT_II // DOMAIN_DISCIPLINE_RECORDS
             </span>
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mt-0.5">
-              SELECTED_WORKS
+              THE_ARCHIVE_MATRIX
             </h2>
           </div>
-          <p className="font-mono text-[11px] text-zinc-500 max-w-sm mt-2 md:mt-0">
-            [ DOMAIN DISCIPLINE ARCHIVE. CLICK CARDS FOR SPECIFICATIONS. ]
+          <p className="font-mono text-[11px] text-zinc-500 max-w-md mt-2 md:mt-0">
+            [ ENTER THE VAULT. BRAND IDENTITIES ARE STRIPPED TO ISOLATE RAW CRAFT & KINEMATICS ACROSS 14 DOMAINS. ]
           </p>
         </div>
 
