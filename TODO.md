@@ -1,31 +1,37 @@
 # DANGER DESIGN - ARCHITECTURE STATE
 
-## 🔴 ACTIVE BUGS / PENDING TASKS
-- [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
-  - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
-  - Tie Z-axis position of foreground elements directly to scroll velocity.
-  - Inject deep cosmic point-cloud starfield background at Z = -100.
-  - Prototype **GLSL Simplex Noise Background Shader (Dragonfly Pattern)**.
-- [ ] **PHASE 3: WEATHER ENGINE & REVEAL SHADERS:**
-  - Optimize GPU particle rain system.
-  - Custom stochastic `<pointLight>` lightning flashes with momentary harsh shadow casting.
-  - Prototype **Brush / Texture Scroll Reveal Mask Shader (Monogrid Pattern)**.
-- [ ] **SIGNATURE DOM MOTION PATTERNS:**
-  - Build **Scroll Frame Scaling Component (Artem Artem Pattern)** with `useScroll` `scale: [0.75, 1.0]`.
-  - Build **Vertical-to-Horizontal Scroll Pinned Carousel (Normal is Boring Pattern)** with `h-[300vh]` parent container.
-- [ ] **Production Resend API Integration:** Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
-- [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
+## 🔴 ACTIVE BUGS / PENDING TASKS (OPTIMIZED SPRINT SCHEDULE)
+- [ ] **UNIFORM SQUARE MEDIA & ENVIRONMENTAL FILTERING:**
+  - Enforce `aspect-square` across all Bento cards in `WorkSection.tsx` and `HorizontalScrollSection.tsx`.
+  - Apply section-specific CSS filter presets (`sepia(30%)`, `contrast(130%)`, `hue-rotate(180deg)`).
+- [ ] **MILESTONE 1: PACKAGE SUITE & KINETIC SKEW WING:**
+  - Install `lucide-react`, `clsx`, `tailwind-merge`, `canvas-confetti`, `@types/canvas-confetti`, `three-stdlib`.
+  - Create `src/utils/cn.ts` class merge helper.
+  - Build `KineticSkewWrapper.tsx` for velocity-based `skewY` inertia transforms.
+  - Upgrade `CursorFollower.tsx` with 60px magnetic attraction snapping.
+  - Wire `canvas-confetti` trigger to `ContactForm.tsx`.
+- [ ] **MILESTONE 2: PRODUCTION SERVERLESS DISPATCH:**
+  - Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
+- [ ] **MILESTONE 3: PRODUCTION BUILD AUDIT:**
+  - Run `npx tsc --noEmit` and `npm run build` Turbopack audit.
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
-- [x] **PHASE 1: THE BENTO BOX DOM ARCHITECTURE (`WorkSection.tsx`):** Refactored uniform layout into a dense 6-column Bento Box grid (`grid-cols-1 md:grid-cols-4 lg:grid-cols-6`) with variable column/row spans, Simple Icons tech badges, absolute brutalist UI stickers, and interactive modal breakdown drawers.
+- [x] **ALL MD DOCUMENTATION SYNCHRONIZATION:** Updated `SKILL.md`, `ARCHITECTURE_PLAN.md`, `DESIGN_DIRECTIVE.md`, `CONTENT_PLAN.md`, `TODO.md`, and all `.project_state/` files.
+- [x] **UNIFORM 1:1 SQUARE ASPECT RATIO:** Set `aspectRatio: "aspect-square"` across all 14 domain sectors in `src/config/portfolio.ts`.
+- [x] **5-ACT CINEMATIC NARRATIVE STORY ARC:** Reframed entire portfolio text content into a 5-Act Narrative Arc ("The Director's Journey") across Hero, Bento Grid, Automotive, Architecture, Rain Code, and Lens Reveal sections.
+- [x] **DYNAMIC ASCII ART & VIDEO MATRIX BACKGROUND ENGINE (Dragonfly.xyz Pattern):** Built `src/components/ui/AsciiMatrixBackground.tsx` rendering dynamic HTML5 Canvas ASCII text streams (`. : * = + # @`). Mapped character density and wave distortion to mouse coordinates and scroll velocity. Mounted into `Hero3D.tsx` with `[ ASCII: ON/OFF ]` HUD toggle.
+- [x] **FREE ASSET & ANIMATION SYNC PIPELINE (`scripts/sync-assets.js`):** Built automated asset sync pipeline verifying `public/animations/` and `public/textures/`. Added `"sync-assets": "node scripts/sync-assets.js"` to `package.json`.
+- [x] **MULTI-ENVIRONMENT DISCOVERY SCROLL SEQUENCE:** Compact Bento grid, Automotive section, Architecture section, Gloomy Rain storm section, and Horizontal Lens Reveal track.
+- [x] **PHASE 1.5: SIGNATURE DOM SCROLL KINEMATICS:** Built Artem Artem frame scaling and Normal is Boring horizontal scroll shift.
+- [x] **PHASE 1: THE BENTO BOX DOM ARCHITECTURE (`WorkSection.tsx`):** Refactored uniform layout into a dense 6-column Bento Box grid with variable column/row spans.
 - [x] **WebGL Kinematics Mapping:** Mapped Three.js lighting, camera FOVs, and multi-tint spotlights to `/lab` 3D rooms as defined in `01_ARCHITECTURE.md`.
-- [x] **WebGL Shader Studio Preset Switcher:** Added interactive preset dropdown (`[ THUNDERSTORM ]`, `[ CYBERPUNK ]`, `[ MONOCHROME ]`) in `/lab` with sub-bass audio hum triggers.
+- [x] **WebGL Shader Studio Preset Switcher:** Added interactive preset dropdown (`[ THUNDERSTORM ]`, `[ CYBERPUNK ]`, `[ MONOCHROME ]`) in `/lab`.
 - [x] **Viewport Sizing Audit:** Applied `100svh`, `overflow-x-hidden`, and `w-full` across `layout.tsx`, `Hero3D.tsx`, `WorkSection.tsx`, `DevRange.tsx`, and `/lab`.
-- [x] **14-Domain Taxonomy Integration:** Expanded `src/config/portfolio.ts` with all 14 anonymous sectors (`SYSTEM_01` to `SYSTEM_14`) with technical specifications.
-- [x] **Tactile Custom Cursor Tracker:** Built `src/components/ui/CursorFollower.tsx` with spring-tracking dual-ring follower expanding on `data-cursor-hover` targets.
-- [x] **Tactile Web Audio Engine:** Built `src/utils/audio.ts` for synthesized 1200Hz clicks & 120Hz sub-bass hums with `[ SFX: ON/OFF ]` HUD toggle in `Navbar.tsx`.
-- [x] **Dynamic MDX Case Study Routes:** Built `src/app/work/[slug]/page.tsx` rendering dynamic case studies with blueprint vs render sliders & tech stack badges.
-- [x] **WebGL Video Pipeline:** Created `scripts/sync-videos.js` using `yt-dlp` and `ffmpeg` with `-movflags +faststart` for zero-CORS WebGL video streaming.
-- [x] **Adaptive 1920x1080 Phone Frame:** Scaled `Hero3D.tsx` phone canvas with physical scroll/swipe buttons (`▲ / ▼`) and script HUD text.
-- [x] **5-Room WebGL Spatial Void:** Built 5 separated 3D rooms along Z-axis ($Z = 0$ to $Z = -80$) in `/lab` with volumetric clouds & stochastic lightning.
+- [x] **14-Domain Taxonomy Integration:** Expanded `src/config/portfolio.ts` with all 14 anonymous sectors (`SYSTEM_01` to `SYSTEM_14`).
+- [x] **Tactile Custom Cursor Tracker:** Built `src/components/ui/CursorFollower.tsx` with spring-tracking dual-ring follower.
+- [x] **Tactile Web Audio Engine:** Built `src/utils/audio.ts` for synthesized 1200Hz clicks & 120Hz sub-bass hums.
+- [x] **Dynamic MDX Case Study Routes:** Built `src/app/work/[slug]/page.tsx` rendering dynamic case studies with blueprint vs render sliders.
+- [x] **WebGL Video Pipeline:** Created `scripts/sync-videos.js` using `yt-dlp` and `ffmpeg`.
+- [x] **Adaptive 1920x1080 Phone Frame:** Scaled `Hero3D.tsx` phone canvas with physical scroll/swipe buttons (`▲ / ▼`).
+- [x] **5-Room WebGL Spatial Void:** Built 5 separated 3D rooms along Z-axis ($Z = 0$ to $Z = -80$) in `/lab`.
 - [x] **Hydration Warning Safety:** Added `suppressHydrationWarning` to `<html>` and `<body>` tags in `layout.tsx`.

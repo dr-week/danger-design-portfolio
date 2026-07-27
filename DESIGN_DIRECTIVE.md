@@ -3,25 +3,40 @@
 ## 1. CORE PHILOSOPHY & AESTHETIC FEEL
 * **Engineering Over Decoration:** Every visual element must serve a structural or informational purpose. Zero superficial graphics.
 * **The Brutalist Grid:** High-contrast, unpolished but mathematically precise. Exposed borders (`border-zinc-800`), visible wireframes, and raw data outputs. 
-* **Anti-Gimmick Copy:** No agency buzzwords. No fluff. Use clinical, domain-first terminology (e.g., "Spatial Architecture" instead of "Beautiful Houses").
-* **Color Palette:** Absolute black (`#000000`), stark white (`#FFFFFF`), with pure warning amber (`#F59E0B`) or terminal green for active states.
+* **Anti-Gimmick Copy:** No agency buzzwords. Clinical domain-first terminology (`SYSTEM_01` to `SYSTEM_14`).
+* **Color Palette:** Absolute black (`#000000`), stark white (`#FFFFFF`), with pure warning amber (`#F59E0B`) or terminal green (`#22C55E`) for active states.
 
-## 2. HUMAN KINEMATICS & MOTION PROCESS
-* **Physics Over Time:** Abandon standard `ease-in-out` transitions. All motion must be calculated by mass, tension, and friction.
-* **The Standard Spring:** Snappy, tactile, critically damped. Fast start, heavy deceleration, zero bouncy overshoot.
-    * `type: "spring", mass: 1.2, stiffness: 350, damping: 40`
-* **Tactile Cursor Kinematics (`CursorFollower.tsx`):** Dual-ring spring follower tracking mouse coordinates (`stiffness: 450, damping: 28, mass: 0.5`) expanding over `data-cursor-hover` targets into warning amber (`#F59E0B`).
-* **Web Audio SFX Feedback (`src/utils/audio.ts`):** Synthesized 1200Hz high-frequency tactile clicks on button hovers/clicks and 120Hz sub-bass hums on reel/room switches with `[ SFX: ON / OFF ]` HUD toggle.
-* **Spatial Depth (Z-Axis):** Scrolling is not moving down a page; it is moving a camera through a 3D environment. Foreground objects move faster and skew based on scroll velocity. Backgrounds drag heavily behind.
+## 2. UNIFORM SQUARE MEDIA & ENVIRONMENTAL FILTERS
+* **Uniform Square Aspect Ratio:** All portfolio media cards enforce a clean 1:1 brutalist square aspect ratio (`aspect-square`).
+* **Section Filter Ramping:**
+  - **Hero Section (`Hero3D.tsx`):** `filter: contrast(125%) grayscale(100%)`
+  - **Archive Matrix (`WorkSection.tsx`):** `filter: contrast(120%) sepia(30%) hue-rotate(330deg)`
+  - **Automotive Section (`AutomotiveSection.tsx`):** `filter: contrast(130%) brightness(90%) saturate(110%)`
+  - **Architecture Section (`ArchitectureSection.tsx`):** `filter: contrast(120%) hue-rotate(180deg) brightness(95%)`
+  - **Dev Range Section (`DevRange.tsx`):** `filter: contrast(135%) brightness(85%) saturate(80%)`
+  - **Horizontal Parallax (`HorizontalScrollSection.tsx`):** `backdrop-filter: invert(100%) hue-rotate(90deg)`
 
-## 3. THE DIRECTOR'S LENS (NARRATIVE THINKING)
-* **Cinematic Framing:** Treat WebGL scenes and media grids like a camera operator. Use simulated focal lengths (85mm for portraits, macro for details, wide-angle for architecture).
-* **Volumetric Lighting:** Do not use flat ambient light in 3D scenes. Use harsh directional spotlights, volumetric god rays, and high-contrast shadows to build atmosphere.
-* **Focus & Blur:** Guide the user's eye using intense Depth of Field (DoF). When a modal opens or the camera pushes in, the background must blur heavily.
-* **Imperfection:** Inject subtle human touch into the digital grid—subtle camera breathing (sine-wave camera shake), film grain, chromatic aberration, and handwritten UI annotations over sterile code blocks.
+## 3. HUMAN KINEMATICS & MOTION PROCESS
+* **Physics Over Time:** Mass, tension, and friction over standard `ease-in-out`.
+* **The Standard Spring:** Snappy, tactile, critically damped (`type: "spring", mass: 1.2, stiffness: 350, damping: 40`).
+* **Tactile Cursor Kinematics (`CursorFollower.tsx`):** Dual-ring spring follower (`stiffness: 450, damping: 28, mass: 0.5`) expanding on `data-cursor-hover` targets into amber (`#F59E0B`).
+* **Web Audio SFX Engine (`src/utils/audio.ts`):** Synthesized 1200Hz tactile clicks & 120Hz sub-bass hums with `[ SFX: ON / OFF ]` HUD toggle.
+* **Spatial Depth (Z-Axis):** Camera moves through 3D environment ($Z = 0$ to $Z = -85$). Foreground moves faster and skews on scroll velocity. Background drags behind.
 
-## 4. COMPONENT LIFECYCLE RULES
-1. **Raw State:** Display the unstyled data or wireframe first.
-2. **Kinematic Entry:** Snap the component into its final position using the Standard Spring.
-3. **Active State:** Engage hover physics (magnetic cursors, velocity skew, grayscale to color transition).
+## 4. SIGNATURE SPATIAL INTERACTION PATTERNS
+* **Brush / Texture Canvas Reveal (Monogrid Pattern):** Organic ink/brush texture eroding mask on scroll velocity spikes.
+* **Frame Scaling on Scroll (Artem Artem Pattern):** `useScroll` scale progression from nested `scale: 0.75` to full-bleed `scale: 1.0`.
+* **Vertical-to-Horizontal Scroll Shift (Normal is Boring Pattern):** Pinned `h-[300vh]` section translating X-axis progress (`x: [0, -2000]`).
+* **Dynamic Interactive Background (Dragonfly Pattern):** GLSL simplex noise background field reacting to mouse coordinates and scroll velocity.
+
+## 5. THE DIRECTOR'S LENS (NARRATIVE THINKING)
+* **Cinematic Framing:** Simulated focal lengths (85mm, macro, wide-angle, orthographic).
+* **Volumetric Lighting:** Directional spotlights, volumetric god rays, high-contrast shadows.
+* **Focus & Blur:** Intense Depth of Field (DoF) and background blur (`backdrop-blur-md`).
+* **Imperfection:** Sine-wave camera breathing, film grain, chromatic aberration, and handwritten `Caveat` annotations over sterile code.
+
+## 6. COMPONENT LIFECYCLE RULES
+1. **Raw State:** Display unstyled data/wireframe.
+2. **Kinematic Entry:** Snap component with Standard Spring.
+3. **Active State:** Engage hover physics (magnetic cursors, velocity skew, grayscale-to-color transition).
 4. **Exit State:** Instant removal or reverse kinematic pull.
