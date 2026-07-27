@@ -7,20 +7,20 @@ import { EffectComposer, ChromaticAberration, Noise, Vignette } from "@react-thr
 import * as THREE from "three";
 import Link from "next/link";
 
-// 1. Camera Rig driving Z-axis travel from Z = 5 down to Z = -45
+// 1. Camera Rig driving Z-axis travel from Z = 5 down to Z = -85 across 5 spatial rooms
 function CameraRig() {
   const scroll = useScroll();
 
   useFrame((state) => {
     const progress = scroll.offset; // 0.0 to 1.0
     
-    // Smooth Z-axis travel from 5 to -45 across separated rooms
-    const targetZ = 5 - progress * 50;
+    // Smooth Z-axis travel from 5 to -85 across 5 separated rooms
+    const targetZ = 5 - progress * 90;
     
     // Handheld camera sine breathing effect
     const time = state.clock.getElapsedTime();
-    const breathX = Math.sin(time * 1.5) * 0.15;
-    const breathY = Math.cos(time * 1.2) * 0.15;
+    const breathX = Math.sin(time * 1.5) * 0.18;
+    const breathY = Math.cos(time * 1.2) * 0.18;
 
     state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, breathX, 0.05);
     state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, breathY, 0.05);
@@ -33,7 +33,7 @@ function CameraRig() {
   return null;
 }
 
-// 2. WebGL 3D Video Texture Phone Component
+// WebGL 3D Video Texture Component
 export function WebGLVideoPhone({ reelIndex = 0 }: { reelIndex?: number }) {
   const [videoTexture, setVideoTexture] = useState<THREE.VideoTexture | null>(null);
 
@@ -81,23 +81,21 @@ export function WebGLVideoPhone({ reelIndex = 0 }: { reelIndex?: number }) {
   );
 }
 
-// 3. Room 1: Retro CRT Nostalgia Bay & WebGL Video Phone (Z = 0)
+// Room 1: Retro CRT Nostalgia Bay (Z = 0)
 function Room1Retro() {
   return (
     <group position={[0, 0, 0]}>
+      <spotLight position={[3, 5, 5]} angle={0.5} penumbra={1} intensity={12} color="#fbbf24" />
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
-        {/* Phone / CRT Screen Chassis */}
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[3.0, 4.8, 1.6]} />
           <meshStandardMaterial color="#18181b" roughness={0.3} metalness={0.8} />
         </mesh>
 
-        {/* Dynamic WebGL Video Texture Screen */}
         <WebGLVideoPhone reelIndex={0} />
       </Float>
 
-      {/* 3D Floating Annotation */}
-      <Html position={[-2.4, 1.8, 0]} transform distanceFactor={6}>
+      <Html position={[-2.6, 1.8, 0]} transform distanceFactor={6}>
         <div className="bg-black/90 border border-amber-500/50 p-3 font-mono text-xs text-amber-400 max-w-xs shadow-2xl backdrop-blur-md select-none">
           <p className="font-caveat text-xl text-zinc-200">// ROOM_01: CRT_NOSTALGIA_BAY</p>
           <p className="text-[10px] text-zinc-400 mt-1">Zero CORS WebGL VideoTexture streaming directly from /public/videos/reel_0.mp4</p>
@@ -107,12 +105,11 @@ function Room1Retro() {
   );
 }
 
-// 4. Room 2: Brutalist Thunderstorm & Cloud Particles (Z = -20)
+// Room 2: Brutalist Thunderstorm & Cloud Particles (Z = -20)
 function Room2Thunderstorm() {
   const pointsRef = useRef<THREE.Points>(null);
   const lightningRef = useRef<THREE.PointLight>(null);
 
-  // Generate 800 WebGL Rain Particles
   const [positions] = useMemo(() => {
     const pos = new Float32Array(800 * 3);
     for (let i = 0; i < 800; i++) {
@@ -124,7 +121,6 @@ function Room2Thunderstorm() {
   }, []);
 
   useFrame(() => {
-    // 50% Reduced rain fall speed for atmospheric realism
     if (pointsRef.current) {
       const array = pointsRef.current.geometry.attributes.position.array as Float32Array;
       for (let i = 1; i < array.length; i += 3) {
@@ -134,10 +130,9 @@ function Room2Thunderstorm() {
       pointsRef.current.geometry.attributes.position.needsUpdate = true;
     }
 
-    // Stochastic Lightning Flashes
     if (lightningRef.current) {
       if (Math.random() > 0.98) {
-        lightningRef.current.intensity = 60;
+        lightningRef.current.intensity = 70;
       } else {
         lightningRef.current.intensity = THREE.MathUtils.lerp(lightningRef.current.intensity, 0, 0.1);
       }
@@ -146,19 +141,15 @@ function Room2Thunderstorm() {
 
   return (
     <group position={[0, 0, -20]}>
-      {/* Stochastic Lightning Light Engine */}
       <pointLight ref={lightningRef} position={[0, 8, -20]} color="#60a5fa" distance={35} decay={2} />
 
-      {/* Volumetric Clouds */}
       <Clouds material={THREE.MeshBasicMaterial}>
         <Cloud seed={1} bounds={[10, 5, 10]} volume={6} color="#27272a" position={[0, 4, -20]} />
         <Cloud seed={2} bounds={[12, 6, 12]} volume={8} color="#18181b" position={[0, -4, -20]} />
       </Clouds>
 
-      {/* Harsh Spotlight on Sculpture */}
-      <spotLight position={[5, 10, -15]} angle={0.4} penumbra={1} intensity={20} color="#fbbf24" castShadow />
+      <spotLight position={[5, 10, -15]} angle={0.4} penumbra={1} intensity={25} color="#fbbf24" castShadow />
 
-      {/* Wireframe TorusKnot Sculpture */}
       <Float speed={1.5} rotationIntensity={1} floatIntensity={0.5}>
         <mesh position={[0, 0, 0]}>
           <torusKnotGeometry args={[1.5, 0.4, 128, 32]} />
@@ -166,7 +157,6 @@ function Room2Thunderstorm() {
         </mesh>
       </Float>
 
-      {/* Particle Rain Storm */}
       <points ref={pointsRef}>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
@@ -184,8 +174,74 @@ function Room2Thunderstorm() {
   );
 }
 
-// 5. Room 3: Data Void & Fragmented Code Wireframe (Z = -40)
-function Room3DataVoid() {
+// Room 3: Spatial Architecture & Villa Drone Gallery (Z = -40)
+function Room3Architecture() {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.4;
+    }
+  });
+
+  return (
+    <group position={[0, 0, -40]}>
+      <spotLight position={[-6, 8, -35]} angle={0.5} penumbra={0.8} intensity={30} color="#38bdf8" />
+      <spotLight position={[6, -6, -35]} angle={0.5} penumbra={0.8} intensity={20} color="#f59e0b" />
+
+      <Float speed={2} rotationIntensity={0.6}>
+        <mesh ref={meshRef} position={[0, 0, 0]}>
+          <boxGeometry args={[4.5, 2.8, 0.2]} />
+          <meshStandardMaterial color="#0f172a" roughness={0.2} metalness={0.9} />
+        </mesh>
+      </Float>
+
+      <Html position={[-3, 2, 0]} transform distanceFactor={6}>
+        <div className="bg-black/90 border border-sky-500/50 p-3 font-mono text-xs text-sky-400 max-w-xs shadow-2xl backdrop-blur-md select-none">
+          <p className="font-caveat text-xl text-zinc-200">// ROOM_03: SPATIAL_ARCHITECTURE</p>
+          <p className="text-[10px] text-zinc-400 mt-1">Dolphin Heights & South Goa Villa drone visual render gallery at Z = -40.</p>
+        </div>
+      </Html>
+    </group>
+  );
+}
+
+// Room 4: Cyberpunk Neon Grid (Z = -60)
+function Room4CyberpunkGrid() {
+  const gridRef = useRef<THREE.GridHelper>(null);
+
+  useFrame((state) => {
+    if (gridRef.current) {
+      gridRef.current.rotation.z = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.1;
+    }
+  });
+
+  return (
+    <group position={[0, 0, -60]}>
+      <pointLight position={[0, 5, -60]} color="#a855f7" intensity={25} distance={30} />
+      <pointLight position={[0, -5, -60]} color="#ec4899" intensity={20} distance={30} />
+
+      <gridHelper ref={gridRef} args={[40, 40, "#a855f7", "#ec4899"]} position={[0, -3, 0]} rotation={[Math.PI / 6, 0, 0]} />
+
+      <Float speed={2.5} rotationIntensity={1}>
+        <mesh position={[0, 1, 0]}>
+          <icosahedronGeometry args={[2.0, 1]} />
+          <meshStandardMaterial color="#a855f7" wireframe roughness={0.1} metalness={1.0} />
+        </mesh>
+      </Float>
+
+      <Html position={[2.6, 2, 0]} transform distanceFactor={6}>
+        <div className="bg-black/90 border border-purple-500/50 p-3 font-mono text-xs text-purple-400 max-w-xs shadow-2xl backdrop-blur-md select-none">
+          <p className="font-caveat text-xl text-zinc-200">// ROOM_04: CYBERPUNK_NEON_GRID</p>
+          <p className="text-[10px] text-zinc-400 mt-1">Dual-tint neon spotlighting and interactive wireframe matrix at Z = -60.</p>
+        </div>
+      </Html>
+    </group>
+  );
+}
+
+// Room 5: Spatial Data Void (Z = -80)
+function Room5DataVoid() {
   const wireRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
@@ -196,35 +252,33 @@ function Room3DataVoid() {
   });
 
   return (
-    <group position={[0, 0, -40]}>
-      {/* Glowing Blue Core Light */}
-      <pointLight position={[0, 0, 0]} color="#38bdf8" intensity={15} distance={20} />
+    <group position={[0, 0, -80]}>
+      <pointLight position={[0, 0, 0]} color="#38bdf8" intensity={25} distance={30} />
 
-      {/* Spinning Code Wireframe Core */}
       <mesh ref={wireRef} position={[0, 1, 0]}>
-        <octahedronGeometry args={[2, 2]} />
+        <octahedronGeometry args={[2.5, 2]} />
         <meshBasicMaterial color="#38bdf8" wireframe />
       </mesh>
 
       <Float speed={3} rotationIntensity={0.8}>
         <Text
-          fontSize={1.2}
+          fontSize={1.4}
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
-          position={[0, -1.5, 0]}
+          position={[0, -1.8, 0]}
         >
           DANGER // DATA_VOID
         </Text>
       </Float>
 
-      <Html position={[0, -3.2, 0]} transform distanceFactor={6}>
+      <Html position={[0, -3.8, 0]} transform distanceFactor={6}>
         <div className="bg-zinc-950 border-2 border-sky-500/80 p-5 text-center max-w-md shadow-2xl select-none">
           <p className="font-mono text-xs text-sky-400 uppercase tracking-widest font-bold">
-            [ SPATIAL DATA VOID REACHED (Z = -40) ]
+            [ SPATIAL DATA VOID REACHED (Z = -80) ]
           </p>
           <p className="font-caveat text-lg text-zinc-300 mt-2">
-            * Raw code wireframe core illuminated by blue point light.
+            * 5 Spatial Rooms explored. WebGL timeline complete.
           </p>
           <Link
             href="/"
@@ -246,7 +300,7 @@ export default function LabPage() {
         <div className="flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
           <span className="font-mono text-xs text-white uppercase tracking-widest font-bold">
-            DANGER_LAB // WEBGL_EXPERIMENTAL_ZONE
+            DANGER_LAB // WEBGL_EXPERIMENTAL_ZONE (5 SPATIAL ROOMS)
           </span>
         </div>
         <Link
@@ -259,7 +313,7 @@ export default function LabPage() {
 
       {/* Helper HUD Overlay */}
       <div className="absolute bottom-6 left-6 z-30 pointer-events-none font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-        // SCROLL_WHEEL: DRIVE_CAMERA_THROUGH_VOID (Z-AXIS: Z=5 TO Z=-45)
+        // SCROLL_WHEEL / SWIPE: DRIVE_CAMERA_THROUGH_VOID (Z=5 TO Z=-85)
       </div>
 
       {/* R3F WebGL Spatial Canvas */}
@@ -271,11 +325,13 @@ export default function LabPage() {
         <ambientLight intensity={0.4} />
         <directionalLight position={[10, 10, 10]} intensity={1} />
 
-        <ScrollControls pages={3} damping={0.2}>
+        <ScrollControls pages={5} damping={0.2}>
           <CameraRig />
           <Room1Retro />
           <Room2Thunderstorm />
-          <Room3DataVoid />
+          <Room3Architecture />
+          <Room4CyberpunkGrid />
+          <Room5DataVoid />
         </ScrollControls>
 
         {/* Shaders & Postprocessing Stack */}

@@ -7,37 +7,56 @@ import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
 import WeatherCanvas from "@/components/ui/WeatherCanvas";
 
-// Curated Video Reel Stack from @DishantNaik YouTube channel
+// Extended Video Reel Stack from @DishantNaik YouTube Channel
 const REELS = [
   {
     type: "youtube",
     id: "_s1bc8fhghA",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4",
     label: "REEL_01: @DishantNaik Showcase",
+    scriptCode: "const cgi = new CGIEngine({ fps: 60 });",
   },
   {
     type: "youtube",
     id: "V1e7uWxzUMY",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-street-at-night-41544-large.mp4",
-    label: "REEL_02: Motion & CGI Spot",
+    label: "REEL_02: Motion & VFX Direction",
+    scriptCode: "import { motion } from 'framer-motion';",
   },
   {
     type: "youtube",
     id: "_8J7ttjTKQk",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-lines-in-motion-41551-large.mp4",
-    label: "REEL_03: Brand & VFX Reel",
+    label: "REEL_03: Brand & CGI Campaigns",
+    scriptCode: "renderShaderPass({ bloom: 1.2, dof: true });",
   },
   {
     type: "youtube",
     id: "-wKJcZ20z1M",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4",
     label: "REEL_04: Creative Engineering",
+    scriptCode: "async function syncPipeline() { await ffmpeg(); }",
   },
   {
     type: "youtube",
     id: "i3zSLeaK3tE",
     fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-street-at-night-41544-large.mp4",
     label: "REEL_05: Digital Arsenal",
+    scriptCode: "export const stack = ['React', 'Blender', 'Rust'];",
+  },
+  {
+    type: "youtube",
+    id: "H3gJSMn-vu4",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-lines-in-motion-41551-large.mp4",
+    label: "REEL_06: Spatial Architecture",
+    scriptCode: "const camera = new PerspectiveCamera(60);",
+  },
+  {
+    type: "youtube",
+    id: "UvCBJJcfhkI",
+    fallbackUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-futuristic-city-43187-large.mp4",
+    label: "REEL_07: High-Impact Visuals",
+    scriptCode: "useFrame((state) => state.camera.position.z = z);",
   },
 ];
 
@@ -120,7 +139,7 @@ export default function Hero3D() {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
         
         {/* LEFT COLUMN: Auto-Rotating Headline & Orbital Badges */}
-        <div className="lg:col-span-7 flex flex-col justify-center min-h-[280px]">
+        <div className="lg:col-span-6 flex flex-col justify-center min-h-[280px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -159,8 +178,8 @@ export default function Hero3D() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: FOREGROUND 3D PHONE WITH GUARANTEED AUTO-PLAYING VIDEO */}
-        <div className="lg:col-span-5 flex justify-center items-center">
+        {/* RIGHT COLUMN: ADAPTIVE 1920x1080 PROPORTIONED PHONE WITH TACTILE SWIPE & SCRIPT HUD */}
+        <div className="lg:col-span-6 flex justify-center items-center">
           <ParallaxLayer speed={1.5}>
             <motion.div
               drag="y"
@@ -174,28 +193,46 @@ export default function Hero3D() {
                   handlePrevReel();
                 }
               }}
-              initial={{ rotate: -3, scale: 0.95, opacity: 0 }}
+              initial={{ rotate: -2, scale: 0.95, opacity: 0 }}
               animate={{ 
-                rotate: -3, 
+                rotate: -2, 
                 scale: 1, 
                 opacity: 1,
-                y: [0, -15, 0], // Ambient harmonic float loop
+                y: [0, -12, 0],
               }}
-              whileHover={{ scale: 1.03, rotateX: 5 }}
+              whileHover={{ scale: 1.02, rotateX: 4 }}
               whileDrag={{ scale: 0.98, cursor: "grabbing" }}
               transition={{
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                 scale: { type: "spring", stiffness: 350, damping: 35 },
               }}
-              className="relative w-[260px] h-[520px] bg-zinc-950 rounded-[40px] p-3 border-4 border-zinc-800 shadow-2xl cursor-grab active:cursor-grabbing select-none group"
+              className="relative w-[310px] sm:w-[350px] md:w-[380px] h-[600px] sm:h-[680px] md:h-[740px] bg-zinc-950 rounded-[44px] p-3.5 border-4 border-zinc-800 shadow-2xl cursor-grab active:cursor-grabbing select-none group"
               data-cursor-hover
             >
               {/* Phone Speaker Notch */}
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-20 h-4 bg-zinc-900 rounded-full z-30 border border-zinc-800 pointer-events-none" />
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-4 bg-zinc-900 rounded-full z-30 border border-zinc-800 pointer-events-none" />
 
-              {/* CRITICAL FIX: Invisible Drag & Touch Overlay */}
+              {/* TACTILE PHYSICAL SCROLL / SWIPE BUTTONS (HUMAN INSTINCT CONTROLS) */}
+              <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
+                <button
+                  onClick={handlePrevReel}
+                  className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-amber-400 text-xs font-mono font-bold flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all shadow-xl"
+                  title="Previous Reel"
+                >
+                  ▲
+                </button>
+                <button
+                  onClick={handleNextReel}
+                  className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-amber-400 text-xs font-mono font-bold flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all shadow-xl"
+                  title="Next Reel"
+                >
+                  ▼
+                </button>
+              </div>
+
+              {/* CRITICAL FIX: Touch & Drag Overlay */}
               <div 
-                className="absolute inset-0 z-20 rounded-[40px] touch-none"
+                className="absolute inset-0 z-20 rounded-[44px] touch-none"
                 onTouchStart={(e) => {
                   const touch = e.touches[0];
                   (e.currentTarget as any)._startY = touch.clientY;
@@ -215,7 +252,14 @@ export default function Hero3D() {
               />
 
               {/* Screen Frame */}
-              <div className="w-full h-full rounded-[30px] overflow-hidden bg-zinc-900 relative border border-zinc-900">
+              <div className="w-full h-full rounded-[34px] overflow-hidden bg-zinc-900 relative border border-zinc-900">
+                
+                {/* Script Code HUD Header Overlay */}
+                <div className="absolute top-4 left-4 right-4 z-30 flex justify-between items-center font-mono text-[9px] text-amber-400 bg-black/80 backdrop-blur-md px-2.5 py-1 border border-zinc-800 pointer-events-none">
+                  <span className="truncate">{currentReel.scriptCode}</span>
+                  <span className="text-zinc-500 font-bold ml-2">60FPS</span>
+                </div>
+
                 {!useFallback ? (
                   /* YouTube Embed with youtube-nocookie.com & autoplay parameters */
                   REELS.map((item, i) => (
@@ -231,7 +275,7 @@ export default function Hero3D() {
                     />
                   ))
                 ) : (
-                  /* Native HTML5 Video Fallback (Guaranteed to play on all mobile & desktop browsers) */
+                  /* Native HTML5 Video Fallback */
                   REELS.map((item, i) => (
                     <video
                       key={item.fallbackUrl}
@@ -247,9 +291,9 @@ export default function Hero3D() {
                   ))
                 )}
 
-                {/* Video Reel Overlay Badge */}
+                {/* Video Reel Overlay Footer Badge */}
                 <div className="absolute bottom-4 left-3 right-3 text-center font-mono text-[10px] text-zinc-300 bg-black/80 backdrop-blur-md py-1.5 px-2 border border-zinc-800 uppercase tracking-widest z-30 transition-colors pointer-events-none flex justify-between items-center">
-                  <span>[ REEL {reelIndex + 1}/{REELS.length} ]</span>
+                  <span>[ {currentReel.label} ({reelIndex + 1}/{REELS.length}) ]</span>
                   <button 
                     onClick={() => setUseFallback(!useFallback)} 
                     className="pointer-events-auto text-[9px] underline text-amber-400 hover:text-white"
