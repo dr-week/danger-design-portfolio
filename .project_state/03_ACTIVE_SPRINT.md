@@ -1,8 +1,10 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS (OPTIMIZED SPRINT SCHEDULE)
+- [ ] **SCRIPT / SANS FONT PAIRING & ANIMATED HIGHLIGHTING:**
+  - Embed energetic handwritten script annotations (`font-caveat`) alongside rigid geometric headers (`Space Grotesk`) across all 5 narrative sections.
+  - Upgrade `MarkerHighlight.tsx` with animated SVG hand-drawn underlines and hover highlight backgrounds (`bg-amber-400/20`).
 - [ ] **UNIFORM SQUARE MEDIA & ENVIRONMENTAL FILTERING:**
-  - Enforce `aspect-square` across all Bento cards in `WorkSection.tsx` and `HorizontalScrollSection.tsx`.
   - Apply section-specific CSS filter presets (`sepia(30%)`, `contrast(130%)`, `hue-rotate(180deg)`).
 - [ ] **MILESTONE 1: PACKAGE SUITE & KINETIC SKEW WING:**
   - Install `lucide-react`, `clsx`, `tailwind-merge`, `canvas-confetti`, `@types/canvas-confetti`, `three-stdlib`.
