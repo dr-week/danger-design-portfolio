@@ -9,6 +9,7 @@ import BrandLogos from "@/components/ui/BrandLogos";
 import AutomotiveSection from "@/components/sections/AutomotiveSection";
 import ArchitectureSection from "@/components/sections/ArchitectureSection";
 import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
+import KineticSkewWrapper from "@/components/ui/KineticSkewWrapper";
 
 export default function Home() {
   return (
@@ -29,15 +30,21 @@ export default function Home() {
       </section>
 
       {/* 1. Compact Work Archive */}
-      <WorkSection />
+      <KineticSkewWrapper>
+        <WorkSection />
+      </KineticSkewWrapper>
       <TornDivider />
 
       {/* 2. Environment 01: Automotive Kinematics */}
-      <AutomotiveSection />
+      <KineticSkewWrapper>
+        <AutomotiveSection />
+      </KineticSkewWrapper>
 
       {/* 3. Environment 02: Spatial Architecture & Blueprints */}
       <TornDivider />
-      <ArchitectureSection />
+      <KineticSkewWrapper>
+        <ArchitectureSection />
+      </KineticSkewWrapper>
 
       {/* 4. Environment 03: Gloomy Dev Engine Room & Stochastic Rain */}
       <TornDivider />

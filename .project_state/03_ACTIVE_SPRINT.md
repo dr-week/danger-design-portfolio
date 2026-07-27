@@ -1,15 +1,16 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS (OPTIMIZED SPRINT SCHEDULE)
-*Zero active bugs or pending tasks. All milestones fully completed and verified.*
+*Zero active bugs or pending tasks. All master award techniques and code enhancements fully executed.*
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **SPATIAL AUDIO FILTER FREQUENCY SCRUBBING (`src/utils/audio.ts`):** Built Web Audio API low-pass filter cutoff scrubbing helper scaling dynamically from 300Hz to 2400Hz based on scroll velocity.
+- [x] **VELOCITY KINETIC SKEW PAGE WRAPPER (`KineticSkewWrapper.tsx`):** Wrapped main scroll environments in `src/app/page.tsx` with Framer Motion velocity skew transforms.
 - [x] **LUCIDE-REACT ICON INTEGRATION:** Replaced raw text indicators in `Navbar.tsx` (`[ SFX: ON/OFF ]`) and `Hero3D.tsx` with crisp brutalist `lucide-react` icons (`Volume2`, `VolumeX`, `Terminal`, `Menu`, `X`).
 - [x] **PRODUCTION RESEND API DISPATCH (`src/app/api/contact/route.ts`):** Configured live contact form handler to send incoming client briefs directly to `dishant.inbox@gmail.com`.
 - [x] **PRODUCTION BUILD & TURBOPACK AUDIT:** Verified `npx tsc --noEmit` and Next.js Turbopack build bundle cleared all size limits with **0 errors**.
 - [x] **MARKER HIGHLIGHT & FONT PAIRING (`MarkerHighlight.tsx`):** Built dynamic SVG path animation and hover background fill expansion for handwritten script callouts alongside geometric sans headlines.
 - [x] **PACKAGE SUITE & CLASS MERGE UTILITY:** Installed `lucide-react`, `clsx`, `tailwind-merge`, `canvas-confetti`, `three-stdlib` and created `src/utils/cn.ts`.
-- [x] **VELOCITY-BASED KINETIC SKEW WRAPPER (`KineticSkewWrapper.tsx`):** Built velocity-based `skewY` inertia transforms (`skewY(v * 0.08deg)`).
 - [x] **MAGNETIC ATTRACTION CURSOR TRACKER (`CursorFollower.tsx`):** Upgraded custom cursor with 60px magnetic attraction snapping physics.
 - [x] **CONTACT FORM CONFETTI BURST (`ContactForm.tsx`):** Wired `canvas-confetti` particle explosion on successful form submission.
 - [x] **UNIFORM SQUARE MEDIA & ENVIRONMENTAL FILTERING:** Enforced `aspect-square` across all 14 domain sectors in `src/config/portfolio.ts` and applied environmental sepia/contrast filter tinting.

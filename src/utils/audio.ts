@@ -79,3 +79,40 @@ export function playSwipeHum() {
     // Graceful fallback
   }
 }
+
+/** Dynamic Spatial Audio Low-Pass Filter Scrubbing based on scroll velocity */
+export function playScrollFilterFrequency(velocity: number) {
+  if (!sfxEnabled) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    const absVel = Math.min(Math.abs(velocity), 2000);
+    if (absVel < 300) return;
+
+    // Map velocity to filter cutoff (300Hz to 2400Hz)
+    const cutoff = 300 + (absVel / 2000) * 2100;
+
+    const osc = ctx.createOscillator();
+    const filter = ctx.createBiquadFilter();
+    const gain = ctx.createGain();
+
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(80, ctx.currentTime);
+
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(cutoff, ctx.currentTime);
+
+    gain.gain.setValueAtTime(0.02, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0005, ctx.currentTime + 0.08);
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.08);
+  } catch {
+    // Graceful fallback
+  }
+}

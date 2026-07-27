@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useScroll, useVelocity, useTransform, useSpring } from "framer-motion";
+import { playScrollFilterFrequency } from "@/utils/audio";
 
 interface KineticSkewWrapperProps {
   children: React.ReactNode;
@@ -21,6 +22,14 @@ export default function KineticSkewWrapper({ children, className = "" }: Kinetic
   // Map scroll velocity [-3000, 3000] to skew angle [-6, 6] degrees
   const skewRaw = useTransform(scrollVelocity, [-3000, 3000], [-6, 6]);
   const skewY = useSpring(skewRaw, { stiffness: 350, damping: 35 });
+
+  useEffect(() => {
+    return scrollVelocity.on("change", (latest) => {
+      if (Math.abs(latest) > 400) {
+        playScrollFilterFrequency(latest);
+      }
+    });
+  }, [scrollVelocity]);
 
   return (
     <motion.div ref={containerRef} style={{ skewY }} className={className}>
