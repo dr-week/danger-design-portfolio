@@ -63,7 +63,7 @@ export default function WorkSection() {
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="object-cover object-center grayscale filter contrast-125 sepia-[0.2] group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-105 transition-all duration-500"
                 />
                 <div className="absolute top-2 left-2 bg-black/80 backdrop-blur-md px-2 py-0.5 font-mono text-[9px] text-amber-400 border border-zinc-700 uppercase">
                   {item.tag}

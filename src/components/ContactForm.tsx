@@ -43,6 +43,19 @@ export default function ContactForm() {
         setStatus("sent");
         setFormData({ name: "", email: "", message: "" });
         setTouched({});
+
+        // Fire Confetti Explosion
+        try {
+          const confetti = (await import("canvas-confetti")).default;
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ["#f59e0b", "#38bdf8", "#ffffff"],
+          });
+        } catch (e) {
+          // Fallback if confetti fails
+        }
       } else {
         setStatus("error");
         setErrorMessage(result.error || "Failed to send message. Please try again.");

@@ -9,27 +9,39 @@ export default function CursorFollower() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only activate on devices with point/mouse input
     if (typeof window === "undefined" || window.matchMedia("(pointer: coarse)").matches) {
       return;
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      let targetX = e.clientX;
+      let targetY = e.clientY;
+      let hovered = false;
 
       const target = e.target as HTMLElement | null;
-      if (
-        target &&
-        (target.closest("[data-cursor-hover]") ||
-          target.tagName === "BUTTON" ||
-          target.tagName === "A" ||
-          target.onclick !== null)
-      ) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
+      const interactiveEl = target?.closest("[data-cursor-hover], button, a") as HTMLElement | null;
+
+      if (interactiveEl) {
+        const rect = interactiveEl.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        // Magnetic Attraction Radius (60px)
+        if (dist < 60) {
+          targetX = e.clientX + (centerX - e.clientX) * 0.45;
+          targetY = e.clientY + (centerY - e.clientY) * 0.45;
+        }
+
+        hovered = true;
       }
+
+      setPosition({ x: targetX, y: targetY });
+      setIsHovered(hovered);
+      if (!isVisible) setIsVisible(true);
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -50,19 +62,19 @@ export default function CursorFollower() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden select-none">
-      {/* Outer Spring Ring */}
+      {/* Magnetic Outer Spring Ring */}
       <motion.div
         animate={{
           x: position.x - (isHovered ? 24 : 16),
           y: position.y - (isHovered ? 24 : 16),
-          scale: isHovered ? 1.4 : 1,
+          scale: isHovered ? 1.5 : 1,
           borderColor: isHovered ? "#f59e0b" : "rgba(255, 255, 255, 0.4)",
         }}
         transition={{ type: "spring", stiffness: 450, damping: 28, mass: 0.5 }}
         className="absolute w-8 h-8 rounded-full border border-white/40 flex items-center justify-center mix-blend-difference"
       />
 
-      {/* Center Target Dot */}
+      {/* Magnetic Center Target Dot */}
       <motion.div
         animate={{
           x: position.x - 3,
