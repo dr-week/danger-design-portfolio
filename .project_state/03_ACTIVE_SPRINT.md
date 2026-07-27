@@ -1,10 +1,6 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
-- [ ] **PHASE 1: THE BENTO BOX DOM ARCHITECTURE (`WorkSection.tsx`):**
-  - Refactor uniform grid into dense 6-column Bento Box grid (`grid-cols-1 md:grid-cols-4 lg:grid-cols-6`).
-  - Assign dynamic variable spans (`col-span-2`, `col-span-4`, `row-span-2`).
-  - Pack graphics tightly with floating CDN tech badges (`Simple Icons`) and absolute brutalist UI stickers.
 - [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
   - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
   - Tie Z-axis position of foreground elements directly to scroll velocity.
@@ -16,6 +12,7 @@
 - [ ] **Production Build Audit:** Verify Turbopack build bundle cleared size limits before deployment.
 
 ## 🟢 ARCHIVED / COMPLETED TASKS
+- [x] **PHASE 1: THE BENTO BOX DOM ARCHITECTURE (`WorkSection.tsx`):** Refactored uniform layout into a dense 6-column Bento Box grid (`grid-cols-1 md:grid-cols-4 lg:grid-cols-6`) with variable column/row spans, Simple Icons tech badges, absolute brutalist UI stickers, and interactive modal breakdown drawers.
 - [x] **WebGL Kinematics Mapping:** Mapped Three.js lighting, camera FOVs, and multi-tint spotlights to `/lab` 3D rooms as defined in `01_ARCHITECTURE.md`.
 - [x] **WebGL Shader Studio Preset Switcher:** Added interactive preset dropdown (`[ THUNDERSTORM ]`, `[ CYBERPUNK ]`, `[ MONOCHROME ]`) in `/lab` with sub-bass audio hum triggers.
 - [x] **Viewport Sizing Audit:** Applied `100svh`, `overflow-x-hidden`, and `w-full` across `layout.tsx`, `Hero3D.tsx`, `WorkSection.tsx`, `DevRange.tsx`, and `/lab`.
