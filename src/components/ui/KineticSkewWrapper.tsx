@@ -7,9 +7,10 @@ import { playScrollFilterFrequency } from "@/utils/audio";
 interface KineticSkewWrapperProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
-export default function KineticSkewWrapper({ children, className = "" }: KineticSkewWrapperProps) {
+export default function KineticSkewWrapper({ children, className = "", id }: KineticSkewWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll({
@@ -32,7 +33,7 @@ export default function KineticSkewWrapper({ children, className = "" }: Kinetic
   }, [scrollVelocity]);
 
   return (
-    <motion.div ref={containerRef} style={{ skewY }} className={className}>
+    <motion.div ref={containerRef} id={id} style={{ skewY }} className={className}>
       {children}
     </motion.div>
   );

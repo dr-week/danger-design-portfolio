@@ -1,4 +1,7 @@
-# DANGER DESIGN - DOMAIN TAXONOMY, ANTIGRAVITY PROTOCOL & AWARD TECHNIQUES
+# 01_ARCHITECTURE // DOMAIN TAXONOMY & ANTIGRAVITY ADVANCED ENGINEERING PROTOCOL
+
+> Memory core architecture file. Mirrored at root-level `ARCHITECTURE_PLAN.md`.
+> For error diagnostics and latent bug tracking, see `ERROR_CONTROL.md`.
 
 Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, reference inspiration architecture, 10 award-winning creative techniques, and the Antigravity Advanced Engineering Protocol.
 
@@ -18,6 +21,44 @@ Master reference guide for WebGL camera angles, lighting models, Framer Motion k
 
 ### 3. State & Memory Persistence (The Local Core)
 * Synchronize every variable, component spec, and kinematic rule in `.project_state/` before writing code to prevent context drift.
+
+## 🧠 4 PSYCHOLOGICAL NARRATIVE MUTATORS
+These mechanisms enforce information asymmetry and Skinner-box anticipation.
+
+1. **The Hook (Act I):** The Terminal (`/`) boots as a restricted UNIX environment. Scroll velocity drives a custom GLSL shader that "decrypts" the 3 gateways, forcing the user to earn access.
+2. **The Decoder Lens (Act II):** Domain grids use Redacted Information Architecture. Text is obfuscated (`[██████]`). The magnetic cursor acts as a decoder, revealing high-res images and un-redacting text on hover.
+3. **The Variable Reward (Act III):** The "Next Project" loop trigger is not a DOM button. It is a massive WebGL displacement portal that offers a distorted, animated glimpse of the next case study, physically pulling the user in.
+4. **The Evolving Loop (Global):** Returning to the Terminal after completing a domain alters the Terminal's state. Lighting shifts from Blue to Amber, and `// ARCHIVE_SYNCED` UI stickers persist. The loop mutates; it does not reset.
+
+---
+
+## 🔄 3-ACT LOOPABLE ARCHITECTURE & ATMOSPHERIC LOCATIONS
+
+We have abandoned the single-page monolith in favor of a modular App Router narrative. Each route has a distinct physical location feel and WebGL atmosphere.
+
+### Level 1: The Terminal (`/`)
+* **Location Feel:** The Data Void.
+* **Atmosphere:** Pitch black, wireframe intersections.
+* **Mechanic:** Scroll-scrubbed camera drop plunging the user into the 3 domain portals.
+
+### Level 2: The Domains
+* **Domain A (`/systems`): SYSTEMS & LOGIC**
+  - **Location Feel:** The Brutalist Lab.
+  - **Atmosphere:** Orthographic camera, cold blue/cyan rim lighting (#4fc3f7), zero shadows.
+  - **Mechanic:** Rigid CSS Bento Grid (grid-cols-6) with sharp, instant hover snaps.
+
+* **Domain B (`/spatial`): SPATIAL & KINEMATICS**
+  - **Location Feel:** The Coastal Concrete (High Noon).
+  - **Atmosphere:** Sweeping wide-angle FOV, warm volumetric god rays intersecting architectural geometry.
+  - **Mechanic:** Vertical-to-Horizontal scroll transition (axis shift) for large spatial drone/interior imagery.
+
+* **Domain C (`/culture`): CULTURE & CINEMA**
+  - **Location Feel:** The Darkroom / Studio Set.
+  - **Atmosphere:** Macro depth of field (DoF), anamorphic lens distortion, high-contrast strobe flashes.
+  - **Mechanic:** Kinetic typography masks revealing video loops.
+
+### Level 3: Loopable Deep Dives (`/work/[id]`)
+* **Mechanic:** At the bottom of every page lies a kinematic "Next Project" link pulling the user into the next case study, creating an infinite loop. No dead ends.
 
 ---
 
@@ -142,3 +183,12 @@ Master reference guide for WebGL camera angles, lighting models, Framer Motion k
 * **Camera:** First-person free-look node.
 * **Lighting:** Chaotic RGB collision light.
 * **Kinematics:** Unbound mass & gravity calculations.
+
+---
+
+## 🛡️ ERROR PREVENTION RULES
+* Always use `h-[100svh]` instead of `h-screen` for full-height containers.
+* Wrap all Three.js/R3F Canvas components with `dynamic(() => import(...), { ssr: false })`.
+* Never allocate `new THREE.Vector3()` or similar inside `useFrame` render loops.
+* Always implement `useEffect` cleanup for videos, event listeners, and animation frames.
+* See `ERROR_CONTROL.md` for the full 4-level diagnostic matrix with verified fix protocols.

@@ -3,6 +3,7 @@ import { Space_Grotesk, Caveat } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import CursorFollower from "@/components/ui/CursorFollower";
+import GlobalCanvas from "@/components/ui/GlobalCanvas";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${caveat.variable} font-sans bg-black text-white antialiased w-full overflow-x-hidden min-h-screen`}
         suppressHydrationWarning
       >
+        <GlobalCanvas />
         <CursorFollower />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

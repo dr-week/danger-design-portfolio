@@ -1,5 +1,7 @@
 # 04_CONTENT_PLAN // THE DIRECTOR'S JOURNEY: NARRATIVE STORY ARC
 
+> Memory core content plan. Mirrored at root-level `CONTENT_PLAN.md`.
+
 Master content architecture plan framing the portfolio as a **5-Act Cinematic Narrative Story Arc** where each scroll section pushes the user deeper into the creative engineering continuum.
 
 ---
@@ -48,12 +50,39 @@ Master content architecture plan framing the portfolio as a **5-Act Cinematic Na
 * **Headline:** `The Dev Engine Room & Systems Code`
 * **Sub-Badge:** `ACT_IV // GLOOMY_ENGINE_ROOM // STOCHASTIC_RAIN`
 * **Narrative Copy:** "The sky turns dark. Heavy rain falls over raw terminal outputs. Under stochastic lightning flashes, high-performance Rust orchestrators, computer vision tools, and complex state machines are forged."
+* **Narrative Repositories:**
+  - `blackbox-Agent-Orchestrator`: "* Act IV Engine: Custom Rust LLM agent orchestrator enforcing strict versioned execution paths."
+  - `GAME_OF_DATE`: "* Act IV Logic: Complex state machine driving interactive branching narratives."
+  - `REP-COUNTER-BRO`: "* Act IV Vision: Zero-latency in-browser pose tracking without server round-trips."
 
 ### ACT V: THE SPATIAL LENS (`HorizontalScrollSection.tsx` & `ContactSection.tsx`)
 * **Theme:** Interactive Lens Discovery & Communication.
 * **Stage A (Horizontal Reveal Track):**
   - **Headline:** `Horizontal Parallax & Reveal Lens`
   - **Sub-Badge:** `ACT_V // STAGE_A // REVEAL_LENS_TRACK`
+  - **Narrative Copy:** "The axis shifts. Drive your cursor across the track to reveal underlying visual layers beneath the lens."
 * **Stage B (Direct Project Dispatch):**
   - **Headline:** `INITIATE_PROJECT_COMMUNICATION`
   - **Sub-Badge:** `ACT_V // STAGE_B // SERVERLESS_DISPATCH`
+  - **Narrative Copy:** "Select budget tier and dispatch project brief directly to dishant.inbox@gmail.com."
+
+---
+
+## 📐 14-DOMAIN TAXONOMY NARRATIVE CODES
+
+| Domain Code | Title | Narrative Role |
+| :--- | :--- | :--- |
+| `SYSTEM_01` | Spatial Motion & Visual Direction | Act II Core Render |
+| `SYSTEM_02` | Coastal Spatial Architecture | Act III Architectural Monolith |
+| `SYSTEM_03` | E-Commerce & Craft Brand Systems | Act II Identity Grid |
+| `SYSTEM_04` | Fintech & SaaS Application Suites | Act II Interface Suite |
+| `SYSTEM_05` | Automotive Motion Dynamics | Act III Velocity Track |
+| `SYSTEM_06` | Artisanal Gastronomy & Resort CGI | Act V Macro Experience |
+| `SYSTEM_07` | Interface Physics & Design Systems | Act V Spring Mechanics |
+| `SYSTEM_08` | Monolithic Spatial Structures | Act III Scale Geometry |
+| `SYSTEM_09` | Aerial Topography & Terrain Engines | Act V Aerial Scrubbing |
+| `SYSTEM_10` | Interactive Animatronic Mechanics | Act V Stage Physics |
+| `SYSTEM_11` | Editorial Apparel & Fashion Visuals | Act V Strobe Grid |
+| `SYSTEM_12` | Cinematic Motion & Episodic Framing | Act V Dolly Zoom |
+| `SYSTEM_13` | 3D Additive Print & Prototyping Systems | Act V Layer Stepping |
+| `SYSTEM_14` | Unbound Interactive Physics Engine | Act V RGB Collision |

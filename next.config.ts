@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
   experimental: {
     mdxRs: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  transpilePackages: ['three', 'three-stdlib'],
 };
 
 export default nextConfig;

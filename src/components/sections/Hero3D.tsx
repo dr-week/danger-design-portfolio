@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
-import WeatherCanvas from "@/components/ui/WeatherCanvas";
 import AsciiMatrixBackground from "@/components/ui/AsciiMatrixBackground";
 
 // Extended Video Reel Stack from @DishantNaik YouTube Channel
@@ -84,7 +83,6 @@ export default function Hero3D() {
   const [reelIndex, setReelIndex] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
-  const [showAscii, setShowAscii] = useState(true);
 
   // Auto-rotate headline text every 5 seconds
   useEffect(() => {
@@ -115,14 +113,33 @@ export default function Hero3D() {
     setReelIndex((prev) => (prev - 1 + REELS.length) % REELS.length);
   };
 
+  const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setMouseTilt({ x: x * 14, y: -y * 14 });
+  };
+
+  const handleMouseLeave = () => {
+    setMouseTilt({ x: 0, y: 0 });
+  };
+
   const currentCopy = ROTATING_HEADLINES[index];
   const currentReel = REELS[reelIndex];
 
   return (
-    <section className="relative w-full min-h-[100svh] bg-black overflow-hidden flex items-center px-6 md:px-12 lg:px-20 py-16">
-      <WeatherCanvas mode="night" />
-      {showAscii && <AsciiMatrixBackground color="#f59e0b" opacity={0.2} />}
-      
+    <section 
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative w-full min-h-[100svh] bg-black overflow-hidden flex flex-col justify-between px-6 md:px-12 lg:px-20 py-16"
+    >
+      {/* Non-Intrusive Subtle Ambient ASCII Background Canvas */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-15 mix-blend-screen">
+        <AsciiMatrixBackground color="#f59e0b" opacity={0.3} interactive={true} fontSize={12} />
+      </div>
+
       {/* LAYER 1: Deep Background Texture (Speed ratio kv = 0.1) */}
       <ParallaxLayer speed={0.1} className="absolute inset-0 z-0 opacity-15 pointer-events-none">
         <div 
@@ -155,12 +172,6 @@ export default function Hero3D() {
               <OrbitalBadge>
                 <div className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400">
                   <span>{currentCopy.tag}</span>
-                  <button 
-                    onClick={() => setShowAscii(!showAscii)}
-                    className="text-[9px] underline text-zinc-400 hover:text-amber-400 ml-2"
-                  >
-                    [ ASCII: {showAscii ? "ON" : "OFF"} ]
-                  </button>
                 </div>
               </OrbitalBadge>
 
@@ -188,7 +199,10 @@ export default function Hero3D() {
         </div>
 
         {/* RIGHT COLUMN: ADAPTIVE 1920x1080 PROPORTIONED PHONE WITH TACTILE SWIPE & SCRIPT HUD */}
-        <div className="lg:col-span-6 flex justify-center items-center">
+        <div className="lg:col-span-6 flex justify-center items-center relative">
+          {/* Ambient Glow Aura & Backdrop Shadow */}
+          <div className="absolute inset-0 bg-amber-500/15 blur-3xl rounded-full scale-75 pointer-events-none transition-all duration-700 group-hover:scale-90 group-hover:bg-amber-400/25" />
+
           <ParallaxLayer speed={1.5}>
             <motion.div
               drag="y"
@@ -204,18 +218,21 @@ export default function Hero3D() {
               }}
               initial={{ rotate: -2, scale: 0.95, opacity: 0 }}
               animate={{ 
-                rotate: -2, 
+                rotateX: mouseTilt.y, 
+                rotateY: mouseTilt.x, 
                 scale: 1, 
                 opacity: 1,
                 y: [0, -12, 0],
               }}
-              whileHover={{ scale: 1.02, rotateX: 4 }}
+              whileHover={{ scale: 1.03 }}
               whileDrag={{ scale: 0.98, cursor: "grabbing" }}
               transition={{
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                 scale: { type: "spring", stiffness: 350, damping: 35 },
+                rotateX: { type: "spring", stiffness: 200, damping: 25 },
+                rotateY: { type: "spring", stiffness: 200, damping: 25 },
               }}
-              className="relative w-[310px] sm:w-[350px] md:w-[380px] h-[600px] sm:h-[680px] md:h-[740px] bg-zinc-950 rounded-[44px] p-3.5 border-4 border-zinc-800 shadow-2xl cursor-grab active:cursor-grabbing select-none group"
+              className="relative w-[310px] sm:w-[350px] md:w-[380px] h-[600px] sm:h-[680px] md:h-[740px] bg-zinc-950 rounded-[44px] p-3.5 border-4 border-zinc-800 shadow-[0_25px_60px_rgba(245,158,11,0.2)] cursor-grab active:cursor-grabbing select-none group backdrop-blur-sm"
               data-cursor-hover
             >
               {/* Phone Speaker Notch */}
@@ -271,33 +288,51 @@ export default function Hero3D() {
 
                 {!useFallback ? (
                   /* YouTube Embed */
-                  REELS.map((item, i) => (
-                    <iframe
-                      key={item.id}
-                      src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&loop=1&playlist=${item.id}&controls=0&playsinline=1&enablejsapi=1&modestbranding=1`}
-                      title={`YouTube Short ${i}`}
-                      className={`absolute inset-0 w-full h-full object-cover scale-[1.15] transition-opacity duration-300 ${
-                        i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                      }`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      onError={() => setUseFallback(true)}
-                    />
-                  ))
+                  REELS.map((item, i) => {
+                    const isVisible =
+                      i === reelIndex ||
+                      i === (reelIndex - 1 + REELS.length) % REELS.length ||
+                      i === (reelIndex + 1) % REELS.length;
+
+                    // if (!isVisible) return null;
+
+                    return (
+                      <iframe
+                        key={item.id}
+                        src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&loop=1&playlist=${item.id}&controls=0&playsinline=1&enablejsapi=1&modestbranding=1`}
+                        title={`YouTube Short ${i}`}
+                        className={`absolute inset-0 w-full h-full object-cover scale-[1.15] transition-opacity duration-300 ${
+                          i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                        }`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        onError={() => setUseFallback(true)}
+                      />
+                    );
+                  })
                 ) : (
                   /* Native HTML5 Video Fallback */
-                  REELS.map((item, i) => (
-                    <video
-                      key={item.fallbackUrl}
-                      src={item.fallbackUrl}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-                        i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                      }`}
-                    />
-                  ))
+                  REELS.map((item, i) => {
+                    const isVisible =
+                      i === reelIndex ||
+                      i === (reelIndex - 1 + REELS.length) % REELS.length ||
+                      i === (reelIndex + 1) % REELS.length;
+
+                    // if (!isVisible) return null;
+
+                    return (
+                      <video
+                        key={item.fallbackUrl}
+                        src={item.fallbackUrl}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                          i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                        }`}
+                      />
+                    );
+                  })
                 )}
 
                 {/* Video Reel Overlay Footer Badge */}
@@ -314,7 +349,23 @@ export default function Hero3D() {
             </motion.div>
           </ParallaxLayer>
         </div>
+      </div>
 
+      {/* Bottom Scroll Prompt */}
+      <div className="w-full flex flex-col items-center justify-center pt-8 z-20 pointer-events-none">
+        <a 
+          href="#archive" 
+          className="pointer-events-auto flex flex-col items-center gap-2 group font-mono text-[10px] text-zinc-400 hover:text-amber-400 transition-colors uppercase tracking-widest"
+        >
+          <span>[ SCROLL TO DISCOVER ARCHIVE MATRIX ↓ ]</span>
+          <span className="w-4 h-7 border-2 border-zinc-700 group-hover:border-amber-400 rounded-full flex justify-center p-1 transition-colors">
+            <motion.span 
+              animate={{ y: [0, 8, 0] }} 
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="w-1 h-1.5 bg-amber-400 rounded-full" 
+            />
+          </span>
+        </a>
       </div>
     </section>
   );

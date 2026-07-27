@@ -11,7 +11,7 @@ export default function WeatherCanvas({ mode = "rain", className = "" }: Weather
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0.2);
+  const scrollProgressRef = useRef(0.2);
 
   // 1. Intersection Observer for viewport visibility
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function WeatherCanvas({ mode = "rain", className = "" }: Weather
       const scrollY = window.scrollY;
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight || 1;
       const progress = Math.min(1, Math.max(0.1, scrollY / maxScroll));
-      setScrollProgress(progress);
+      scrollProgressRef.current = progress;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -59,7 +59,7 @@ export default function WeatherCanvas({ mode = "rain", className = "" }: Weather
 
     // Particle state initialization
     const particles: { x: number; y: number; size: number; speedX: number; speedY: number; alpha: number }[] = [];
-    const count = mode === "rain" ? Math.floor(25 + scrollProgress * 35) : 45;
+    const count = mode === "rain" ? Math.floor(25 + scrollProgressRef.current * 35) : 45;
 
     for (let i = 0; i < count; i++) {
       particles.push({
@@ -67,7 +67,7 @@ export default function WeatherCanvas({ mode = "rain", className = "" }: Weather
         y: Math.random() * height,
         size: mode === "night" ? Math.random() * 2 + 0.5 : mode === "sunbeam" ? Math.random() * 4 + 1 : Math.random() * 15 + 10,
         speedX: mode === "sunbeam" ? (Math.random() - 0.5) * 0.4 : (Math.random() - 0.5) * 0.2,
-        speedY: mode === "rain" ? (Math.random() * 8 + 10) * (0.8 + scrollProgress * 0.5) : Math.random() * 0.5 + 0.2,
+        speedY: mode === "rain" ? (Math.random() * 8 + 10) * (0.8 + scrollProgressRef.current * 0.5) : Math.random() * 0.5 + 0.2,
         alpha: Math.random() * 0.5 + 0.2,
       });
     }
@@ -76,7 +76,7 @@ export default function WeatherCanvas({ mode = "rain", className = "" }: Weather
       ctx.clearRect(0, 0, width, height);
 
       if (mode === "rain") {
-        const alpha = 0.12 + scrollProgress * 0.3;
+        const alpha = 0.12 + scrollProgressRef.current * 0.3;
         ctx.strokeStyle = `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
         ctx.lineWidth = 1;
 
@@ -135,7 +135,7 @@ export default function WeatherCanvas({ mode = "rain", className = "" }: Weather
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isVisible, mode, scrollProgress]);
+  }, [isVisible, mode]);
 
   return (
     <div ref={containerRef} className={`absolute inset-0 pointer-events-none overflow-hidden z-0 ${className}`}>

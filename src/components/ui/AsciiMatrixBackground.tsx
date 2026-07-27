@@ -100,9 +100,7 @@ export default function AsciiMatrixBackground({
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
-      if (interactive) {
-        window.removeEventListener("mousemove", handleMouseMove);
-      }
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [color, opacity, fontSize, interactive]);
 
