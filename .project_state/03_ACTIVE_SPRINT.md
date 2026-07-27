@@ -1,6 +1,11 @@
 # 03_ACTIVE_SPRINT // DYNAMIC TASK TRACKER
 
 ## 🔴 ACTIVE BUGS / PENDING TASKS
+- [ ] **AWARD-WINNING CREATIVE TECHNIQUE 1: VELOCITY-BASED KINETIC SKEW:**
+  - Build `src/components/ui/KineticSkewWrapper.tsx` applying dynamic `skewY` transformations proportional to scroll velocity.
+  - Wrap home section containers in `KineticSkewWrapper`.
+- [ ] **AWARD-WINNING CREATIVE TECHNIQUE 2: MAGNETIC ATTRACTION CURSOR:**
+  - Upgrade `CursorFollower.tsx` with magnetic snapping coordinates to nearby interactive buttons within 60px radius.
 - [ ] **PHASE 2: WEBGL LIGHTING & KINEMATICS (`/lab` R3F Canvas):**
   - Implement dynamic `<SpotLight>` components from `@react-three/drei` tracking 3D geometries on scroll.
   - Tie Z-axis position of foreground elements directly to scroll velocity.

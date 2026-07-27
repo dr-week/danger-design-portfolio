@@ -1,26 +1,45 @@
-# 01_ARCHITECTURE // DOMAIN TAXONOMY & REFERENCE INSPIRATION ARCHITECTURE
+# 01_ARCHITECTURE // DOMAIN TAXONOMY & AWARD-WINNING CREATIVE TECHNIQUES
 
-Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, and reference inspiration architecture.
+Master reference guide for WebGL camera angles, lighting models, Framer Motion kinematics, reference inspiration architecture, and award-winning creative techniques.
+
+---
+
+## 🏆 AWARD-WINNING CREATIVE TECHNIQUES MATRIX (AWWWARDS / FWA STANDARDS)
+
+### 1. Velocity-Based Kinetic Skew & Inertia
+* **Mechanic:** Scroll velocity $v = \frac{\Delta y}{\Delta t}$ drives dynamic element skewing (`skewY: velocity * 0.15deg`) and inertia drag.
+* **Implementation:** Framer Motion `useScroll` velocity transform mapped to image containers and typography blocks.
+
+### 2. Magnetic Attraction & Inversion Lens Cursor
+* **Mechanic:** Custom dual-ring cursor magnetically snaps to nearby interactive nodes within a 60px radius. Over images, the lens flips color values via `backdrop-filter: invert(100%)`.
+
+### 3. GLSL Liquid Displacement Hover Shader
+* **Mechanic:** Mouse hover triggers a GLSL fragment shader ripple displacement pass on canvas texture planes.
+
+### 4. Dual-Axis Split Timeline (Opposing Column Pin)
+* **Mechanic:** Viewport pins while left and right columns move in opposing Y-axis directions or transition into horizontal parallax tracks.
+
+### 5. Adaptive Spatial Audio Engine
+* **Mechanic:** Synthesized Web Audio API soundscape with dynamic low-pass filter cutoff ($\text{frequency} = 200\text{Hz} \to 2000\text{Hz}$) opening with scroll velocity.
+
+### 6. Diagonal Blueprint / Render Wipe Lens
+* **Mechanic:** Real-time diagonal scanline slider revealing raw wireframe blueprint beneath photorealistic 3D renders.
 
 ---
 
 ## 🎨 SIGNATURE REFERENCE INSPIRATION ARCHITECTURE
 
-### 1. The Brush / Texture Reveal (Inspired by Monogrid)
-* **Effect:** Organic brush stroke / ink-bleed texture masks and reveals underlying graphics on scroll.
-* **Engineering:** WebGL custom fragment shader or HTML5 canvas alpha mask (`globalCompositeOperation`). Scroll velocity drives expansion radius of brush coordinates to erode dark overlay color.
+### 1. The Brush / Texture Reveal (Monogrid Pattern)
+* Organic brush stroke / ink-bleed texture mask eroding on scroll velocity.
 
-### 2. Frame Scaling on Scroll (Inspired by Artem Artem)
-* **Effect:** Media frame starts nested/compact (`scale: 0.75, borderRadius: 24px`) and physically expands to full-bleed (`scale: 1.0, borderRadius: 0px`) on scroll.
-* **Engineering:** Powered by Framer Motion `useScroll` and `useTransform` (`scrollYProgress` mapped from `[0, 0.5]` to `scale: [0.75, 1]`).
+### 2. Frame Scaling on Scroll (Artem Artem Pattern)
+* Media frame expanding from `scale: 0.78` nested box to `scale: 1.0` full-bleed frame.
 
-### 3. Vertical-to-Horizontal Scroll Shift (Inspired by Normal is Boring)
-* **Effect:** Vertical scrolling transitions into a pinned horizontal carousel before resuming vertical flow.
-* **Engineering:** Locked `h-[300vh]` parent container with sticky `h-screen overflow-hidden` child. Inner track translates along X-axis (`x: [0, -2000]`) mapped to vertical `scrollYProgress`.
+### 3. Vertical-to-Horizontal Scroll Shift (Normal is Boring Pattern)
+* Pinned `h-[300vh]` section translating X-axis progress (`x: [0, -75%]`).
 
-### 4. Dynamic Interactive Backgrounds (Inspired by Dragonfly)
-* **Effect:** Fluid, responsive background field or ASCII dot-matrix reacting in real time to mouse coordinates and scroll velocity.
-* **Engineering:** Full-screen R3F background plane running GLSL simplex noise shader (`u_time, u_mouse, u_scrollVelocity`). High scroll velocity spikes distortion frequency; idle state settles into organic waves.
+### 4. Dynamic Interactive ASCII Background (Dragonfly Pattern)
+* Full-screen HTML5 Canvas ASCII character matrix (`. : * = + # @`) reacting to mouse ripples and scroll velocity.
 
 ---
 
@@ -48,50 +67,50 @@ Master reference guide for WebGL camera angles, lighting models, Framer Motion k
 
 ### SYSTEM_05 // AUTOMOTIVE KINEMATICS
 * **Camera:** Low-angle tracking, high Field of View (FOV).
-* **Lighting:** Harsh directional specular highlights (simulating metallic clear-coat reflections).
-* **Kinematics:** High-velocity exponential ease-out (fast entry, long deceleration).
+* **Lighting:** Harsh directional specular highlights.
+* **Kinematics:** High-velocity exponential ease-out.
 
 ### SYSTEM_06 // GASTRONOMY & HOSPITALITY
-* **Camera:** Macro perspective, extreme Depth of Field (DoF) blurring the background.
-* **Lighting:** Warm ambient point lights (`#ffb74d`), soft shadows.
-* **Kinematics:** Slow, fluid sine-wave drift (organic movement).
+* **Camera:** Macro perspective, extreme Depth of Field (DoF).
+* **Lighting:** Warm ambient point lights (`#ffb74d`).
+* **Kinematics:** Slow sine-wave drift.
 
 ### SYSTEM_07 // INTERFACE DYNAMICS
-* **Camera:** Orthographic projection (flat 2D plane in 3D space).
-* **Lighting:** Cool rim lighting (`#4fc3f7`), zero shadows.
-* **Kinematics:** Critically damped springs (stiffness: 400, damping: 40). Instant, rigid snaps.
+* **Camera:** Orthographic projection.
+* **Lighting:** Cool rim lighting (`#4fc3f7`).
+* **Kinematics:** Critically damped springs (stiffness: 400).
 
 ### SYSTEM_08 // VOLUMETRIC ARCHITECTURE
-* **Camera:** Wide-angle, bottom-up perspective (simulating scale).
-* **Lighting:** Volumetric sun rays (God rays) intersecting geometries.
-* **Kinematics:** Slow, continuous linear tracking shot (Z-axis push).
+* **Camera:** Wide-angle bottom-up scale.
+* **Lighting:** Volumetric sun rays (God rays).
+* **Kinematics:** Continuous linear tracking.
 
 ### SYSTEM_09 // GLOBAL TOPOGRAPHY
 * **Camera:** Aerial/Drone top-down perspective.
-* **Lighting:** Dynamic daylight cycle (shifting hemisphere light from dawn to dusk).
-* **Kinematics:** Easing mapped directly to scroll velocity (smooth scrub).
+* **Lighting:** Dynamic daylight cycle.
+* **Kinematics:** Scroll velocity mapped scrub.
 
 ### SYSTEM_10 // THEATRICAL ANIMATRONICS
-* **Camera:** Static stage perspective, dead center.
-* **Lighting:** Heavy, intersecting volumetric spotlights against a pitch-black void.
-* **Kinematics:** Pendulum/string physics (oscillating X/Y rotation on hover).
+* **Camera:** Static stage perspective.
+* **Lighting:** Intersecting volumetric spotlights.
+* **Kinematics:** Pendulum string physics.
 
 ### SYSTEM_11 // EDITORIAL APPAREL
-* **Camera:** Studio portrait distance, 85mm lens equivalent.
-* **Lighting:** High-contrast strobe intervals (flashing point lights on scroll trigger).
-* **Kinematics:** Sharp, staggered character reveals and grid snaps.
+* **Camera:** Studio portrait 85mm lens.
+* **Lighting:** High-contrast strobe intervals.
+* **Kinematics:** Staggered reveal snaps.
 
 ### SYSTEM_12 // EPISODIC CINEMATOGRAPHY
-* **Camera:** Anamorphic lens distortion (2.35:1 aspect ratio), subtle dolly zoom (Vertigo effect).
-* **Lighting:** Moody, low-key lighting with split complementary colors (teal/orange).
-* **Kinematics:** Cinematic ease-in-out (`cubic-bezier(0.65, 0, 0.35, 1)`).
+* **Camera:** Anamorphic 2.35:1 dolly zoom.
+* **Lighting:** Low-key teal/orange split.
+* **Kinematics:** Cubic-bezier(0.65, 0, 0.35, 1).
 
 ### SYSTEM_13 // ADDITIVE MANUFACTURING
 * **Camera:** Isometric 45-degree angle.
 * **Lighting:** UV grid emission lighting.
-* **Kinematics:** Layer-by-layer staircase easing (stepped reveals).
+* **Kinematics:** Layer staircase stepped reveal.
 
 ### SYSTEM_14 // INTERACTIVE ENGINE
-* **Camera:** First-person, free-look node.
-* **Lighting:** Chaotic, high-intensity RGB point lights tied to physics collisions.
-* **Kinematics:** Unbound physics (mass, gravity, and drag calculations).
+* **Camera:** First-person free-look node.
+* **Lighting:** Chaotic RGB collision light.
+* **Kinematics:** Unbound mass & gravity calculations.
