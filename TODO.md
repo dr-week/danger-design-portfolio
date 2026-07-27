@@ -12,6 +12,7 @@
 - [ ] **Production Resend API Integration:** Connect live `RESEND_API_KEY` for instant form notifications to `dishant.inbox@gmail.com`.
 
 ## 🟢 COMPLETED ARCHITECTURAL MODULES
+- [x] **Design Directive System:** Established foundational design language and narrative rules in `DESIGN_DIRECTIVE.md`.
 - [x] **Master Architecture Plan:** Saved 10-point domain taxonomy & kinematic specifications into `ARCHITECTURE_PLAN.md`.
 - [x] **WebGL Video Pipeline:** Created `scripts/sync-videos.js` using `yt-dlp` and `ffmpeg` with `-movflags +faststart` for zero-CORS WebGL video streaming.
 - [x] **Domain-First Portfolio Taxonomy:** Stripped all brand/client text strings in `src/config/portfolio.ts` for clean technical discipline focus.
