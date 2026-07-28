@@ -43,13 +43,13 @@ export default function AutomotiveSection() {
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 bg-black/90 backdrop-blur-md px-3 py-1 border border-amber-500/40 font-mono text-xs text-amber-400 uppercase tracking-widest">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-              ACT_III // STAGE_A // AUTOMOTIVE_KINEMATICS
+              COMMERCIAL VIDEO EDITING & 3D MOTION
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight">
-              High-Velocity Motion & Specular Drag
+              High-Speed Video Cuts & 3D Visual Effects
             </h2>
             <p className="font-mono text-xs md:text-sm text-zinc-300 max-w-2xl leading-relaxed">
-              Low-angle tracking cameras, exponential ease-out entries, and metallic specular highlights engineered for high-speed reveals.
+              Fast-paced commercial video edits, product animations, and visual effects designed to get attention and drive brand sales.
             </p>
           </div>
 

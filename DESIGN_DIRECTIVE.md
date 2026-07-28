@@ -3,9 +3,10 @@
 > Canonical design rules. Mirrored in `.project_state/02_DESIGN_RULES.md`.
 
 ## 1. CORE PHILOSOPHY & AESTHETIC FEEL
-* **Cinematic Studio Aesthetic:** High-end, premium visual authority. The goal is to sell services instantly.
-* **Minimal UI:** If an effect distracts from the portfolio media, delete it. Let the actual video and photography assets take absolute priority.
-* **Clean & Professional:** High contrast, legible typography, and no gimmicky "cybersecurity" or "hacker" obfuscation.
+* **Cinematic Studio Aesthetic:** High-end, premium visual authority. The goal is to sell services instantly to clients.
+* **No Wipes / Small Incremental Steps Only:** NEVER delete or rewrite the whole website. Make small, modular, incremental steps. Keep components modular and backed up so sections can be toggled or rearranged cleanly.
+* **Clear Client-Facing Copy:** No vague or cryptic pseudo-technical jargon titles (`ACT_I // TRANSMISSION`, `DEV_RANGE`, `SPATIAL_&_KINEMATICS`). Use clear, understandable, professional titles (e.g., "Commercial Motion & Video Showcase", "Selected Work Portfolio", "3D Architecture & Spatial Visualization", "Software & Engineering Systems", "Work With Us").
+* **Minimal UI:** If an effect distracts from the portfolio media, tone it down. Let actual video and photography assets take absolute priority.
 * **Color Palette:** Absolute black (`#000000`), stark white (`#FFFFFF`), with minimal, deliberate accents for active states (e.g., `#F59E0B`).
 
 ## 2. SCRIPT & SANS FONT PAIRING + ANIMATED HIGHLIGHTING

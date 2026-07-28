@@ -39,8 +39,8 @@ export default function WorkSection({ domainId }: { domainId?: "systems" | "spat
   };
 
   const config = domainId ? domainConfig[domainId] : {
-    title: "THE_ARCHIVE_MATRIX",
-    subtitle: "[ ALL 14 ANONYMIZED DOMAIN SECTORS ]",
+    title: "OUR_SERVICES_&_SELECTED_WORK",
+    subtitle: "[ FEATURED PORTFOLIO & CLIENT CASE STUDIES ]",
     color: "text-amber-400",
     borderHover: "hover:border-amber-500/60",
     systems: []

@@ -23,8 +23,9 @@ Before generating any code or responding to a request, you must verify the syste
 - **Asset Compliance:** All videos must pull locally from `/public/videos/` (compressed via local FFmpeg pipeline with `+faststart`). Zero external YouTube CORS video textures.
 
 ### 3. DESIGN & LAYOUT LAWS
+- **Small Incremental Steps Only (NO WHOLE-SITE WIPES):** Never overwrite or delete entire pages/sections. Execute small, modular, non-destructive steps. Keep backups and preserve modular components so sections can be toggled or rearranged easily.
+- **Indian Market Focus & Simple English:** Target Audience is Indian businesses, D2C brands, real estate developers, and startups. Use simple, direct, easy-to-understand English. Zero complex or pretentious agency jargon. Include Indian Rupee (₹) budget ranges and direct WhatsApp inquiry options.
 - **Bento Grid Architecture:** DOM portfolio sections must use dense, high-contrast Bento box layouts (`grid-cols-4`/`grid-cols-6`) with variable aspect-ratio spans. No bloated uniform rows.
-- **Anonymized Taxonomy:** Absolute confidentiality of past commercial clients. Use strict domain-first classifications (Automotive, Gastronomy, SaaS, Spatial Architecture, Topography, Puppetry, Apparel, Episodic, 3D Print, Interactive).
 - **Cinematic Atmosphere:** Integrate volumetric lighting, GPU rain particle systems, randomized thunderstorm point-light flashes, and parallax Z-axis scrolling.
 
 ### 4. STATE UPDATE PROTOCOL

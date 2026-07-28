@@ -42,10 +42,10 @@ export default function ArchitectureSection() {
         <div className="relative z-20 flex justify-between items-center">
           <div className="inline-flex items-center gap-2 bg-black/90 px-3 py-1 border border-sky-500/50 font-mono text-xs text-sky-400 uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-            ACT_III // STAGE_B // SPATIAL_ARCHITECTURE
+            3D ARCHITECTURAL VISUALIZATION
           </div>
           <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest border border-zinc-800 px-3 py-1">
-            [ GOD_RAYS: ACTIVE ]
+            [ 3D VILLA RENDERS ]
           </span>
         </div>
 
@@ -53,7 +53,7 @@ export default function ArchitectureSection() {
         <div className="relative w-full h-80 md:h-[420px] bg-zinc-900 border border-zinc-800 my-4 overflow-hidden z-20">
           <Image
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
-            alt="Coastal Spatial Architecture"
+            alt="3D Architectural Renders & Walkthroughs"
             fill
             className="object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
           />
@@ -63,10 +63,10 @@ export default function ArchitectureSection() {
         <div className="relative z-20 flex flex-col md:flex-row md:items-end justify-between gap-4 pt-2">
           <div className="space-y-1">
             <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-              Monolithic Structures & Volumetric Sun Ray Simulation
+              3D Villa Renders, Interiors & Drone Shoots
             </h3>
             <p className="font-mono text-xs text-zinc-400 max-w-xl">
-              Wide-angle bottom-up perspective, drone photogrammetry, and spatial lighting matrices.
+              Photorealistic 3D interior renders, villa walk-through animations, and drone location shoots for real estate developers and resorts.
             </p>
           </div>
 

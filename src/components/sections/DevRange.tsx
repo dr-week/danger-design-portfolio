@@ -76,18 +76,18 @@ export default function DevRange() {
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-400">
               <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-              ACT_IV // THE_ENGINE_ROOM // GLOOMY_RAIN_STORM
+              WEBSITE & APP DEVELOPMENT
             </div>
             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
-              The Dev Engine Room & Systems Code
+              Custom Software & Web Engineering
             </h2>
             <p className="font-caveat text-xl text-zinc-300">
-              * The sky turns dark. Heavy rain falls over raw terminal outputs and Rust/WebGL orchestrators.
+              * Fast, modern, custom websites and mobile web applications built for business growth.
             </p>
           </div>
 
           <div className="font-mono text-xs text-zinc-500 border border-zinc-800 px-3 py-1 mt-4 md:mt-0">
-            [ LIGHTNING_STORM: ACTIVE ]
+            [ TECH STACK: REACT / RUST / NEXT.JS ]
           </div>
         </div>
 

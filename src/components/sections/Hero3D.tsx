@@ -62,19 +62,19 @@ const REELS = [
 
 const ROTATING_HEADLINES = [
   {
-    tag: "ACT_I // THE TRANSMISSION",
-    title: "I direct spatial motion and design zero-latency interfaces.",
-    sub: "Blending high-frequency CGI visual direction with production WebGL & React code."
+    tag: "FEATURED WORK // VIDEO & 3D MOTION",
+    title: "High-impact videos, 3D renders, and custom websites.",
+    sub: "Professional video editing, CGI visual effects, and web development for growing brands and businesses."
   },
   {
-    tag: "ACT_I // CREATIVE KINEMATICS",
-    title: "Every pixel is driven by mass, tension, and friction.",
-    sub: "From critically-damped spring physics to real-time GLSL shader passes."
+    tag: "OUR SERVICES // 3D & VFX DIRECTION",
+    title: "Bring your brand products to life with 3D animation.",
+    sub: "Photorealistic 3D product renders, commercial visual effects, and high-converting video edits."
   },
   {
-    tag: "ACT_I // THE BRUTALIST GRID",
-    title: "Craft over fluff. Structural discipline over templates.",
-    sub: "Human imperfections mapped to a rigid digital engineering matrix."
+    tag: "CLIENT RESULTS // DESIGN & CODE",
+    title: "High quality work. Fast delivery. Built to scale.",
+    sub: "Custom websites, mobile apps, and brand design built for Indian & global clients."
   }
 ];
 

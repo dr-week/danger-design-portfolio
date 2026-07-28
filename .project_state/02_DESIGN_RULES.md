@@ -3,9 +3,10 @@
 > Memory core design rules. Mirrored at root-level `DESIGN_DIRECTIVE.md`.
 
 ## 1. CORE PHILOSOPHY & AESTHETIC FEEL
-* **Cinematic Studio Aesthetic:** High-end, premium visual authority. The goal is to sell services instantly.
-* **Minimal UI:** If an effect distracts from the portfolio media, delete it. Let the actual video and photography assets take absolute priority.
-* **Clean & Professional:** High contrast, legible typography, and no gimmicky "cybersecurity" or "hacker" obfuscation.
+* **Cinematic Studio Aesthetic:** High-end, premium visual authority. The goal is to sell services instantly to clients.
+* **No Wipes / Small Incremental Steps Only:** NEVER delete or rewrite the whole website. Make small, modular, incremental steps. Keep components modular and backed up so sections can be toggled or rearranged cleanly.
+* **Indian Market Focus & Simple English:** Target Audience is Indian clients, D2C brands, real estate developers, and startups. Use simple, direct, high-impact English. Zero complex or hard-to-understand jargon. Include Indian Rupee (₹) budget options and WhatsApp inquiry links.
+* **Minimal UI:** If an effect distracts from the portfolio media, tone it down. Let actual video and photography assets take absolute priority.
 * **Color Palette:** Absolute black (`#000000`), stark white (`#FFFFFF`), with minimal, deliberate accents for active states (e.g., `#F59E0B`).
 ## 2. SCRIPT & SANS FONT PAIRING + ANIMATED HIGHLIGHTING
 * **Font Contrast Pairing:** Pair rigid geometric sans-serif headlines (`Space Grotesk`) with energetic handwritten script annotations (`font-caveat` Caveat font) inline within headers, sub-badges, and code notes.
