@@ -145,11 +145,6 @@ export default function Hero3D() {
         />
       </ParallaxLayer>
 
-      {/* LAYER 2: Base Kinetic Typography (Speed ratio kv = 0.4) */}
-      <ParallaxLayer speed={0.4} className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 z-0">
-        <KineticTypography text="DANGER DESIGN" className="text-white" />
-      </ParallaxLayer>
-
       {/* MAIN CONTAINER LAYER */}
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
         
@@ -165,7 +160,7 @@ export default function Hero3D() {
               className="space-y-4"
             >
               <OrbitalBadge>
-                <div className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400">
+                <div className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400 rounded-md">
                   <span>{currentCopy.tag}</span>
                 </div>
               </OrbitalBadge>
@@ -173,7 +168,7 @@ export default function Hero3D() {
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
                 {currentCopy.title}
               </h1>
-              <p className="text-lg md:text-xl text-zinc-400 max-w-xl font-mono">
+              <p className="text-lg md:text-xl text-zinc-200 max-w-xl font-mono leading-relaxed">
                 {currentCopy.sub}
               </p>
             </motion.div>

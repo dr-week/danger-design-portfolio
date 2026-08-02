@@ -86,19 +86,19 @@ export default function DevRange() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-mono text-accent rounded-md">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <div className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400 rounded-md">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               WEBSITE & APP DEVELOPMENT
             </div>
             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-text-primary">
               Custom Software & Web Engineering
             </h2>
-            <p className="font-mono text-sm text-text-secondary">
+            <p className="font-mono text-sm text-zinc-300">
               * Fast, modern, custom websites and mobile web applications built for business growth.
             </p>
           </div>
 
-          <div className="font-mono text-xs text-text-secondary border border-border bg-surface px-3 py-1 mt-4 md:mt-0 rounded-md">
+          <div className="font-mono text-xs text-zinc-300 border border-border bg-surface px-3 py-1 mt-4 md:mt-0 rounded-md">
             [ TECH STACK: REACT / RUST / NEXT.JS ]
           </div>
         </div>
@@ -117,14 +117,14 @@ export default function DevRange() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               whileHover={{ scale: 1.02 }}
-              className="border-2 border-border bg-surface p-6 flex flex-col justify-between hover:border-accent transition-all shadow-2xl backdrop-blur-md group rounded-md"
+              className="border-2 border-border bg-surface p-6 flex flex-col justify-between hover:border-amber-400 transition-all shadow-2xl backdrop-blur-md group rounded-md"
               data-cursor-hover
             >
               <div className="space-y-4">
-                <span className="font-mono text-[10px] text-accent bg-accent/10 border border-accent/30 px-2 py-0.5 uppercase tracking-widest inline-block rounded-md font-bold">
+                <span className="font-mono text-xs text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 uppercase tracking-widest inline-block rounded-md font-bold">
                   {project.tech}
                 </span>
-                <h3 className="text-xl font-bold font-mono text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-bold font-mono text-zinc-900 dark:text-white group-hover:text-amber-400 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-xs font-mono text-zinc-800 dark:text-zinc-200 leading-relaxed">
@@ -132,10 +132,10 @@ export default function DevRange() {
                 </p>
                 
                 {/* Monospace Bullet Points for Quick Scanning */}
-                <ul className="space-y-1.5 font-mono text-[10px] text-text-secondary border-t border-border/50 pt-3">
+                <ul className="space-y-1.5 font-mono text-xs text-text-secondary border-t border-border/50 pt-3">
                   {project.bullets.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-1.5">
-                      <span className="text-accent font-bold select-none">-</span>
+                      <span className="text-amber-400 font-bold select-none">-</span>
                       <span className="text-zinc-800 dark:text-zinc-200">{bullet}</span>
                     </li>
                   ))}
@@ -143,7 +143,7 @@ export default function DevRange() {
               </div>
 
               <div className="mt-8 pt-4 border-t border-border flex justify-end items-center font-mono text-xs">
-                <span className="text-accent font-black uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                <span className="text-amber-400 font-black uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
                   View Code →
                 </span>
               </div>

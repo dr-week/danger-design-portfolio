@@ -37,20 +37,23 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-text-secondary">
-          <a href="#work" onClick={playClickSound} data-cursor-hover className="hover:text-text-primary transition-colors">
+        <nav className="hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-widest text-text-secondary font-bold">
+          <a href="#work" onClick={playClickSound} data-cursor-hover className="hover:text-amber-400 transition-colors">
             // WORK
           </a>
-          <a href="#dev" onClick={playClickSound} data-cursor-hover className="hover:text-text-primary transition-colors">
-            // DEV_RANGE
+          <a href="#dev" onClick={playClickSound} data-cursor-hover className="hover:text-amber-400 transition-colors">
+            // DEV ENGINE
           </a>
-          <Link href="/cv" onClick={playClickSound} data-cursor-hover className="text-amber-400 font-bold hover:text-white transition-colors">
-            // DEV_CV
+          <Link href="/news" onClick={playClickSound} data-cursor-hover className="hover:text-amber-400 transition-colors">
+            // JOURNAL
           </Link>
-          <Link href="/lab" onClick={playClickSound} data-cursor-hover className="text-accent hover:text-text-primary transition-colors font-bold">
-            // WEBGL_LAB
+          <Link href="/cv" onClick={playClickSound} data-cursor-hover className="text-amber-400 hover:text-white transition-colors">
+            // CV RESUME
           </Link>
-          <a href="#contact" onClick={playClickSound} data-cursor-hover className="hover:text-text-primary transition-colors">
+          <Link href="/lab" onClick={playClickSound} data-cursor-hover className="hover:text-amber-400 transition-colors">
+            // WEBGL LAB
+          </Link>
+          <a href="#contact" onClick={playClickSound} data-cursor-hover className="hover:text-amber-400 transition-colors">
             // CONTACT
           </a>
         </nav>
@@ -109,9 +112,9 @@ export default function Navbar() {
                 playClickSound();
                 setMobileMenuOpen(false);
               }}
-              className="block text-text-primary hover:text-accent"
+              className="block text-text-primary hover:text-amber-400 font-bold"
             >
-              // WORK_ARCHIVE
+              // WORK ARCHIVE
             </a>
             <a 
               href="#dev" 
@@ -119,10 +122,20 @@ export default function Navbar() {
                 playClickSound();
                 setMobileMenuOpen(false);
               }}
-              className="block text-text-primary hover:text-accent"
+              className="block text-text-primary hover:text-amber-400 font-bold"
             >
-              // DEV_RANGE
+              // DEV ENGINE
             </a>
+            <Link 
+              href="/news" 
+              onClick={() => {
+                playClickSound();
+                setMobileMenuOpen(false);
+              }}
+              className="block text-text-primary hover:text-amber-400 font-bold"
+            >
+              // JOURNAL
+            </Link>
             <Link 
               href="/cv" 
               onClick={() => {
@@ -131,7 +144,7 @@ export default function Navbar() {
               }}
               className="block text-amber-400 font-bold hover:text-white"
             >
-              // DEV_CV (RESUME)
+              // CV RESUME
             </Link>
             <Link 
               href="/lab" 
@@ -139,9 +152,9 @@ export default function Navbar() {
                 playClickSound();
                 setMobileMenuOpen(false);
               }}
-              className="block text-accent font-bold"
+              className="block text-text-primary hover:text-amber-400 font-bold"
             >
-              // WEBGL_LAB (3D)
+              // WEBGL LAB
             </Link>
             <a 
               href="#contact" 
@@ -149,7 +162,7 @@ export default function Navbar() {
                 playClickSound();
                 setMobileMenuOpen(false);
               }}
-              className="block text-text-primary hover:text-accent"
+              className="block text-text-primary hover:text-amber-400 font-bold"
             >
               // CONTACT
             </a>

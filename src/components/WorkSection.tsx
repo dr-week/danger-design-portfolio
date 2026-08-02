@@ -14,32 +14,32 @@ const GLSLImageReveal = dynamic(() => import('@/components/ui/GLSLImageReveal'),
 export default function WorkSection({ domainId }: { domainId?: "systems" | "spatial" | "culture" }) {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
-  const domainConfig = {
-    systems: {
-      title: "SYSTEMS_&_LOGIC",
-      subtitle: "[ SAAS, INTERACTIVE ENGINES, ADDITIVE MANUFACTURING ]",
-      color: "text-sky-400",
-      borderHover: "hover:border-sky-500/60",
-      systems: ["SYSTEM_03", "SYSTEM_04", "SYSTEM_07", "SYSTEM_13", "SYSTEM_14"]
-    },
+  const domainConfig: Record<string, { title: string; subtitle: string; color: string; borderHover: string; systems: string[] }> = {
     spatial: {
-      title: "SPATIAL_&_KINEMATICS",
-      subtitle: "[ ARCHITECTURE, TOPOGRAPHY, AUTOMOTIVE ]",
+      title: "SPATIAL ARCHITECTURE & CGI PIPELINES",
+      subtitle: "[ PHOTOGRAMMETRY & VOLUMETRIC RENDER ENGINE ]",
       color: "text-amber-400",
       borderHover: "hover:border-amber-500/60",
-      systems: ["SYSTEM_01", "SYSTEM_02", "SYSTEM_05", "SYSTEM_08", "SYSTEM_09"]
+      systems: ["SYSTEM_02", "SYSTEM_08", "SYSTEM_09", "SYSTEM_13"]
+    },
+    systems: {
+      title: "SYSTEMS & BRAND ENGINEERING",
+      subtitle: "[ INTERFACE DYNAMICS & RUST EXECUTIVES ]",
+      color: "text-amber-400",
+      borderHover: "hover:border-amber-500/60",
+      systems: ["SYSTEM_03", "SYSTEM_04", "SYSTEM_07", "SYSTEM_14"]
     },
     culture: {
-      title: "CULTURE_&_CINEMA",
-      subtitle: "[ GASTRONOMY, APPAREL, EPISODIC, ANIMATRONICS ]",
-      color: "text-purple-400",
-      borderHover: "hover:border-purple-500/60",
+      title: "DIGITAL CULTURE & CINEMATOGRAPHY",
+      subtitle: "[ MOTION PATTERNS & THEATRICAL PHYSICS ]",
+      color: "text-amber-400",
+      borderHover: "hover:border-amber-500/60",
       systems: ["SYSTEM_06", "SYSTEM_10", "SYSTEM_11", "SYSTEM_12"]
     }
   };
 
   const config = domainId ? domainConfig[domainId] : {
-    title: "ENGINEERING_&_TECHNICAL_MEDIA_PIPELINES",
+    title: "ENGINEERING & TECHNICAL MEDIA PIPELINES",
     subtitle: "[ SELECTED CUSTOM WORK & CODE REPOSITORIES ]",
     color: "text-amber-400",
     borderHover: "hover:border-amber-500/60",
@@ -56,7 +56,7 @@ export default function WorkSection({ domainId }: { domainId?: "systems" | "spat
   };
 
   return (
-    <section className="relative w-full bg-bg text-text-primary py-24 px-4 md:px-8 overflow-hidden select-none min-h-screen">
+    <section className="relative w-full bg-bg text-text-primary py-28 md:py-36 px-4 md:px-8 overflow-hidden select-none min-h-screen">
       <GPGPUWeather />
       <div 
         suppressHydrationWarning
@@ -66,19 +66,19 @@ export default function WorkSection({ domainId }: { domainId?: "systems" | "spat
           backgroundSize: '40px 40px'
         }}
       />
-      <div className="max-w-7xl mx-auto space-y-8 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-6">
           <div>
-            <Link href="/" className="font-mono text-xs text-text-secondary hover:text-text-primary transition-colors mb-4 inline-block uppercase tracking-widest border border-border bg-surface px-3 py-1">
+            <Link href="/" className="font-mono text-xs text-text-secondary hover:text-text-primary transition-colors mb-4 inline-block uppercase tracking-widest border border-border bg-surface px-3 py-1 rounded-md">
               ← RETURN TO TERMINAL
             </Link>
             <h2 className={`text-4xl md:text-6xl font-black uppercase tracking-tight mt-4 ${config.color}`}>
               {config.title}
             </h2>
           </div>
-          <p className="font-mono text-[11px] text-text-secondary max-w-md mt-4 md:mt-0 uppercase tracking-widest text-right">
+          <p className="font-mono text-xs md:text-sm text-zinc-300 max-w-md mt-4 md:mt-0 uppercase tracking-widest text-left md:text-right">
             {config.subtitle}
           </p>
         </div>
