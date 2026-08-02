@@ -41,7 +41,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "ARCHITECTURAL_VISUALIZATION",
     title: "Coastal Environment 3D Render",
     description: "Brief: Create realistic outdoor renders for a coastal environment mockup. Constraint: Make outdoor sunlight angles look natural. Execution: Configured sky dome lighting and high-res sand shaders.",
-    image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/coastal-render.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2 row-span-2",
     techStack: ["3DS Max", "DaVinci Resolve", "CGI Pipeline"],
