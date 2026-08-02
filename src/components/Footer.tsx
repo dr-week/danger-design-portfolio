@@ -20,6 +20,12 @@ export default function Footer() {
             [ EMAIL ]
           </a>
           <a
+            href="/cv"
+            className="text-amber-400 font-bold hover:text-white transition-colors"
+          >
+            [ DEVELOPER CV ]
+          </a>
+          <a
             href="https://github.com/DR-WEEK"
             target="_blank"
             rel="noopener noreferrer"

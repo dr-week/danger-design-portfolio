@@ -62,8 +62,8 @@ const ImageRevealMaterial = shaderMaterial(
       // Calculate noise based on UV and Time
       float noise = snoise(uv * 3.0 + uTime * 0.5);
       
-      // Distortion effect
-      vec2 distortedUv = uv + noise * (1.0 - uHoverState) * 0.1;
+      // Distortion effect (subtle for tech layout readability)
+      vec2 distortedUv = uv + noise * (1.0 - uHoverState) * 0.015;
       
       vec4 texColor = texture2D(uTexture, distortedUv);
       

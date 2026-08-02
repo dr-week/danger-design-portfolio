@@ -185,7 +185,7 @@ function Room2Thunderstorm({ preset }: { preset: ShaderPreset }) {
   );
 }
 
-// Room 3: Spatial Architecture & Villa Drone Gallery (Z = -40)
+// Room 3: Spatial Architecture & 3D Environment Gallery (Z = -40)
 function Room3Architecture({ preset }: { preset: ShaderPreset }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
@@ -212,7 +212,7 @@ function Room3Architecture({ preset }: { preset: ShaderPreset }) {
       <Html position={[-3, 2, 0]} transform distanceFactor={6}>
         <div className="bg-black/90 border border-sky-500/50 p-3 font-mono text-xs text-sky-400 max-w-xs shadow-2xl backdrop-blur-md select-none">
           <p className="font-caveat text-xl text-zinc-200">// ROOM_03: SPATIAL_ARCHITECTURE</p>
-          <p className="text-[10px] text-zinc-400 mt-1">Boutique Coastal & Spatial Villa drone visual render gallery at Z = -40.</p>
+          <p className="text-[10px] text-zinc-400 mt-1">Environment photogrammetry and spatial layout render gallery at Z = -40.</p>
         </div>
       </Html>
     </group>

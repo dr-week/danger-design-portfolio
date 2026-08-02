@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import CursorFollower from "@/components/ui/CursorFollower";
 import GlobalCanvas from "@/components/ui/GlobalCanvas";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -16,9 +17,9 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Dishant Naik | Danger Design",
+  title: "Dishant Naik | UI/UX Developer & Video Editor in Goa",
   description:
-    "I design interfaces, direct motion, and write the code to make them work.",
+    "I design clean, fast interfaces and edit professional videos. Freelance frontend developer and 3D designer based in Goa.",
 };
 
 export default function RootLayout({
@@ -29,12 +30,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${caveat.variable} font-sans bg-black text-white antialiased w-full overflow-x-hidden min-h-screen`}
+        className={`${spaceGrotesk.variable} ${caveat.variable} font-sans antialiased w-full overflow-x-hidden min-h-screen`}
         suppressHydrationWarning
       >
-        <GlobalCanvas />
-        <CursorFollower />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <GlobalCanvas />
+          <CursorFollower />
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

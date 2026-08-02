@@ -39,30 +39,30 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="px-6 md:px-12 lg:px-24 py-24 md:py-32 border-t border-zinc-900 bg-black">
+    <section id="contact" className="px-6 md:px-12 lg:px-24 py-24 md:py-32 border-t border-border bg-bg">
       <div className="max-w-3xl mx-auto space-y-8">
         <div>
-          <div className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-400 uppercase tracking-widest mb-3">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+          <div className="inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-mono text-accent uppercase tracking-widest mb-3 rounded-md">
+            <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
             START A PROJECT // LET'S WORK TOGETHER
           </div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase"
+            className="text-4xl md:text-5xl font-black tracking-tight text-text-primary uppercase"
           >
             Have a project in mind?
           </motion.h2>
-          <p className="font-caveat text-xl text-zinc-400 mt-2">
+          <p className="font-mono text-sm text-text-secondary mt-2">
             * Direct response within 24 hours. Serving Indian & international clients.
           </p>
         </div>
 
         {status === "sent" ? (
-          <div className="p-6 border border-amber-500/40 bg-amber-500/10 font-mono text-amber-400 space-y-2">
+          <div className="p-6 border border-accent/40 bg-accent/10 font-mono text-accent space-y-2 rounded-md">
             <p className="font-bold text-lg">// MESSAGE RECEIVED!</p>
-            <p className="text-xs text-zinc-300">Thank you for reaching out. We will review your project specs and contact you within 24 hours.</p>
+            <p className="text-xs text-text-secondary">Thank you for reaching out. We will review your project specs and contact you within 24 hours.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 pt-4">
@@ -71,14 +71,14 @@ export default function ContactSection() {
                 name="name"
                 required
                 placeholder="Your Name / Company"
-                className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-400 outline-none p-3.5 font-mono text-sm text-white transition-colors"
+                className="w-full bg-surface border border-border focus:border-accent outline-none p-3.5 font-mono text-sm text-text-primary transition-colors rounded-md"
               />
               <input
                 name="email"
                 type="email"
                 required
                 placeholder="Email Address"
-                className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-400 outline-none p-3.5 font-mono text-sm text-white transition-colors"
+                className="w-full bg-surface border border-border focus:border-accent outline-none p-3.5 font-mono text-sm text-text-primary transition-colors rounded-md"
               />
             </div>
 
@@ -86,10 +86,10 @@ export default function ContactSection() {
               <input
                 name="phone"
                 placeholder="Phone Number (WhatsApp optional)"
-                className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-400 outline-none p-3.5 font-mono text-sm text-white transition-colors"
+                className="w-full bg-surface border border-border focus:border-accent outline-none p-3.5 font-mono text-sm text-text-primary transition-colors rounded-md"
               />
               <div>
-                <label className="block font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2">
+                <label className="block font-mono text-xs text-text-secondary uppercase tracking-widest mb-2">
                   Project Budget Range (INR ₹)
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -98,10 +98,10 @@ export default function ContactSection() {
                       key={opt}
                       type="button"
                       onClick={() => setSelectedBudget(opt)}
-                      className={`px-2.5 py-1.5 font-mono text-[11px] border transition-colors ${
+                      className={`px-2.5 py-1.5 font-mono text-[11px] border transition-colors rounded-md ${
                         selectedBudget === opt
-                          ? "border-amber-400 bg-amber-400 text-black font-bold"
-                          : "border-zinc-800 bg-zinc-950 text-zinc-400 hover:border-zinc-600"
+                          ? "border-accent bg-accent text-white font-bold"
+                          : "border-border bg-surface text-text-secondary hover:border-accent"
                       }`}
                     >
                       {opt}
@@ -116,7 +116,7 @@ export default function ContactSection() {
               required
               rows={4}
               placeholder="Tell us about your project requirements (Video Editing, 3D Architecture, Brand Design, Website)..."
-              className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-400 outline-none p-3.5 font-mono text-sm text-white resize-none transition-colors"
+              className="w-full bg-surface border border-border focus:border-accent outline-none p-3.5 font-mono text-sm text-text-primary resize-none transition-colors rounded-md"
             />
 
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
@@ -124,7 +124,7 @@ export default function ContactSection() {
                 type="submit"
                 disabled={status === "sending"}
                 data-cursor-hover
-                className="w-full sm:w-auto font-mono bg-amber-400 text-black px-8 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-white transition-colors disabled:opacity-50 cursor-pointer shadow-xl"
+                className="w-full sm:w-auto font-mono bg-amber-400 text-black px-8 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-white border border-amber-400 transition-colors disabled:opacity-50 cursor-pointer shadow-xl rounded-md"
               >
                 {status === "sending" ? "Sending Request..." : "Submit Project Inquiry →"}
               </button>
@@ -133,7 +133,7 @@ export default function ContactSection() {
                 href="https://wa.me/?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto font-mono border border-zinc-800 bg-zinc-950 text-zinc-300 px-6 py-3.5 text-xs uppercase tracking-widest hover:border-amber-400 hover:text-amber-400 text-center transition-colors"
+                className="w-full sm:w-auto font-mono border border-border bg-surface text-text-primary px-6 py-3.5 text-xs uppercase tracking-widest hover:border-accent hover:text-accent text-center transition-colors rounded-md"
               >
                 💬 Chat on WhatsApp
               </a>

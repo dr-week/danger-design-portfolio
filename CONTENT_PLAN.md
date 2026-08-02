@@ -1,86 +1,82 @@
-# CONTENT_PLAN // THE DIRECTOR'S JOURNEY: NARRATIVE STORY ARC
+# CONTENT_PLAN // WEBSITE COPY & CONTENT BANK
 
-Master content architecture plan framing the portfolio as a **5-Act Cinematic Narrative Story Arc** where each scroll section pushes the user deeper into the creative engineering continuum.
+Simple, direct, and sales-focused content plan designed to show proof, build trust, and load fast.
 
 ---
 
 ## 🎬 THE 5-ACT NARRATIVE STORY ARC
-
 ```
-[ ACT I: THE TRANSMISSION ]   --> Signal broadcast, initial vision & creative orientation.
-[ ACT II: THE ARCHIVE MATRIX ] --> Unlocking anonymized records across 14 technical domains.
-[ ACT III: THE KINETIC CRUCIBLE] --> High-velocity automotive motion & monolithic spatial sunbeams.
-[ ACT IV: THE ENGINE ROOM ]    --> Pitch-black rain storm, stochastic lightning & raw Rust/Systems code.
-[ ACT V: THE SPATIAL LENS ]    --> Interactive horizontal parallax lens discovery & direct communication.
+[ ACT I: THE HERO ]          --> Who I am, what I do, and the results.
+[ ACT II: THE ARCHIVE ]      --> Real projects shown with Brief, Constraint, and Execution.
+[ ACT III: THE CRAFT ]       --> Detailed highlights of video/3D and design/code.
+[ ACT IV: THE TOOLS ]        --> Real examples of open-source utilities I've built.
+[ ACT V: GET IN TOUCH ]      --> Clear, simple call to action to start working.
 ```
 
 ---
 
 ## 📖 ACT-BY-ACT NARRATIVE COPY SPECIFICATIONS
 
-### ACT I: THE TRANSMISSION (`Hero3D.tsx`)
-* **Theme:** The Initial Signal Broadcast.
-* **Tagline:** `DANGER DESIGN // NARRATIVE ARCHITECTURE & KINETIC ENGINE`
-* **Headline Story Arc:**
-  1. `ACT_I // THE TRANSMISSION`: "I direct spatial motion and design zero-latency interfaces. Blending high-frequency CGI visuals with production WebGL code."
-  2. `ACT_I // CREATIVE KINEMATICS`: "Every pixel is driven by physics. From mass-spring friction to real-time GLSL shader passes."
-  3. `ACT_I // THE BRUTALIST GRID`: "Craft over fluff. Structural discipline over templates. Human imperfections mapped to a rigid digital matrix."
+### ACT I: HERO SECTION (`Hero3D.tsx`)
+* **Theme:** Who I am and what I do.
+* **Tagline:** `DANGER DESIGN // DYNAMIC INTERFACES & VIDEO PRODUCTION`
+* **Copy:**
+  1. "I design interfaces, edit videos, and build clean websites that load fast."
+  2. "Everything is custom-made. I write the code and animate the motion to make your product stand out."
+  3. "No boring templates. Just clean layout grids and smooth, natural animations."
 
-### ACT II: THE ARCHIVE MATRIX (`WorkSection.tsx`)
-* **Theme:** Unlocking Anonymized Master Files.
-* **Headline:** `THE_ARCHIVE_MATRIX`
-* **Sub-Badge:** `ACT_II // DOMAIN_DISCIPLINE_RECORDS`
-* **Narrative Intro:** "Enter the vault. Client brand identities are stripped to isolate raw craft, camera kinematics, and structural engineering across 14 anonymized domain sectors."
+### ACT II: THE ARCHIVE (`WorkSection.tsx`)
+* **Theme:** Real work showing how I think.
+* **Headline:** `PROJECTS`
+* **Sub-Badge:** `ACT II // RECENT WORK`
+* **Intro Copy:** "Selected case studies showing the client brief, the main challenge, and how I built the final solution."
 
-### ACT III: THE KINETIC CRUCIBLE (`AutomotiveSection.tsx` & `ArchitectureSection.tsx`)
-* **Theme:** Pushing Physical Boundaries.
-* **Stage A (Automotive Kinematics):**
-  - **Headline:** `High-Velocity Motion & Specular Drag`
-  - **Sub-Badge:** `ACT_III // STAGE_A // AUTOMOTIVE_KINEMATICS`
-  - **Narrative Copy:** "Low-angle tracking cameras, exponential ease-out entries, and metallic specular highlights engineered for high-velocity reveals."
-* **Stage B (Spatial Architecture & Blueprints):**
-  - **Headline:** `Monolithic Volumes & Volumetric Sunbeams`
-  - **Sub-Badge:** `ACT_III // STAGE_B // SPATIAL_ARCHITECTURE`
-  - **Narrative Copy:** "Drone photogrammetry, wireframe blueprint overlays, and intersecting volumetric God Rays illuminating coastal monoliths."
+### ACT III: MOTION & SPACE (`AutomotiveSection.tsx` & `ArchitectureSection.tsx`)
+* **Theme:** Visual Quality.
+* **Video/Motion:**
+  - **Headline:** "Dynamic Video Editing & 3D Renders"
+  - **Sub-Badge:** "ACT III // MOTION"
+  - **Copy:** "Smooth camera paths, clean cuts, and polished studio lighting designed to hold attention."
+* **Architecture/3D:**
+  - **Headline:** "3D Spaces & Product Visualization"
+  - **Sub-Badge:** "ACT III // SPATIAL"
+  - **Copy:** "Drone videography and detailed 3D modeling combined to present properties and products clearly."
 
-### ACT IV: THE ENGINE ROOM (`DevRange.tsx`)
-* **Theme:** Raw Code Under Stormy Conditions.
-* **Headline:** `The Dev Engine Room & Systems Code`
-* **Sub-Badge:** `ACT_IV // GLOOMY_ENGINE_ROOM // STOCHASTIC_RAIN`
-* **Narrative Copy:** "The sky turns dark. Heavy rain falls over raw terminal outputs. Under stochastic lightning flashes, high-performance Rust orchestrators, computer vision tools, and complex state machines are forged."
-* **Narrative Repositories:**
-  - `blackbox-Agent-Orchestrator`: "* Act IV Engine: Custom Rust LLM agent orchestrator enforcing strict versioned execution paths."
-  - `GAME_OF_DATE`: "* Act IV Logic: Complex state machine driving interactive branching narratives."
-  - `REP-COUNTER-BRO`: "* Act IV Vision: Zero-latency in-browser pose tracking without server round-trips."
+### ACT IV: THE DEV ENGINE (`DevRange.tsx`)
+* **Theme:** Clean Code.
+* **Headline:** "Custom Developer Utilities"
+* **Sub-Badge:** "ACT IV // OPEN SOURCE"
+* **Copy:** "I don't just use tools; I build them. Here are a few open-source utilities I wrote to solve real workflow problems."
+* **Repositories:**
+  - `blackbox-Agent-Orchestrator`: "A custom runner built in Rust to execute tasks automatically."
+  - `GAME_OF_DATE`: "An interactive text game engine built to handle complex story paths."
+  - `REP-COUNTER-BRO`: "An in-browser webcam tool that counts workout reps using simple machine learning."
 
-### ACT V: THE SPATIAL LENS (`HorizontalScrollSection.tsx` & `ContactSection.tsx`)
-* **Theme:** Interactive Lens Discovery & Communication.
-* **Stage A (Horizontal Reveal Track):**
-  - **Headline:** `Horizontal Parallax & Reveal Lens`
-  - **Sub-Badge:** `ACT_V // STAGE_A // REVEAL_LENS_TRACK`
-  - **Narrative Copy:** "The axis shifts. Drive your cursor across the track to reveal underlying visual layers beneath the lens."
-* **Stage B (Direct Project Dispatch):**
-  - **Headline:** `INITIATE_PROJECT_COMMUNICATION`
-  - **Sub-Badge:** `ACT_V // STAGE_B // SERVERLESS_DISPATCH`
-  - **Narrative Copy:** "Select budget tier and dispatch project brief directly to dishant.inbox@gmail.com."
+### ACT V: CONTACT (`ContactSection.tsx`)
+* **Theme:** Easy Communication.
+* **Headline:** "Let's Build Something Together"
+* **Sub-Badge:** "ACT V // CONTACT"
+* **Copy:** "Choose a budget tier below and send over your project details. I'll get back to you in 24 hours."
 
 ---
 
-## 📐 14-DOMAIN TAXONOMY NARRATIVE CODES
+## 💡 CONTENT IDEA BANK (RESEARCH & STRATEGY)
 
-| Domain Code | Title | Narrative Role |
-| :--- | :--- | :--- |
-| `SYSTEM_01` | Spatial Motion & Visual Direction | Act II Core Render |
-| `SYSTEM_02` | Coastal Spatial Architecture | Act III Architectural Monolith |
-| `SYSTEM_03` | E-Commerce & Craft Brand Systems | Act II Identity Grid |
-| `SYSTEM_04` | Fintech & SaaS Application Suites | Act II Interface Suite |
-| `SYSTEM_05` | Automotive Motion Dynamics | Act III Velocity Track |
-| `SYSTEM_06` | Artisanal Gastronomy & Resort CGI | Act V Macro Experience |
-| `SYSTEM_07` | Interface Physics & Design Systems | Act V Spring Mechanics |
-| `SYSTEM_08` | Monolithic Spatial Structures | Act III Scale Geometry |
-| `SYSTEM_09` | Aerial Topography & Terrain Engines | Act V Aerial Scrubbing |
-| `SYSTEM_10` | Interactive Animatronic Mechanics | Act V Stage Physics |
-| `SYSTEM_11` | Editorial Apparel & Fashion Visuals | Act V Strobe Grid |
-| `SYSTEM_12` | Cinematic Motion & Episodic Framing | Act V Dolly Zoom |
-| `SYSTEM_13` | 3D Additive Print & Prototyping Systems | Act V Layer Stepping |
-| `SYSTEM_14` | Unbound Interactive Physics Engine | Act V RGB Collision |
+### 1. What Sells (Client Trust Points)
+* **Proof of Delivery**: Show short 5-second video clips of the final site/edit immediately.
+* **Speed/Response**: Guarantee a response within 24 hours.
+* **Direct Process**: Break down the workflow into 3 clear steps (Figma Design -> React Build -> Fast Launch).
+* **Transparent Pricing**: Include estimated budgets or tiers so clients know what to expect.
+
+### 2. Narrative Formula (Brief-Constraint-Execution)
+For any new project addition, use this simple checklist:
+* **The Brief**: What did the client need? ("Need a landing page for a Goa resort.")
+* **The Constraint**: What was the challenge? ("Had to load high-res drone footage under 2 seconds on mobile.")
+* **The Execution**: What was the result? ("Optimized the video with H.265 compression and built a fast Next.js wrapper.")
+
+### 3. SEO Keywords (Target Searches)
+Use these terms in headers, meta tags, and alt tags:
+* **Primary**: "Dishant Naik", "Goa Video Editor", "UI/UX Developer Goa", "Freelance 3D Artist"
+* **Secondary**: "Next.js Web Developer", "Figma to React", "CGI Product Animation"
+* **Image Alt Text**: "3D villa render Goa", "Boutique brand logo presentation", "Next.js speed performance score"
+

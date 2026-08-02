@@ -62,19 +62,14 @@ const REELS = [
 
 const ROTATING_HEADLINES = [
   {
-    tag: "FEATURED WORK // VIDEO & 3D MOTION",
-    title: "High-impact videos, 3D renders, and custom websites.",
-    sub: "Professional video editing, CGI visual effects, and web development for growing brands and businesses."
+    tag: "UI/UX DEVELOPMENT // WEB ENGINEERING",
+    title: "UI/UX Development, Local LLM Architectures, & Technical Media.",
+    sub: "Custom React apps, offline AI integrations, and high-converting frontend pipelines."
   },
   {
-    tag: "OUR SERVICES // 3D & VFX DIRECTION",
-    title: "Bring your brand products to life with 3D animation.",
-    sub: "Photorealistic 3D product renders, commercial visual effects, and high-converting video edits."
-  },
-  {
-    tag: "CLIENT RESULTS // DESIGN & CODE",
-    title: "High quality work. Fast delivery. Built to scale.",
-    sub: "Custom websites, mobile apps, and brand design built for Indian & global clients."
+    tag: "CLIENT CONVERSIONS // CUSTOM WORK",
+    title: "Clean layouts, natural interactions, and fast page loads.",
+    sub: "Statically generated Next.js codebases optimized for speed and localized SEO ranking."
   }
 ];
 

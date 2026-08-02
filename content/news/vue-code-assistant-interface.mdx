@@ -1,0 +1,23 @@
+---
+title: "Building a VS Code-Like Web Interface with Vue.js"
+date: "2026-08-01"
+category: "Frontend Architecture"
+tags: ["Vue.js", "UI/UX", "Web Design"]
+---
+
+> Designing a browser-based code assistant requires a strict layout structure and a clean, technical user experience.
+
+### Architecture Execution
+* Initiated a modular development plan to separate the chat interface from the primary editor view.
+* Constructed a minimal, VS Code-like frame utilizing Vue.js for reactive state management.
+* Mapped dynamic Tailwind variables to ensure the application maintains a strict 4.5:1 contrast ratio across theme toggles.
+
+```vue
+<template>
+  <main class="flex h-screen bg-bg text-text-primary font-mono">
+    <Sidebar :active-file="currentFile"/>
+    <EditorPane :content="sourceCode"/>
+    <ChatAssistant @submit="handleLocalPrompt"/>
+  </main>
+</template>
+```

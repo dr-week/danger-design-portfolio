@@ -5,13 +5,13 @@
   --font-sans: var(--font-space-grotesk), sans-serif;
   --font-hand: var(--font-caveat), cursive;
 
-  --color-bg: #0a0a0a;
-  --color-surface: #141414;
-  --color-border: #1f1f1f;
-  --color-text-primary: #f5f5f5;
-  --color-text-secondary: #a0a0a0;
-  --color-accent: #6c5ce7;
-  --color-accent-muted: rgba(108, 92, 231, 0.15);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
 
   --grid-columns: 12;
   --grid-gap: 1rem;
@@ -19,6 +19,26 @@
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
+}
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --text-primary: #171717;
+  --text-secondary: #737373;
+  --accent: #6c5ce7;
+  --accent-muted: rgba(108, 92, 231, 0.15);
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #1f1f1f;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  --accent: #6c5ce7;
+  --accent-muted: rgba(108, 92, 231, 0.3);
 }
 
 /* ────────── Base Styles ────────── */

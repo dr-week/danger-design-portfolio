@@ -3,8 +3,6 @@
 import { useEffect } from "react";
 import Hero3D from "@/components/sections/Hero3D";
 import WorkSection from "@/components/WorkSection";
-import AutomotiveSection from "@/components/sections/AutomotiveSection";
-import ArchitectureSection from "@/components/sections/ArchitectureSection";
 import DevRange from "@/components/sections/DevRange";
 import ContactSection from "@/components/sections/ContactSection";
 import KineticSkewWrapper from "@/components/ui/KineticSkewWrapper";
@@ -19,19 +17,13 @@ export default function Home() {
   }, [setAtmosphere]);
 
   return (
-    <main className="relative w-full min-h-screen bg-black text-white selection:bg-amber-400 selection:text-black">
+    <main className="relative w-full min-h-screen bg-bg text-text-primary selection:bg-accent/30 selection:text-text-primary">
       {/* ACT I: THE TRANSMISSION // 3D REEL CAROUSEL */}
       <Hero3D />
 
       {/* ACT II: THE ARCHIVE MATRIX */}
       <KineticSkewWrapper id="archive">
         <WorkSection />
-      </KineticSkewWrapper>
-
-      {/* ACT III: THE KINETIC CRUCIBLE (AUTOMOTIVE & ARCHITECTURE) */}
-      <KineticSkewWrapper>
-        <AutomotiveSection />
-        <ArchitectureSection />
       </KineticSkewWrapper>
 
       {/* ACT IV: THE ENGINE ROOM (SYSTEMS & RUST ENGINE) */}

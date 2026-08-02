@@ -7,25 +7,37 @@ import { playClickSound } from "@/utils/audio";
 
 const devProjects = [
   {
-    title: "blackbox-Agent-Orchestrator",
-    tech: "Rust / Systems Architecture",
-    description: "A custom LLM agent orchestrator. Built to force flaky AI models into strict, versioned execution paths.",
-    link: "https://github.com/DR-WEEK/blackbox-Agent-Orchestrator",
-    note: "* Built core engine logic in a weekend."
+    title: "Ollama VS Code Extension",
+    tech: "TypeScript / VS Code API",
+    description: "A custom editor extension that connects workspace files directly to local Ollama models.",
+    link: "https://github.com/DR-WEEK/ollama-vscode",
+    bullets: [
+      "Runs fully offline inside the editor.",
+      "Injects context from active files.",
+      "Custom routing for coding prompts."
+    ]
   },
   {
-    title: "GAME_OF_DATE",
-    tech: "React / State Management",
-    description: "A full-stack dating-sim training tool with complex state management and branching narrative logic.",
-    link: "https://github.com/DR-WEEK/GAME_OF_DATE",
-    note: "* Scrappy, but state logic is bulletproof."
+    title: "Vue.js SaaS Dashboard",
+    tech: "Vue.js / Vite / Tailwind",
+    description: "A responsive admin panel built to manage client tasks and track visual production metrics.",
+    link: "https://github.com/DR-WEEK/vue-saas-dashboard",
+    bullets: [
+      "Uses reactive Pinia stores.",
+      "Loads in under 1 second on mobile.",
+      "Pixel-perfect matching of Figma layout."
+    ]
   },
   {
-    title: "REP-COUNTER-BRO",
-    tech: "JavaScript / Browser Vision API",
-    description: "A lightweight, browser-based computer vision tool to track reps in real-time without server latency.",
-    link: "https://github.com/DR-WEEK/REP-COUNTER-BRO",
-    note: "* Real-time camera tracking in DOM."
+    title: "Bash CLI Setup Assistant",
+    tech: "Bash / Shell Scripting",
+    description: "A custom command-line assistant script that automates system diagnostics and developer setups.",
+    link: "https://github.com/DR-WEEK/bash-setup-assistant",
+    bullets: [
+      "Zero-dependency automation utility.",
+      "Auto-verifies package dependency lists.",
+      "Interactive shell choices and tags."
+    ]
   }
 ];
 
@@ -56,8 +68,8 @@ export default function DevRange() {
     <section 
       ref={containerRef} 
       id="dev" 
-      className={`relative w-full min-h-[110vh] border-t border-zinc-900 bg-black overflow-hidden py-24 px-6 md:px-12 lg:px-24 transition-colors duration-200 select-none ${
-        lightningFlash ? "bg-zinc-900/90" : "bg-black"
+      className={`relative w-full min-h-[110vh] border-t border-border bg-bg overflow-hidden py-24 px-6 md:px-12 lg:px-24 transition-colors duration-200 select-none ${
+        lightningFlash ? "bg-surface/90" : "bg-bg"
       }`}
     >
       {/* Dynamic Rain Atmosphere */}
@@ -66,27 +78,27 @@ export default function DevRange() {
       {/* Scroll-Driven Glowing Light Trail */}
       <motion.div
         style={{ top: glowY }}
-        className="absolute left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-sky-500/10 blur-[120px] pointer-events-none z-0"
+        className="absolute left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-accent/10 blur-[120px] pointer-events-none z-0"
       />
 
       <div className="max-w-6xl mx-auto relative z-10 space-y-12">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-400">
-              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-mono text-accent rounded-md">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               WEBSITE & APP DEVELOPMENT
             </div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-text-primary">
               Custom Software & Web Engineering
             </h2>
-            <p className="font-caveat text-xl text-zinc-300">
+            <p className="font-mono text-sm text-text-secondary">
               * Fast, modern, custom websites and mobile web applications built for business growth.
             </p>
           </div>
 
-          <div className="font-mono text-xs text-zinc-500 border border-zinc-800 px-3 py-1 mt-4 md:mt-0">
+          <div className="font-mono text-xs text-text-secondary border border-border bg-surface px-3 py-1 mt-4 md:mt-0 rounded-md">
             [ TECH STACK: REACT / RUST / NEXT.JS ]
           </div>
         </div>
@@ -105,27 +117,34 @@ export default function DevRange() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               whileHover={{ scale: 1.02 }}
-              className="border-2 border-zinc-800 bg-zinc-950/90 p-6 flex flex-col justify-between hover:border-sky-400 transition-all shadow-2xl backdrop-blur-md group"
+              className="border-2 border-border bg-surface p-6 flex flex-col justify-between hover:border-accent transition-all shadow-2xl backdrop-blur-md group rounded-md"
               data-cursor-hover
             >
-              <div className="space-y-3">
-                <span className="font-mono text-[10px] text-sky-400 bg-sky-500/10 border border-sky-500/30 px-2 py-0.5 uppercase tracking-widest inline-block">
+              <div className="space-y-4">
+                <span className="font-mono text-[10px] text-accent bg-accent/10 border border-accent/30 px-2 py-0.5 uppercase tracking-widest inline-block rounded-md font-bold">
                   {project.tech}
                 </span>
-                <h3 className="text-xl font-bold font-mono text-white group-hover:text-sky-400 transition-colors">
+                <h3 className="text-xl font-bold font-mono text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-xs font-mono text-zinc-400 leading-relaxed">
+                <p className="text-xs font-mono text-zinc-800 dark:text-zinc-200 leading-relaxed">
                   {project.description}
                 </p>
+                
+                {/* Monospace Bullet Points for Quick Scanning */}
+                <ul className="space-y-1.5 font-mono text-[10px] text-text-secondary border-t border-border/50 pt-3">
+                  {project.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-1.5">
+                      <span className="text-accent font-bold select-none">-</span>
+                      <span className="text-zinc-800 dark:text-zinc-200">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-zinc-900 flex justify-between items-center font-mono text-xs">
-                <span className="font-caveat text-lg text-zinc-300">
-                  {project.note}
-                </span>
-                <span className="text-sky-400 font-bold uppercase group-hover:translate-x-1 transition-transform">
-                  GitHub →
+              <div className="mt-8 pt-4 border-t border-border flex justify-end items-center font-mono text-xs">
+                <span className="text-accent font-black uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                  View Code →
                 </span>
               </div>
             </motion.a>

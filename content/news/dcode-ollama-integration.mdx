@@ -1,0 +1,21 @@
+---
+title: "Optimizing Local LLM Routing in dcode"
+date: "2026-08-03"
+category: "Software Engineering"
+tags: ["VS Code", "Ollama", "API Routing"]
+---
+
+> Integrating local models directly into the editor environment eliminates external API latency.
+
+### Architecture Updates
+* Rerouted standard extension API calls to the local instance at `localhost:11434`.
+* Applied manual patches to fix runtime activation errors in the vsc-agent project.
+* Implemented a simplified local chat architecture.
+
+```bash
+# Verify local Ollama instance routing
+curl -X POST http://localhost:11434/api/generate -d '{
+  "model": "llama3",
+  "prompt": "Write a Vue.js component"
+}'
+```
