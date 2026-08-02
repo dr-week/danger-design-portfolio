@@ -9,7 +9,6 @@ import { playClickSound } from "@/utils/audio";
 import dynamic from "next/dynamic";
 
 const GPGPUWeather = dynamic(() => import('@/components/ui/GPGPUWeather'), { ssr: false });
-const GLSLImageReveal = dynamic(() => import('@/components/ui/GLSLImageReveal'), { ssr: false });
 
 export default function WorkSection({ domainId }: { domainId?: "systems" | "spatial" | "culture" }) {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
@@ -102,9 +101,14 @@ export default function WorkSection({ domainId }: { domainId?: "systems" | "spat
               </div>
 
               {/* Image Container */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface border-b border-border">
-                <GLSLImageReveal imageUrl={item.image} />
-                <div className={`absolute top-2 left-2 bg-black dark:bg-white text-white dark:text-black px-2.5 py-1 font-mono text-[11px] border border-border uppercase font-black z-20`}>
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-zinc-900 border-b border-border rounded-t-md">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute top-2 left-2 bg-black text-amber-400 px-2.5 py-1 font-mono text-[11px] border border-amber-400/40 uppercase font-black z-20 rounded">
                   {item.tag}
                 </div>
               </div>
