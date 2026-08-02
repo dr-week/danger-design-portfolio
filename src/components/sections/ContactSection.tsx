@@ -119,24 +119,28 @@ export default function ContactSection() {
               className="w-full bg-surface border border-border/80 focus:border-amber-400 outline-none p-3.5 font-mono text-sm text-zinc-100 placeholder:text-zinc-500 resize-none transition-colors rounded-md"
             />
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+            <div className="pt-2 space-y-4">
               <button
                 type="submit"
                 disabled={status === "sending"}
                 data-cursor-hover
-                className="w-full sm:w-auto font-mono bg-amber-400 text-black px-8 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-white border border-amber-400 transition-colors disabled:opacity-50 cursor-pointer shadow-xl rounded-md"
+                className="w-full font-mono bg-amber-400 text-black px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-amber-300 transition-all disabled:opacity-50 cursor-pointer shadow-xl rounded-md flex items-center justify-center gap-2"
               >
-                {status === "sending" ? "Sending Request..." : "Submit Project Inquiry →"}
+                <span>{status === "sending" ? "TRANSMITTING BRIEF..." : "TRANSMIT PROJECT BRIEF"}</span>
+                <span>→</span>
               </button>
 
-              <a
-                href="https://wa.me/?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto font-mono border border-border bg-surface text-text-primary px-6 py-3.5 text-xs uppercase tracking-widest hover:border-accent hover:text-accent text-center transition-colors rounded-md"
-              >
-                💬 Chat on WhatsApp
-              </a>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-mono text-zinc-400 px-1 pt-1">
+                <span>* Direct email dispatch to studio inbox</span>
+                <a
+                  href="https://wa.me/?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-400 hover:text-white underline transition-colors"
+                >
+                  Need instant answer? WhatsApp Studio →
+                </a>
+              </div>
             </div>
 
             {status === "error" && (

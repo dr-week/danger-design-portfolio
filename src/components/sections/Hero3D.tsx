@@ -6,6 +6,7 @@ import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { KineticTypography } from "@/components/ui/KineticTypography";
 import { OrbitalBadge } from "@/components/ui/OrbitalBadge";
 import AsciiMatrixBackground from "@/components/ui/AsciiMatrixBackground";
+import { playClickSound } from "@/utils/audio";
 
 // Extended Video Reel Stack from @DishantNaik YouTube Channel
 const REELS = [
@@ -171,6 +172,44 @@ export default function Hero3D() {
               <p className="text-lg md:text-xl text-zinc-200 max-w-xl font-mono leading-relaxed">
                 {currentCopy.sub}
               </p>
+
+              {/* Immediate Action CTAs */}
+              <div className="flex flex-wrap items-center gap-4 pt-4">
+                <a
+                  href="#work"
+                  onClick={playClickSound}
+                  className="px-6 py-3.5 bg-amber-400 text-black font-mono text-xs font-black uppercase tracking-widest rounded-md hover:bg-amber-300 transition-all shadow-lg shadow-amber-400/20 flex items-center gap-2"
+                >
+                  <span>EXPLORE WORK</span>
+                  <span>↓</span>
+                </a>
+                <a
+                  href="#contact"
+                  onClick={playClickSound}
+                  className="px-6 py-3.5 border-2 border-amber-400 text-amber-400 font-mono text-xs font-black uppercase tracking-widest rounded-md hover:bg-amber-400/10 transition-all flex items-center gap-2"
+                >
+                  <span>GET A QUOTE</span>
+                  <span>→</span>
+                </a>
+              </div>
+
+              {/* Credibility & Social Proof Metrics Banner */}
+              <div className="pt-6 border-t border-zinc-800 flex flex-wrap items-center gap-4 font-mono text-xs text-zinc-300">
+                <div className="flex items-center gap-2">
+                  <span className="text-amber-400 font-bold text-sm">50+</span>
+                  <span className="uppercase tracking-wider text-[11px]">PROJECTS DELIVERED</span>
+                </div>
+                <span className="text-zinc-700">•</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-amber-400 font-bold text-sm">100%</span>
+                  <span className="uppercase tracking-wider text-[11px]">OFFLINE COMPLIANT</span>
+                </div>
+                <span className="text-zinc-700">•</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-amber-400 font-bold text-sm">24H</span>
+                  <span className="uppercase tracking-wider text-[11px]">RESPONSE GUARANTEE</span>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
 
@@ -188,166 +227,70 @@ export default function Hero3D() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: ADAPTIVE 1920x1080 PROPORTIONED PHONE WITH TACTILE SWIPE & SCRIPT HUD */}
+        {/* RIGHT COLUMN: SLEEK HIGH-TECH CODE & ARCHITECTURE TERMINAL CARD */}
         <div className="lg:col-span-6 flex justify-center items-center relative">
-          {/* Ambient Glow Aura & Backdrop Shadow */}
-          <div className="absolute inset-0 bg-amber-500/15 blur-3xl rounded-full scale-75 pointer-events-none transition-all duration-700 group-hover:scale-90 group-hover:bg-amber-400/25" />
+          <div className="absolute inset-0 bg-amber-500/10 blur-3xl rounded-full scale-90 pointer-events-none" />
 
-          <ParallaxLayer speed={1.5}>
-            <motion.div
-              drag="y"
-              dragConstraints={{ top: 0, bottom: 0 }}
-              dragElastic={0.2}
-              onDragEnd={(_, info) => {
-                const swipeThreshold = 30;
-                if (info.offset.y < -swipeThreshold || info.velocity.y < -300) {
-                  handleNextReel();
-                } else if (info.offset.y > swipeThreshold || info.velocity.y > 300) {
-                  handlePrevReel();
-                }
-              }}
-              initial={{ rotate: -2, scale: 0.95, opacity: 0 }}
-              animate={{ 
-                rotateX: mouseTilt.y, 
-                rotateY: mouseTilt.x, 
-                scale: 1, 
-                opacity: 1,
-                y: [0, -12, 0],
-              }}
-              whileHover={{ scale: 1.03 }}
-              whileDrag={{ scale: 0.98, cursor: "grabbing" }}
-              transition={{
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                scale: { type: "spring", stiffness: 350, damping: 35 },
-                rotateX: { type: "spring", stiffness: 200, damping: 25 },
-                rotateY: { type: "spring", stiffness: 200, damping: 25 },
-              }}
-              className="relative w-[310px] sm:w-[350px] md:w-[380px] h-[600px] sm:h-[680px] md:h-[740px] bg-zinc-950 rounded-[44px] p-3.5 border-4 border-zinc-800 shadow-[0_25px_60px_rgba(245,158,11,0.2)] cursor-grab active:cursor-grabbing select-none group backdrop-blur-sm"
-              data-cursor-hover
-            >
-              {/* Phone Speaker Notch */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-4 bg-zinc-900 rounded-full z-30 border border-zinc-800 pointer-events-none" />
-
-              {/* TACTILE PHYSICAL SCROLL / SWIPE BUTTONS */}
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
-                <button
-                  onClick={handlePrevReel}
-                  className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-amber-400 text-xs font-mono font-bold flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all shadow-xl"
-                  title="Previous Reel"
-                >
-                  ▲
-                </button>
-                <button
-                  onClick={handleNextReel}
-                  className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-amber-400 text-xs font-mono font-bold flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all shadow-xl"
-                  title="Next Reel"
-                >
-                  ▼
-                </button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full max-w-lg bg-zinc-950/95 border-2 border-zinc-800 rounded-lg shadow-2xl p-5 font-mono text-xs space-y-4 backdrop-blur-md relative z-10"
+          >
+            {/* Terminal Window Header */}
+            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+                <span className="text-zinc-400 text-[11px] ml-2">dcode_cognitive_engine.ts</span>
               </div>
+              <span className="text-amber-400 text-[10px] bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded uppercase font-bold">
+                ONLINE // v2.4
+              </span>
+            </div>
 
-              {/* Touch & Drag Overlay */}
-              <div 
-                className="absolute inset-0 z-20 rounded-[44px] touch-none"
-                onTouchStart={(e) => {
-                  const touch = e.touches[0];
-                  (e.currentTarget as any)._startY = touch.clientY;
-                }}
-                onTouchEnd={(e) => {
-                  const startY = (e.currentTarget as any)._startY;
-                  if (startY !== undefined) {
-                    const endY = e.changedTouches[0].clientY;
-                    const diffY = startY - endY;
-                    if (diffY > 40) {
-                      handleNextReel();
-                    } else if (diffY < -40) {
-                      handlePrevReel();
-                    }
-                  }
-                }}
-              />
-
-              {/* Screen Frame */}
-              <div className="w-full h-full rounded-[34px] overflow-hidden bg-zinc-900 relative border border-zinc-900">
-                
-                {/* Script Code HUD Header Overlay */}
-                <div className="absolute top-4 left-4 right-4 z-30 flex justify-between items-center font-mono text-[9px] text-amber-400 bg-black/80 backdrop-blur-md px-2.5 py-1 border border-zinc-800 pointer-events-none">
-                  <span className="truncate">{currentReel.scriptCode}</span>
-                  <span className="text-zinc-500 font-bold ml-2">60FPS</span>
-                </div>
-
-                {!useFallback ? (
-                  /* YouTube Embed */
-                  REELS.map((item, i) => {
-                    const isVisible =
-                      i === reelIndex ||
-                      i === (reelIndex - 1 + REELS.length) % REELS.length ||
-                      i === (reelIndex + 1) % REELS.length;
-
-                    // if (!isVisible) return null;
-
-                    return (
-                      <iframe
-                        key={item.id}
-                        src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&loop=1&playlist=${item.id}&controls=0&playsinline=1&enablejsapi=1&modestbranding=1`}
-                        title={`YouTube Short ${i}`}
-                        className={`absolute inset-0 w-full h-full object-cover scale-[1.15] transition-opacity duration-300 ${
-                          i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                        }`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        onError={() => setUseFallback(true)}
-                      />
-                    );
-                  })
-                ) : (
-                  /* Native HTML5 Video Fallback */
-                  REELS.map((item, i) => {
-                    const isVisible =
-                      i === reelIndex ||
-                      i === (reelIndex - 1 + REELS.length) % REELS.length ||
-                      i === (reelIndex + 1) % REELS.length;
-
-                    // if (!isVisible) return null;
-
-                    return (
-                      <video
-                        key={item.fallbackUrl}
-                        src={item.fallbackUrl}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-                          i === reelIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                        }`}
-                      />
-                    );
-                  })
-                )}
-
-                {/* Video Reel Overlay Footer Badge */}
-                <div className="absolute bottom-4 left-3 right-3 text-center font-mono text-[10px] text-zinc-300 bg-black/80 backdrop-blur-md py-1.5 px-2 border border-zinc-800 uppercase tracking-widest z-30 transition-colors pointer-events-none flex justify-between items-center">
-                  <span>[ {currentReel.label} ({reelIndex + 1}/{REELS.length}) ]</span>
-                  <button 
-                    onClick={() => setUseFallback(!useFallback)} 
-                    className="pointer-events-auto text-[9px] underline text-amber-400 hover:text-white"
-                  >
-                    {useFallback ? "YT MODE" : "MP4 MODE"}
-                  </button>
-                </div>
+            {/* Code Output Buffer */}
+            <div className="space-y-2 text-zinc-300 leading-relaxed text-[11px]">
+              <p className="text-zinc-500">// Initialize offline neural adapter</p>
+              <p className="text-emerald-400">
+                <span className="text-amber-400">import</span> &#123; OllamaClient &#125; <span className="text-amber-400">from</span> <span className="text-sky-300">&quot;@dcode/local-ai&quot;</span>;
+              </p>
+              <p>
+                <span className="text-amber-400">const</span> engine = <span className="text-amber-400">new</span> OllamaClient(&#123;
+              </p>
+              <p className="pl-4 text-zinc-300">
+                model: <span className="text-sky-300">&quot;qwen2.5-coder:7b&quot;</span>,
+              </p>
+              <p className="pl-4 text-zinc-300">
+                contextWindow: <span className="text-amber-300">32768</span>,
+              </p>
+              <p className="pl-4 text-zinc-300">
+                privacyGuard: <span className="text-emerald-400">true</span>
+              </p>
+              <p>&#125;);</p>
+              <div className="border-t border-zinc-800/80 pt-2 text-zinc-400 space-y-1">
+                <p className="flex justify-between">
+                  <span>► STATUS:</span>
+                  <span className="text-emerald-400 font-bold">100% OPERATIONAL</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>► LATENCY:</span>
+                  <span className="text-amber-400">12ms (LOCAL INFERENCE)</span>
+                </p>
               </div>
-            </motion.div>
-          </ParallaxLayer>
+            </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Bottom Scroll Prompt */}
       <div className="w-full flex flex-col items-center justify-center pt-8 z-20 pointer-events-none">
         <a 
-          href="#archive" 
+          href="#work" 
           className="pointer-events-auto flex flex-col items-center gap-2 group font-mono text-[10px] text-zinc-400 hover:text-amber-400 transition-colors uppercase tracking-widest"
         >
-          <span>[ SCROLL TO DISCOVER ARCHIVE MATRIX ↓ ]</span>
+          <span>[ SCROLL TO DISCOVER WORK ARCHIVE ↓ ]</span>
           <span className="w-4 h-7 border-2 border-zinc-700 group-hover:border-amber-400 rounded-full flex justify-center p-1 transition-colors">
             <motion.span 
               animate={{ y: [0, 8, 0] }} 
