@@ -1,3 +1,9 @@
+export interface ProjectSpec {
+  camera: string;
+  lighting: string;
+  kinematics: string;
+}
+
 export interface PortfolioItem {
   id: string;
   slug: string;
@@ -5,18 +11,14 @@ export interface PortfolioItem {
   tag: string;
   title: string;
   description: string;
-  image: string; // Resolves directly from /public or fallback Unsplash
-  aspectRatio: "aspect-square"; // Enforce uniform brutalist 1:1 square ratio
+  image: string;
+  aspectRatio: string;
+  gridSpan: string;
   techStack: string[];
-  gridSpan?: string; // CSS Grid Bento Box Spans
-  specs?: {
-    camera: string;
-    lighting: string;
-    kinematics: string;
-  };
+  specs: ProjectSpec;
 }
 
-export const ANONYMIZED_WORK: PortfolioItem[] = [
+export const portfolioItems: PortfolioItem[] = [
   {
     id: "cgi-motion-01",
     slug: "cgi-motion-01",
@@ -24,7 +26,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "3D_DYNAMIC_RENDER",
     title: "Keyboard 3D Animation",
     description: "Brief: Animate a launch video for a mechanical keyboard. Constraint: Capture key textures in low light. Execution: Modeled custom lighting rigs and animated camera pans.",
-    image: "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-4",
     techStack: ["Blender", "After Effects", "Unreal Engine"],
@@ -58,7 +60,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "VECTOR_GRAPHICS_IDENTITY",
     title: "Boutique Brand Identity",
     description: "Brief: Design logo and visual guidelines for a fashion brand. Constraint: Blend traditional craft with modern layouts. Execution: Hand-drawn vector logo and modern grid templates.",
-    image: "https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["Illustrator", "Figma", "Next.js"],
@@ -75,7 +77,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "WEB3_SAAS_INTERFACE",
     title: "Fintech App UI Design",
     description: "Brief: Design a dashboard for tracking online payments. Constraint: Show complex graphs cleanly on mobile. Execution: Crafted a responsive bento-grid UI with quick stats.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["React", "TypeScript", "Tailwind CSS"],
@@ -92,7 +94,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "HIGH_VELOCITY_RENDER",
     title: "Car Promo Video Edit",
     description: "Brief: Edit a high-speed vehicle promo reel. Constraint: Sync cuts with sound effects. Execution: Handled video pacing, camera stabilization, and sound design.",
-    image: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["Unreal Engine 5", "Octane", "Nuke"],
@@ -109,7 +111,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "ORGANIC_MACRO_Persp",
     title: "Resort Video & Renders",
     description: "Brief: Produce promotional visuals for a luxury resort. Constraint: Film close-up organic details nicely. Execution: Captured macro drone shots and warm ambient renders.",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["Houdini", "Redshift", "Photoshop"],
@@ -126,7 +128,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "RIGID_SNAP_COMPONENTS",
     title: "Interface Physics & Design Systems",
     description: "High-stiffness spring mechanics, zero-latency micro-interactions, and component architecture.",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["TypeScript", "Framer Motion", "Tailwind"],
@@ -143,7 +145,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "SCALE_GEOMETRY_RENDER",
     title: "Monolithic Spatial Structures",
     description: "Volumetric light ray simulation, concrete texture mapping, and structural scale geometry.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-4",
     techStack: ["V-Ray", "Rhino 3D", "After Effects"],
@@ -160,7 +162,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "DRONE_AERIAL_MAPPING",
     title: "Aerial Topography & Terrain Engines",
     description: "Top-down aerial drone mapping, photogrammetry elevation matrices, and daylight cycles.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["CesiumJS", "WebGL", "Python GIS"],
@@ -177,7 +179,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "VOID_PUPPETRY_PHYSICS",
     title: "Interactive Animatronic Mechanics",
     description: "Pendulum string physics, intersecting void spotlights, and stage animatronic motion.",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["Three.js", "Cannon.js", "C++"],
@@ -194,7 +196,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "STUDIO_STROBE_GRID",
     title: "Editorial Apparel & Fashion Visuals",
     description: "High-contrast strobe illumination, 85mm lens portraits, and fabric texture simulations.",
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-2",
     techStack: ["Capture One", "Blender Cloth", "Figma"],
@@ -211,7 +213,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "ANAMORPHIC_DOLLY_ZOOM",
     title: "Cinematic Motion & Episodic Framing",
     description: "Anamorphic lens distortion (2.35:1), vertigo dolly zooms, and split-complementary color grades.",
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-4",
     techStack: ["DaVinci Resolve Studio", "RED RAW", "AE"],
@@ -228,7 +230,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "ISOMETRIC_UV_PRINT",
     title: "3D Additive Print & Prototyping Systems",
     description: "Layer-by-layer stepped reveals, isometric 45° perspectives, and UV grid emission lighting.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["Fusion 360", "Three.js", "Cura"],
@@ -245,7 +247,7 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     tag: "UNBOUND_RGB_COLLISION",
     title: "Unbound Interactive Physics Engine",
     description: "Real-time mass collision dynamics, chaotic RGB point lighting, and first-person camera nodes.",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    image: "/textures/hero-fallback.jpg",
     aspectRatio: "aspect-square",
     gridSpan: "col-span-1 md:col-span-2 lg:col-span-3",
     techStack: ["WebGL 2.0", "Rapier Physics", "Rust"],
@@ -256,3 +258,5 @@ export const ANONYMIZED_WORK: PortfolioItem[] = [
     },
   },
 ];
+
+export const ANONYMIZED_WORK = portfolioItems;

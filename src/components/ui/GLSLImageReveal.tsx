@@ -101,6 +101,20 @@ function RevealScene({ imageUrl, isHovered }: { imageUrl: string; isHovered: boo
 
 export default function GLSLImageReveal({ imageUrl }: { imageUrl: string }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useMemo(() => {
+    // Only run on client
+    if (typeof window !== "undefined") {
+      setMounted(true);
+    }
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="absolute inset-0 w-full h-full bg-surface" />
+    );
+  }
 
   return (
     <div 
